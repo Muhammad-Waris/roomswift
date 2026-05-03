@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ReactNode } from "react";
+import { ReactNode, useMemo } from "react";
 import {
   Building2,
   ChevronRight,
@@ -12,6 +12,7 @@ import {
   ShieldCheck,
   Truck
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import { DashboardNav, DashboardNavGroup } from "@/components/dashboard-nav";
 import { LanguageSwitcher } from "@/components/language-switcher";
@@ -20,57 +21,6 @@ import { buttonVariants } from "@/components/ui/button";
 
 type DashboardVariant = "manager" | "valet" | "kitchen";
 
-const navigation: Record<DashboardVariant, DashboardNavGroup[]> = {
-  manager: [
-    {
-      label: "Management",
-      items: [
-        { href: "/manager", label: "Overview", icon: <ShieldCheck className="h-4 w-4" /> },
-        { href: "/demo/qr", label: "QR Library", icon: <QrCode className="h-4 w-4" /> }
-      ]
-    },
-    {
-      label: "Operations",
-      items: [
-        { href: "/kitchen", label: "Kitchen", icon: <CookingPot className="h-4 w-4" /> },
-        { href: "/valet", label: "Valet", icon: <Truck className="h-4 w-4" /> }
-      ]
-    }
-  ],
-  valet: [
-    {
-      label: "Service Queue",
-      items: [
-        { href: "/valet", label: "Valet Queue", icon: <Truck className="h-4 w-4" /> },
-        { href: "/kitchen", label: "Kitchen", icon: <CookingPot className="h-4 w-4" /> }
-      ]
-    },
-    {
-      label: "Management",
-      items: [
-        { href: "/manager", label: "Manager View", icon: <Building2 className="h-4 w-4" /> },
-        { href: "/demo/qr", label: "QR Library", icon: <QrCode className="h-4 w-4" /> }
-      ]
-    }
-  ],
-  kitchen: [
-    {
-      label: "Food Queue",
-      items: [
-        { href: "/kitchen", label: "Kitchen Queue", icon: <CookingPot className="h-4 w-4" /> },
-        { href: "/valet", label: "Valet", icon: <Truck className="h-4 w-4" /> }
-      ]
-    },
-    {
-      label: "Management",
-      items: [
-        { href: "/manager", label: "Manager View", icon: <Building2 className="h-4 w-4" /> },
-        { href: "/demo/qr", label: "QR Library", icon: <QrCode className="h-4 w-4" /> }
-      ]
-    }
-  ]
-};
-
 export function DashboardShell({
   variant,
   children
@@ -78,6 +28,61 @@ export function DashboardShell({
   variant: DashboardVariant;
   children: ReactNode;
 }) {
+  const { t } = useTranslation();
+  const navigation = useMemo<Record<DashboardVariant, DashboardNavGroup[]>>(
+    () => ({
+      manager: [
+        {
+          label: t("manager.nav.management"),
+          items: [
+            { href: "/manager", label: t("manager.nav.overview"), icon: <ShieldCheck className="h-4 w-4" /> },
+            { href: "/demo/qr", label: t("manager.nav.qrLibrary"), icon: <QrCode className="h-4 w-4" /> }
+          ]
+        },
+        {
+          label: t("manager.nav.operations"),
+          items: [
+            { href: "/kitchen", label: t("manager.nav.kitchen"), icon: <CookingPot className="h-4 w-4" /> },
+            { href: "/valet", label: t("manager.nav.valet"), icon: <Truck className="h-4 w-4" /> }
+          ]
+        }
+      ],
+      valet: [
+        {
+          label: t("manager.nav.serviceQueue"),
+          items: [
+            { href: "/valet", label: t("manager.nav.valetQueue"), icon: <Truck className="h-4 w-4" /> },
+            { href: "/kitchen", label: t("manager.nav.kitchen"), icon: <CookingPot className="h-4 w-4" /> }
+          ]
+        },
+        {
+          label: t("manager.nav.management"),
+          items: [
+            { href: "/manager", label: t("manager.nav.managerView"), icon: <Building2 className="h-4 w-4" /> },
+            { href: "/demo/qr", label: t("manager.nav.qrLibrary"), icon: <QrCode className="h-4 w-4" /> }
+          ]
+        }
+      ],
+      kitchen: [
+        {
+          label: t("manager.nav.foodQueue"),
+          items: [
+            { href: "/kitchen", label: t("manager.nav.kitchenQueue"), icon: <CookingPot className="h-4 w-4" /> },
+            { href: "/valet", label: t("manager.nav.valet"), icon: <Truck className="h-4 w-4" /> }
+          ]
+        },
+        {
+          label: t("manager.nav.management"),
+          items: [
+            { href: "/manager", label: t("manager.nav.managerView"), icon: <Building2 className="h-4 w-4" /> },
+            { href: "/demo/qr", label: t("manager.nav.qrLibrary"), icon: <QrCode className="h-4 w-4" /> }
+          ]
+        }
+      ]
+    }),
+    [t]
+  );
+
   return (
     <main className="min-h-screen">
       <div className="mx-auto flex min-h-screen max-w-[1600px]">
@@ -90,10 +95,10 @@ export function DashboardShell({
               <p className="font-display text-2xl leading-none text-white">RoomSwift</p>
               <p className="text-xs uppercase tracking-[0.28em] text-slate-400">
                 {variant === "manager"
-                  ? "Manager Console"
+                  ? t("manager.console.manager")
                   : variant === "kitchen"
-                    ? "Kitchen Console"
-                    : "Valet Console"}
+                    ? t("manager.console.kitchen")
+                    : t("manager.console.valet")}
               </p>
             </div>
           </Link>
@@ -104,12 +109,10 @@ export function DashboardShell({
 
           <div className="mt-10 rounded-[2rem] border border-white/10 bg-white/5 p-5">
             <p className="text-xs uppercase tracking-[0.24em] text-primary">
-              Production Demo Setup
+              {t("manager.demoSetup.title")}
             </p>
             <p className="mt-3 text-sm text-slate-300">
-              Separate operational zones make the expo flow feel like a real hotel SaaS:
-              guests on room links, kitchen on food prep, valet on service fulfillment,
-              and manager on room control plus analytics.
+              {t("manager.demoSetup.description")}
             </p>
             <Link
               href="/room/101"
@@ -118,7 +121,7 @@ export function DashboardShell({
                 className: "mt-4 w-full"
               })}
             >
-              Open Room 101
+              {t("manager.demoSetup.openRoom")}
             </Link>
           </div>
 
@@ -135,13 +138,13 @@ export function DashboardShell({
                   href="/manager"
                   className={buttonVariants({ variant: "ghost", className: "hidden sm:inline-flex" })}
                 >
-                  Manager
+                  {t("nav.manager")}
                 </Link>
                 <Link
                   href="/demo/qr"
                   className={buttonVariants({ variant: "secondary" })}
                 >
-                  QR Center
+                  {t("manager.nav.qrCenter")}
                 </Link>
               </div>
             </div>

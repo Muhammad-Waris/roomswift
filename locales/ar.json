@@ -102,5 +102,123 @@
     "room": "غرفة",
     "table": "طاولة",
     "standardRequest": "طلب عادي - لا توجد ملاحظات خاصة."
+  },
+  "supabase": {
+    "connectionIssue": "تم اكتشاف مشكلة اتصال",
+    "demoMode": "وضع العرض مفعل",
+    "fallbackDescription": "متغيرات Supabase غير موجودة، لذلك يستخدم RoomSwift بيانات محلية احتياطية لمعاينة العرض."
+  },
+  "install": {
+    "title": "تثبيت RoomSwift",
+    "description": "احفظ العرض على الشاشة الرئيسية لتجربة عرض أكثر سلاسة.",
+    "install": "تثبيت",
+    "notNow": "ليس الآن"
+  },
+  "manager": {
+    "console": {
+      "manager": "لوحة المدير",
+      "kitchen": "لوحة المطبخ",
+      "valet": "لوحة الخدمة"
+    },
+    "nav": {
+      "management": "الإدارة",
+      "overview": "نظرة عامة",
+      "qrLibrary": "مكتبة QR",
+      "operations": "العمليات",
+      "kitchen": "المطبخ",
+      "valet": "الخدمة",
+      "serviceQueue": "قائمة الخدمة",
+      "valetQueue": "قائمة الخدمة",
+      "managerView": "عرض المدير",
+      "foodQueue": "قائمة الطعام",
+      "kitchenQueue": "قائمة المطبخ",
+      "qrCenter": "مركز QR"
+    },
+    "demoSetup": {
+      "title": "إعداد عرض الإنتاج",
+      "description": "المناطق التشغيلية المنفصلة تجعل تدفق العرض يبدو مثل SaaS فندقي حقيقي: الضيوف على روابط الغرف، المطبخ لتحضير الطعام، الخدمة لتنفيذ الطلبات، والمدير للتحكم بالغرف والتحليلات.",
+      "openRoom": "فتح الغرفة 101"
+    },
+    "header": {
+      "eyebrow": "لوحة المدير",
+      "title": "مركز تحكم الفندق",
+      "description": "مساحة مدير بأسلوب إنتاجي لإدارة QR الغرف، ورؤية الفريق، وتحليلات الفندق، والتحكم التشغيلي الجاهز للعرض.",
+      "export": "تصدير تقرير العرض"
+    },
+    "stats": {
+      "totalOrders": "إجمالي الطلبات",
+      "totalOrdersDetail": "طلبات الطعام عبر كل الغرف.",
+      "serviceRequests": "طلبات الخدمة",
+      "serviceRequestsDetail": "مهام التنظيف والمساعدة.",
+      "pendingRequests": "طلبات معلقة",
+      "pendingRequestsDetail": "عناصر ما زالت تنتظر الإجراء.",
+      "completed": "مكتمل",
+      "completedDetail": "طلبات تم تسليمها بالكامل."
+    },
+    "qr": {
+      "title": "إدارة QR",
+      "heading": "إنشاء رموز QR لغرف الفندق وطاولات المطعم",
+      "description": "رموز QR للفندق تنقل الضيوف إلى `/room/101`. رموز QR للمطعم تنقل الزبائن إلى `/table/T01` حيث يتم تفعيل طلب الطعام فقط.",
+      "enterId": "أدخل معرف {{label}}",
+      "create": "إنشاء QR",
+      "registry": "سجل {{label}}",
+      "count": "{{count}} {{label}}",
+      "activeRoute": "مسار {{label}} النشط",
+      "copy": "نسخ الرابط",
+      "open": "فتح {{label}}",
+      "print": "طباعة",
+      "empty": "أنشئ أو اختر معرفا لإنشاء رمز QR فريد.",
+      "copied": "تم نسخ رابط {{label}} {{id}}",
+      "ready": "رمز QR لـ {{label}} {{id}} جاهز"
+    },
+    "qrCard": {
+      "sticker": "ملصق {{label}}",
+      "scanToOrder": "امسح للطلب",
+      "copy": "نسخ الرابط",
+      "scanToTest": "امسح للاختبار",
+      "print": "طباعة"
+    },
+    "teams": {
+      "kitchenEyebrow": "فريق المطبخ",
+      "kitchenTitle": "عمليات طلبات الطعام",
+      "kitchenDescription": "راقب إنتاجية المطبخ، وتدفق التحضير، وطلبات الطعام النشطة.",
+      "kitchenLink": "فتح لوحة المطبخ",
+      "valetEyebrow": "فريق الخدمة",
+      "valetTitle": "تنفيذ الخدمة",
+      "valetDescription": "تتبع الماء، والمناشف، والتنظيف، وتنفيذ خدمة الغرف من قائمة واحدة.",
+      "valetLink": "فتح لوحة الخدمة",
+      "guestEyebrow": "تجربة الضيف",
+      "guestTitle": "معاينة جانب الغرفة",
+      "guestDescription": "انتقل مباشرة إلى مسار غرفة مباشر وتحقق من رحلة الطلب عبر QR.",
+      "guestLink": "فتح الغرفة 101"
+    },
+    "analytics": {
+      "topItems": "أكثر العناصر طلبا",
+      "popularDemand": "لقطة الطلب الشائع",
+      "requests": "{{count}} طلبات",
+      "emptyTitle": "لا توجد تحليلات بعد",
+      "emptyDescription": "أنشئ بعض طلبات الضيوف لملء بطاقات عرض المدير."
+    },
+    "side": {
+      "responseTime": "وقت الاستجابة",
+      "minutes": "{{count}} دقيقة",
+      "responseDescription": "متوسط وقت التسليم أو الإكمال بناء على طوابع وقت الطلب.",
+      "locationSummary": "ملخص حسب الموقع",
+      "requests": "{{count}} طلبات",
+      "noLocationActivity": "لا يوجد نشاط موقع بعد.",
+      "reportCenter": "مركز التقارير",
+      "reportTitle": "قسم تصدير جاهز للعرض",
+      "reportDescription": "هذا الموضع مخصص لعروض expo. يقترح تصدير PDF، وملخص المناوبة، ورؤى الإشغال دون إضافة تعقيد خلفي.",
+      "mockPdf": "تصدير PDF تجريبي",
+      "printBrief": "طباعة تقرير مختصر"
+    },
+    "sidebarServices": {
+      "title": "الخدمات المتاحة",
+      "description": "عرض سريع للمدير للخدمات وعناصر القائمة المتاحة حاليا للضيوف.",
+      "serviceCatalog": "كتالوج الخدمات",
+      "menuHighlights": "أبرز عناصر القائمة",
+      "live": "نشط",
+      "paused": "متوقف"
+    }
   }
 }

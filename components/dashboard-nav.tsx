@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ReactNode, useMemo, useState } from "react";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { usePathname } from "next/navigation";
 
@@ -29,6 +29,10 @@ export function DashboardNav({ groups }: { groups: DashboardNavGroup[] }) {
     [groups, pathname]
   );
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>(initialOpen);
+
+  useEffect(() => {
+    setOpenGroups(initialOpen);
+  }, [initialOpen]);
 
   return (
     <div className="space-y-3">

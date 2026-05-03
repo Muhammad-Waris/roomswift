@@ -27,7 +27,9 @@ export function ManagerSidePanels({
   return (
     <div className="space-y-6">
       <Card className="p-6">
-        <p className="text-xs uppercase tracking-[0.24em] text-primary">Response Time</p>
+        <p className="text-xs uppercase tracking-[0.24em] text-primary">
+          {t("manager.side.responseTime")}
+        </p>
         {loading ? (
           <div className="mt-4 space-y-3">
             <LoadingSkeleton className="h-10 w-32" />
@@ -35,16 +37,20 @@ export function ManagerSidePanels({
           </div>
         ) : (
           <>
-            <h2 className="mt-2 text-3xl font-semibold text-white">{avgResponse} min</h2>
+            <h2 className="mt-2 text-3xl font-semibold text-white">
+              {t("manager.side.minutes", { count: avgResponse })}
+            </h2>
             <p className="mt-2 text-sm text-slate-400">
-              Average delivery or completion turnaround based on request timestamps.
+              {t("manager.side.responseDescription")}
             </p>
           </>
         )}
       </Card>
 
       <Card className="p-6">
-        <p className="text-xs uppercase tracking-[0.24em] text-primary">Location-wise Summary</p>
+        <p className="text-xs uppercase tracking-[0.24em] text-primary">
+          {t("manager.side.locationSummary")}
+        </p>
         <div className="mt-4 space-y-3">
           {loading ? (
             <>
@@ -59,11 +65,15 @@ export function ManagerSidePanels({
                 className="flex items-center justify-between rounded-2xl bg-slate-950/40 px-4 py-3"
               >
                 <span className="text-white">{room}</span>
-                <span className="text-sm text-slate-300">{count} requests</span>
+                <span className="text-sm text-slate-300">
+                  {t("manager.side.requests", { count })}
+                </span>
               </div>
             ))
           ) : (
-            <p className="text-sm text-slate-400">No location activity yet.</p>
+            <p className="text-sm text-slate-400">
+              {t("manager.side.noLocationActivity")}
+            </p>
           )}
         </div>
       </Card>
@@ -129,17 +139,18 @@ export function ManagerSidePanels({
       </Card>
 
       <Card className="p-6">
-        <p className="text-xs uppercase tracking-[0.24em] text-primary">Report Center</p>
+        <p className="text-xs uppercase tracking-[0.24em] text-primary">
+          {t("manager.side.reportCenter")}
+        </p>
         <h2 className="mt-2 text-xl font-semibold text-white">
-          Presentation-ready export section
+          {t("manager.side.reportTitle")}
         </h2>
         <p className="mt-2 text-sm text-slate-400">
-          This placeholder is designed for expo demos. It suggests PDF export, shift
-          summary, and occupancy insights without adding backend complexity.
+          {t("manager.side.reportDescription")}
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          <Button>Mock PDF Export</Button>
-          <Button variant="secondary">Print Brief Report</Button>
+          <Button>{t("manager.side.mockPdf")}</Button>
+          <Button variant="secondary">{t("manager.side.printBrief")}</Button>
         </div>
       </Card>
     </div>

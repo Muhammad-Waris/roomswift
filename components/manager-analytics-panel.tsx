@@ -1,4 +1,7 @@
+"use client";
+
 import { Gauge } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import { AdminRequestsChart } from "@/components/admin-requests-chart";
 import { EmptyState } from "@/components/empty-state";
@@ -15,15 +18,17 @@ export function ManagerAnalyticsPanel({
   topItems: Array<[string, number]>;
   chartData: RequestAnalyticsPoint[];
 }) {
+  const { t } = useTranslation();
+
   return (
     <Card className="p-6">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-xs uppercase tracking-[0.24em] text-primary">
-            Top Requested Items
+            {t("manager.analytics.topItems")}
           </p>
           <h2 className="mt-2 text-2xl font-semibold text-white">
-            Popular demand snapshot
+            {t("manager.analytics.popularDemand")}
           </h2>
         </div>
         <div className="rounded-2xl bg-primary/10 p-3 text-primary">
@@ -46,7 +51,9 @@ export function ManagerAnalyticsPanel({
                 <span className="text-white">
                   {index + 1}. {name}
                 </span>
-                <span className="text-slate-400">{count} requests</span>
+                <span className="text-slate-400">
+                  {t("manager.analytics.requests", { count })}
+                </span>
               </div>
               <div className="h-3 rounded-full bg-slate-900">
                 <div
@@ -62,8 +69,8 @@ export function ManagerAnalyticsPanel({
       ) : (
         <div className="mt-6">
           <EmptyState
-            title="No analytics yet"
-            description="Create a few guest requests to populate the manager presentation cards."
+            title={t("manager.analytics.emptyTitle")}
+            description={t("manager.analytics.emptyDescription")}
           />
         </div>
       )}

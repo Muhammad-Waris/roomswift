@@ -8,6 +8,7 @@ import {
   LayoutDashboard,
   UtensilsCrossed
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import { AdminRoomQrManager } from "@/components/admin-room-qr-manager";
 import { DashboardHeader } from "@/components/dashboard-header";
@@ -22,10 +23,12 @@ import { useFeedbackSummary } from "@/hooks/use-feedback-summary";
 import {
   calculateMinutesBetween,
   generateAnalyticsBuckets,
-  getRequestLocationLabel
+  getRequestLocationValue,
+  getRequestMode
 } from "@/lib/utils";
 
 export function AdminDashboardClient() {
+  const { t } = useTranslation();
   const { requests, loading, error, isRealtimeEnabled } = useRequests();
   const {
     summary: feedbackSummary,
@@ -49,7 +52,11 @@ export function AdminDashboardClient() {
 
     const roomWise = Object.entries(
       requests.reduce<Record<string, number>>((acc, request) => {
-        const location = getRequestLocationLabel(request);
+        const locationType =
+          getRequestMode(request) === "restaurant"
+            ? t("dashboard.table")
+            : t("dashboard.room");
+        const location = `${locationType} ${getRequestLocationValue(request)}`;
         acc[location] = (acc[location] ?? 0) + 1;
         return acc;
       }, {})
@@ -90,18 +97,18 @@ export function AdminDashboardClient() {
         )
       ).sort()
     };
-  }, [requests]);
+  }, [requests, t]);
 
   return (
     <div className="mx-auto max-w-7xl">
         <DashboardHeader
-          eyebrow="Manager Dashboard"
-          title="Hotel control center"
-          description="Production-style manager space for room QR management, team visibility, hotel analytics, and expo-ready operational control."
+          eyebrow={t("manager.header.eyebrow")}
+          title={t("manager.header.title")}
+          description={t("manager.header.description")}
           action={
             <Button variant="secondary">
               <Download className="mr-2 h-4 w-4" />
-              Export Demo Report
+              {t("manager.header.export")}
             </Button>
           }
         />
@@ -115,27 +122,27 @@ export function AdminDashboardClient() {
             loading={loading}
             items={[
               {
-                title: "Total Orders",
+                title: t("manager.stats.totalOrders"),
                 value: String(analytics.totalOrders),
-                detail: "Food requests across all rooms.",
+                detail: t("manager.stats.totalOrdersDetail"),
                 icon: <UtensilsCrossed className="h-6 w-6" />
               },
               {
-                title: "Service Requests",
+                title: t("manager.stats.serviceRequests"),
                 value: String(analytics.totalServices),
-                detail: "Housekeeping and assistance tasks.",
+                detail: t("manager.stats.serviceRequestsDetail"),
                 icon: <LayoutDashboard className="h-6 w-6" />
               },
               {
-                title: "Pending Requests",
+                title: t("manager.stats.pendingRequests"),
                 value: String(analytics.pending),
-                detail: "Items still waiting for action.",
+                detail: t("manager.stats.pendingRequestsDetail"),
                 icon: <BarChart3 className="h-6 w-6" />
               },
               {
-                title: "Completed",
+                title: t("manager.stats.completed"),
                 value: String(analytics.completed),
-                detail: "Requests fully delivered.",
+                detail: t("manager.stats.completedDetail"),
                 icon: <ClipboardCheck className="h-6 w-6" />
               }
             ]}

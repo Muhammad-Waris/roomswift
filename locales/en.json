@@ -102,5 +102,123 @@
     "room": "Room",
     "table": "Table",
     "standardRequest": "Standard request - no special notes."
+  },
+  "supabase": {
+    "connectionIssue": "Connection issue detected",
+    "demoMode": "Demo mode active",
+    "fallbackDescription": "Supabase env vars are missing, so RoomSwift is using local fallback data for the expo preview."
+  },
+  "install": {
+    "title": "Install RoomSwift",
+    "description": "Save the demo to your home screen for a smoother expo walkthrough.",
+    "install": "Install",
+    "notNow": "Not now"
+  },
+  "manager": {
+    "console": {
+      "manager": "Manager Console",
+      "kitchen": "Kitchen Console",
+      "valet": "Valet Console"
+    },
+    "nav": {
+      "management": "Management",
+      "overview": "Overview",
+      "qrLibrary": "QR Library",
+      "operations": "Operations",
+      "kitchen": "Kitchen",
+      "valet": "Valet",
+      "serviceQueue": "Service Queue",
+      "valetQueue": "Valet Queue",
+      "managerView": "Manager View",
+      "foodQueue": "Food Queue",
+      "kitchenQueue": "Kitchen Queue",
+      "qrCenter": "QR Center"
+    },
+    "demoSetup": {
+      "title": "Production Demo Setup",
+      "description": "Separate operational zones make the expo flow feel like a real hotel SaaS: guests on room links, kitchen on food prep, valet on service fulfillment, and manager on room control plus analytics.",
+      "openRoom": "Open Room 101"
+    },
+    "header": {
+      "eyebrow": "Manager Dashboard",
+      "title": "Hotel control center",
+      "description": "Production-style manager space for room QR management, team visibility, hotel analytics, and expo-ready operational control.",
+      "export": "Export Demo Report"
+    },
+    "stats": {
+      "totalOrders": "Total Orders",
+      "totalOrdersDetail": "Food requests across all rooms.",
+      "serviceRequests": "Service Requests",
+      "serviceRequestsDetail": "Housekeeping and assistance tasks.",
+      "pendingRequests": "Pending Requests",
+      "pendingRequestsDetail": "Items still waiting for action.",
+      "completed": "Completed",
+      "completedDetail": "Requests fully delivered."
+    },
+    "qr": {
+      "title": "QR Management",
+      "heading": "Generate hotel room and restaurant table QR codes",
+      "description": "Hotel QR codes route guests to `/room/101`. Restaurant QR codes route diners to `/table/T01`, where only food ordering is enabled.",
+      "enterId": "Enter {{label}} ID",
+      "create": "Create QR",
+      "registry": "{{label}} registry",
+      "count": "{{count}} {{label}}s",
+      "activeRoute": "Active {{label}} route",
+      "copy": "Copy Link",
+      "open": "Open {{label}}",
+      "print": "Print",
+      "empty": "Create or select an ID to generate its unique QR code.",
+      "copied": "{{label}} {{id}} link copied",
+      "ready": "{{label}} {{id}} QR is ready"
+    },
+    "qrCard": {
+      "sticker": "{{label}} Sticker",
+      "scanToOrder": "Scan to order",
+      "copy": "Copy Link",
+      "scanToTest": "Scan to test",
+      "print": "Print"
+    },
+    "teams": {
+      "kitchenEyebrow": "Kitchen Team",
+      "kitchenTitle": "Food order operations",
+      "kitchenDescription": "Monitor kitchen throughput, prep flow, and active dining requests.",
+      "kitchenLink": "Open kitchen dashboard",
+      "valetEyebrow": "Valet Team",
+      "valetTitle": "Service fulfillment",
+      "valetDescription": "Track water, towels, cleaning, and in-room service fulfillment from one queue.",
+      "valetLink": "Open valet dashboard",
+      "guestEyebrow": "Guest Experience",
+      "guestTitle": "Room-side preview",
+      "guestDescription": "Jump directly to a live guest room route and validate the QR ordering journey.",
+      "guestLink": "Open room 101"
+    },
+    "analytics": {
+      "topItems": "Top Requested Items",
+      "popularDemand": "Popular demand snapshot",
+      "requests": "{{count}} requests",
+      "emptyTitle": "No analytics yet",
+      "emptyDescription": "Create a few guest requests to populate the manager presentation cards."
+    },
+    "side": {
+      "responseTime": "Response Time",
+      "minutes": "{{count}} min",
+      "responseDescription": "Average delivery or completion turnaround based on request timestamps.",
+      "locationSummary": "Location-wise Summary",
+      "requests": "{{count}} requests",
+      "noLocationActivity": "No location activity yet.",
+      "reportCenter": "Report Center",
+      "reportTitle": "Presentation-ready export section",
+      "reportDescription": "This placeholder is designed for expo demos. It suggests PDF export, shift summary, and occupancy insights without adding backend complexity.",
+      "mockPdf": "Mock PDF Export",
+      "printBrief": "Print Brief Report"
+    },
+    "sidebarServices": {
+      "title": "Available Services",
+      "description": "Manager-side quick view of currently available guest-facing services and menu items.",
+      "serviceCatalog": "Service catalog",
+      "menuHighlights": "Menu highlights",
+      "live": "Live",
+      "paused": "Paused"
+    }
   }
 }

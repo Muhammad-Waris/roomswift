@@ -1,38 +1,55 @@
+"use client";
+
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 import { Card } from "@/components/ui/card";
 
 export function ManagerTeamLinks() {
+  const { t } = useTranslation();
+
   return (
     <section className="grid gap-4 lg:grid-cols-3">
       <Card className="p-5">
-        <p className="text-xs uppercase tracking-[0.24em] text-primary">Kitchen Team</p>
-        <h3 className="mt-2 text-xl font-semibold text-white">Food order operations</h3>
+        <p className="text-xs uppercase tracking-[0.24em] text-primary">
+          {t("manager.teams.kitchenEyebrow")}
+        </p>
+        <h3 className="mt-2 text-xl font-semibold text-white">
+          {t("manager.teams.kitchenTitle")}
+        </h3>
         <p className="mt-2 text-sm text-slate-400">
-          Monitor kitchen throughput, prep flow, and active dining requests.
+          {t("manager.teams.kitchenDescription")}
         </p>
         <Link href="/kitchen" className="mt-4 inline-flex text-sm font-semibold text-primary">
-          Open kitchen dashboard
+          {t("manager.teams.kitchenLink")}
         </Link>
       </Card>
       <Card className="p-5">
-        <p className="text-xs uppercase tracking-[0.24em] text-primary">Valet Team</p>
-        <h3 className="mt-2 text-xl font-semibold text-white">Service fulfillment</h3>
+        <p className="text-xs uppercase tracking-[0.24em] text-primary">
+          {t("manager.teams.valetEyebrow")}
+        </p>
+        <h3 className="mt-2 text-xl font-semibold text-white">
+          {t("manager.teams.valetTitle")}
+        </h3>
         <p className="mt-2 text-sm text-slate-400">
-          Track water, towels, cleaning, and in-room service fulfillment from one queue.
+          {t("manager.teams.valetDescription")}
         </p>
         <Link href="/valet" className="mt-4 inline-flex text-sm font-semibold text-primary">
-          Open valet dashboard
+          {t("manager.teams.valetLink")}
         </Link>
       </Card>
       <Card className="p-5">
-        <p className="text-xs uppercase tracking-[0.24em] text-primary">Guest Experience</p>
-        <h3 className="mt-2 text-xl font-semibold text-white">Room-side preview</h3>
+        <p className="text-xs uppercase tracking-[0.24em] text-primary">
+          {t("manager.teams.guestEyebrow")}
+        </p>
+        <h3 className="mt-2 text-xl font-semibold text-white">
+          {t("manager.teams.guestTitle")}
+        </h3>
         <p className="mt-2 text-sm text-slate-400">
-          Jump directly to a live guest room route and validate the QR ordering journey.
+          {t("manager.teams.guestDescription")}
         </p>
         <Link href="/room/101" className="mt-4 inline-flex text-sm font-semibold text-primary">
-          Open room 101
+          {t("manager.teams.guestLink")}
         </Link>
       </Card>
     </section>

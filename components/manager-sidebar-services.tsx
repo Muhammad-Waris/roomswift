@@ -1,26 +1,30 @@
 "use client";
 
 import * as Icons from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import { LoadingSkeleton } from "@/components/loading-skeleton";
 import { Card } from "@/components/ui/card";
 import { useCatalog } from "@/hooks/use-roomswift-data";
 
 export function ManagerSidebarServices() {
+  const { t } = useTranslation();
   const { serviceItems, menuItems, loading } = useCatalog();
 
   return (
     <Card className="mt-6 rounded-[2rem] p-5">
       <p className="text-xs uppercase tracking-[0.24em] text-primary">
-        Available Services
+        {t("manager.sidebarServices.title")}
       </p>
       <p className="mt-2 text-sm text-slate-300">
-        Manager-side quick view of currently available guest-facing services and menu items.
+        {t("manager.sidebarServices.description")}
       </p>
 
       <div className="mt-5 space-y-5">
         <div>
-          <h3 className="text-sm font-semibold text-white">Service catalog</h3>
+          <h3 className="text-sm font-semibold text-white">
+            {t("manager.sidebarServices.serviceCatalog")}
+          </h3>
           <div className="mt-3 space-y-2">
             {loading
               ? Array.from({ length: 4 }).map((_, index) => (
@@ -43,7 +47,9 @@ export function ManagerSidebarServices() {
                         {item.name}
                       </span>
                       <span className="text-xs text-slate-400">
-                        {item.available ? "Live" : "Paused"}
+                        {item.available
+                          ? t("manager.sidebarServices.live")
+                          : t("manager.sidebarServices.paused")}
                       </span>
                     </div>
                   );
@@ -52,7 +58,9 @@ export function ManagerSidebarServices() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold text-white">Menu highlights</h3>
+          <h3 className="text-sm font-semibold text-white">
+            {t("manager.sidebarServices.menuHighlights")}
+          </h3>
           <div className="mt-3 space-y-2">
             {loading
               ? Array.from({ length: 3 }).map((_, index) => (

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Download } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -12,6 +13,7 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 export function InstallPrompt() {
+  const { t } = useTranslation();
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [dismissed, setDismissed] = useState(false);
 
@@ -38,9 +40,9 @@ export function InstallPrompt() {
           <Download className="h-5 w-5" />
         </div>
         <div className="flex-1">
-          <p className="font-semibold text-white">Install RoomSwift</p>
+          <p className="font-semibold text-white">{t("install.title")}</p>
           <p className="mt-1 text-sm text-slate-300">
-            Save the demo to your home screen for a smoother expo walkthrough.
+            {t("install.description")}
           </p>
           <div className="mt-3 flex gap-2">
             <Button
@@ -51,10 +53,10 @@ export function InstallPrompt() {
                 setDeferredPrompt(null);
               }}
             >
-              Install
+              {t("install.install")}
             </Button>
             <Button variant="ghost" className="flex-1" onClick={() => setDismissed(true)}>
-              Not now
+              {t("install.notNow")}
             </Button>
           </div>
         </div>

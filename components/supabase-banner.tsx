@@ -1,4 +1,7 @@
+"use client";
+
 import { AlertTriangle, DatabaseZap } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import { Card } from "@/components/ui/card";
 
@@ -9,6 +12,8 @@ export function SupabaseBanner({
   isRealtimeEnabled: boolean;
   error?: string | null;
 }) {
+  const { t } = useTranslation();
+
   if (!error && isRealtimeEnabled) {
     return null;
   }
@@ -21,12 +26,12 @@ export function SupabaseBanner({
         </div>
         <div>
           <p className="font-semibold text-amber-100">
-            {error ? "Connection issue detected" : "Demo mode active"}
+            {error ? t("supabase.connectionIssue") : t("supabase.demoMode")}
           </p>
           <p className="mt-1 text-sm text-amber-50/85">
             {error
               ? error
-              : "Supabase env vars are missing, so RoomSwift is using local fallback data for the expo preview."}
+              : t("supabase.fallbackDescription")}
           </p>
         </div>
       </div>

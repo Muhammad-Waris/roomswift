@@ -102,5 +102,123 @@
     "room": "房间",
     "table": "餐桌",
     "standardRequest": "标准请求 - 无特殊备注。"
+  },
+  "supabase": {
+    "connectionIssue": "检测到连接问题",
+    "demoMode": "演示模式已启用",
+    "fallbackDescription": "缺少 Supabase 环境变量，因此 RoomSwift 正在为展演预览使用本地备用数据。"
+  },
+  "install": {
+    "title": "安装 RoomSwift",
+    "description": "将演示保存到主屏幕，展演 walkthrough 会更顺畅。",
+    "install": "安装",
+    "notNow": "暂不"
+  },
+  "manager": {
+    "console": {
+      "manager": "经理控制台",
+      "kitchen": "厨房控制台",
+      "valet": "服务控制台"
+    },
+    "nav": {
+      "management": "管理",
+      "overview": "概览",
+      "qrLibrary": "二维码库",
+      "operations": "运营",
+      "kitchen": "厨房",
+      "valet": "服务",
+      "serviceQueue": "服务队列",
+      "valetQueue": "服务队列",
+      "managerView": "经理视图",
+      "foodQueue": "餐品队列",
+      "kitchenQueue": "厨房队列",
+      "qrCenter": "二维码中心"
+    },
+    "demoSetup": {
+      "title": "生产演示设置",
+      "description": "独立的运营区域让展演流程像真实酒店 SaaS：客人使用房间链接，厨房处理餐品，服务团队完成客房服务，经理管理房间控制和数据分析。",
+      "openRoom": "打开 101 房间"
+    },
+    "header": {
+      "eyebrow": "经理仪表盘",
+      "title": "酒店控制中心",
+      "description": "面向生产的经理空间，用于房间二维码管理、团队可视化、酒店分析和展演运营控制。",
+      "export": "导出演示报告"
+    },
+    "stats": {
+      "totalOrders": "订单总数",
+      "totalOrdersDetail": "所有房间的餐品请求。",
+      "serviceRequests": "服务请求",
+      "serviceRequestsDetail": "客房清洁与协助任务。",
+      "pendingRequests": "待处理请求",
+      "pendingRequestsDetail": "仍在等待处理的项目。",
+      "completed": "已完成",
+      "completedDetail": "已完全交付的请求。"
+    },
+    "qr": {
+      "title": "二维码管理",
+      "heading": "生成酒店房间和餐厅餐桌二维码",
+      "description": "酒店二维码会将客人带到 `/room/101`。餐厅二维码会将客人带到 `/table/T01`，那里只启用餐品下单。",
+      "enterId": "输入{{label}} ID",
+      "create": "创建二维码",
+      "registry": "{{label}}登记表",
+      "count": "{{count}} 个{{label}}",
+      "activeRoute": "当前{{label}}路由",
+      "copy": "复制链接",
+      "open": "打开{{label}}",
+      "print": "打印",
+      "empty": "创建或选择一个 ID 来生成专属二维码。",
+      "copied": "{{label}} {{id}} 链接已复制",
+      "ready": "{{label}} {{id}} 二维码已准备好"
+    },
+    "qrCard": {
+      "sticker": "{{label}}贴纸",
+      "scanToOrder": "扫码下单",
+      "copy": "复制链接",
+      "scanToTest": "扫码测试",
+      "print": "打印"
+    },
+    "teams": {
+      "kitchenEyebrow": "厨房团队",
+      "kitchenTitle": "餐品订单运营",
+      "kitchenDescription": "监控厨房吞吐量、备餐流程和进行中的餐饮请求。",
+      "kitchenLink": "打开厨房仪表盘",
+      "valetEyebrow": "服务团队",
+      "valetTitle": "服务履约",
+      "valetDescription": "从一个队列跟踪饮水、毛巾、清洁和客房服务履约。",
+      "valetLink": "打开服务仪表盘",
+      "guestEyebrow": "客人体验",
+      "guestTitle": "房间端预览",
+      "guestDescription": "直接进入实时客房路由，验证二维码下单流程。",
+      "guestLink": "打开 101 房间"
+    },
+    "analytics": {
+      "topItems": "热门请求项目",
+      "popularDemand": "需求快照",
+      "requests": "{{count}} 个请求",
+      "emptyTitle": "暂无分析数据",
+      "emptyDescription": "创建几个客人请求后，经理展示卡片会显示数据。"
+    },
+    "side": {
+      "responseTime": "响应时间",
+      "minutes": "{{count}} 分钟",
+      "responseDescription": "根据请求时间戳计算的平均交付或完成时间。",
+      "locationSummary": "按位置汇总",
+      "requests": "{{count}} 个请求",
+      "noLocationActivity": "暂无位置活动。",
+      "reportCenter": "报告中心",
+      "reportTitle": "演示就绪的导出区域",
+      "reportDescription": "此占位区域用于展演，展示 PDF 导出、班次总结和入住洞察，不增加后端复杂度。",
+      "mockPdf": "模拟 PDF 导出",
+      "printBrief": "打印简报"
+    },
+    "sidebarServices": {
+      "title": "可用服务",
+      "description": "经理端快速查看当前可供客人使用的服务和菜单项目。",
+      "serviceCatalog": "服务目录",
+      "menuHighlights": "菜单亮点",
+      "live": "在线",
+      "paused": "暂停"
+    }
   }
 }

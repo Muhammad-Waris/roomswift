@@ -102,5 +102,123 @@
     "room": "کمرہ",
     "table": "ٹیبل",
     "standardRequest": "عام درخواست - کوئی خاص نوٹ نہیں۔"
+  },
+  "supabase": {
+    "connectionIssue": "کنکشن کا مسئلہ ملا",
+    "demoMode": "ڈیمو موڈ فعال ہے",
+    "fallbackDescription": "Supabase env vars موجود نہیں، اس لیے RoomSwift expo preview کے لیے local fallback data استعمال کر رہا ہے۔"
+  },
+  "install": {
+    "title": "RoomSwift انسٹال کریں",
+    "description": "expo walkthrough کو بہتر بنانے کے لیے demo کو home screen پر محفوظ کریں۔",
+    "install": "انسٹال",
+    "notNow": "ابھی نہیں"
+  },
+  "manager": {
+    "console": {
+      "manager": "مینجر کنسول",
+      "kitchen": "کچن کنسول",
+      "valet": "سروس کنسول"
+    },
+    "nav": {
+      "management": "انتظام",
+      "overview": "جائزہ",
+      "qrLibrary": "QR لائبریری",
+      "operations": "آپریشنز",
+      "kitchen": "کچن",
+      "valet": "سروس",
+      "serviceQueue": "سروس قطار",
+      "valetQueue": "سروس قطار",
+      "managerView": "مینجر ویو",
+      "foodQueue": "کھانے کی قطار",
+      "kitchenQueue": "کچن قطار",
+      "qrCenter": "QR سینٹر"
+    },
+    "demoSetup": {
+      "title": "پروڈکشن ڈیمو سیٹ اپ",
+      "description": "الگ آپریشنل زونز expo flow کو حقیقی hotel SaaS جیسا بناتے ہیں: guests room links پر، kitchen food prep پر، valet service fulfillment پر، اور manager room control plus analytics پر۔",
+      "openRoom": "Room 101 کھولیں"
+    },
+    "header": {
+      "eyebrow": "مینجر ڈیش بورڈ",
+      "title": "ہوٹل کنٹرول سینٹر",
+      "description": "Room QR management، team visibility، hotel analytics، اور expo-ready operational control کے لیے production-style manager space۔",
+      "export": "ڈیمو رپورٹ ایکسپورٹ کریں"
+    },
+    "stats": {
+      "totalOrders": "کل آرڈرز",
+      "totalOrdersDetail": "تمام کمروں سے food requests۔",
+      "serviceRequests": "سروس درخواستیں",
+      "serviceRequestsDetail": "Housekeeping اور assistance tasks۔",
+      "pendingRequests": "Pending درخواستیں",
+      "pendingRequestsDetail": "Items ابھی action کے انتظار میں ہیں۔",
+      "completed": "مکمل",
+      "completedDetail": "Requests مکمل deliver ہو چکی ہیں۔"
+    },
+    "qr": {
+      "title": "QR مینجمنٹ",
+      "heading": "Hotel room اور restaurant table QR codes بنائیں",
+      "description": "Hotel QR codes guests کو `/room/101` پر لے جاتے ہیں۔ Restaurant QR codes diners کو `/table/T01` پر لے جاتے ہیں جہاں صرف food ordering enabled ہوتی ہے۔",
+      "enterId": "{{label}} ID درج کریں",
+      "create": "QR بنائیں",
+      "registry": "{{label}} رجسٹری",
+      "count": "{{count}} {{label}}",
+      "activeRoute": "Active {{label}} route",
+      "copy": "لنک کاپی کریں",
+      "open": "{{label}} کھولیں",
+      "print": "پرنٹ",
+      "empty": "Unique QR code بنانے کے لیے ID create یا select کریں۔",
+      "copied": "{{label}} {{id}} link copied",
+      "ready": "{{label}} {{id}} QR ready ہے"
+    },
+    "qrCard": {
+      "sticker": "{{label}} اسٹکر",
+      "scanToOrder": "Order کے لیے scan کریں",
+      "copy": "لنک کاپی کریں",
+      "scanToTest": "Test کے لیے scan کریں",
+      "print": "پرنٹ"
+    },
+    "teams": {
+      "kitchenEyebrow": "کچن ٹیم",
+      "kitchenTitle": "Food order operations",
+      "kitchenDescription": "Kitchen throughput، prep flow، اور active dining requests monitor کریں۔",
+      "kitchenLink": "Kitchen dashboard کھولیں",
+      "valetEyebrow": "سروس ٹیم",
+      "valetTitle": "Service fulfillment",
+      "valetDescription": "Water، towels، cleaning، اور in-room service fulfillment کو ایک queue سے track کریں۔",
+      "valetLink": "Valet dashboard کھولیں",
+      "guestEyebrow": "Guest Experience",
+      "guestTitle": "Room-side preview",
+      "guestDescription": "Live guest room route پر جائیں اور QR ordering journey validate کریں۔",
+      "guestLink": "Room 101 کھولیں"
+    },
+    "analytics": {
+      "topItems": "سب سے زیادہ requested items",
+      "popularDemand": "Demand snapshot",
+      "requests": "{{count}} requests",
+      "emptyTitle": "ابھی analytics نہیں",
+      "emptyDescription": "Manager presentation cards بھرنے کے لیے چند guest requests بنائیں۔"
+    },
+    "side": {
+      "responseTime": "Response Time",
+      "minutes": "{{count}} منٹ",
+      "responseDescription": "Request timestamps کی بنیاد پر average delivery یا completion turnaround۔",
+      "locationSummary": "Location-wise Summary",
+      "requests": "{{count}} requests",
+      "noLocationActivity": "ابھی کوئی location activity نہیں۔",
+      "reportCenter": "Report Center",
+      "reportTitle": "Presentation-ready export section",
+      "reportDescription": "یہ placeholder expo demos کے لیے ہے۔ یہ backend complexity بڑھائے بغیر PDF export، shift summary، اور occupancy insights دکھاتا ہے۔",
+      "mockPdf": "Mock PDF Export",
+      "printBrief": "Brief Report پرنٹ کریں"
+    },
+    "sidebarServices": {
+      "title": "Available Services",
+      "description": "Currently available guest-facing services اور menu items کا manager-side quick view۔",
+      "serviceCatalog": "Service catalog",
+      "menuHighlights": "Menu highlights",
+      "live": "Live",
+      "paused": "Paused"
+    }
   }
 }
