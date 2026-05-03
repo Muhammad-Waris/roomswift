@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   CheckCircle2,
   ClipboardList,
@@ -24,7 +25,7 @@ import { SupabaseBanner } from "@/components/supabase-banner";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useRequests } from "@/hooks/use-roomswift-data";
-import { formatDateTime } from "@/lib/utils";
+import { formatDateTime, getRequestLocationValue } from "@/lib/utils";
 import { RequestStatus, RequestType } from "@/types";
 import { cn } from "@/lib/utils";
 
@@ -49,6 +50,7 @@ export function OperationsDashboardClient({
   queueType: RequestType;
   teamLabel: "Kitchen" | "Valet";
 }) {
+  const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("all");
   const [soundEnabled, setSoundEnabled] = useState(true);
   const previousIdsRef = useRef<string[]>([]);
@@ -205,7 +207,7 @@ export function OperationsDashboardClient({
           ) : (
             <div className="overflow-hidden rounded-[2.5rem] border border-white/5 bg-slate-950/40 shadow-2xl backdrop-blur-md">
               <div className="hidden grid-cols-[0.8fr_1.4fr_1.6fr_1fr_1fr_1.4fr] gap-4 border-b border-white/5 px-8 py-5 text-[10px] uppercase tracking-[0.3em] font-bold text-slate-500 bg-white/5 md:grid">
-                <span>Room</span>
+                <span>{t("dashboard.location")}</span>
                 <span>Fulfillment</span>
                 <span>Guest Instructions</span>
                 <span>Created</span>
@@ -220,9 +222,11 @@ export function OperationsDashboardClient({
                   >
                     <div className="flex items-center gap-3">
                        <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-primary/10 text-primary font-bold">
-                        {request.room_number}
+                        {getRequestLocationValue(request)}
                       </div>
-                      <p className="text-xs text-slate-500 md:hidden uppercase tracking-widest font-bold">Room</p>
+                      <p className="text-xs text-slate-500 md:hidden uppercase tracking-widest font-bold">
+                        {t("dashboard.location")}
+                      </p>
                     </div>
                     <div>
                       <p className="font-bold text-white tracking-tight">{request.item_name}</p>
@@ -232,7 +236,7 @@ export function OperationsDashboardClient({
                     </div>
                     <div>
                       <p className="text-sm leading-relaxed text-slate-400 italic">
-                        &quot;{request.guest_note || "Standard request - no special notes."}&quot;
+                        &quot;{request.guest_note || t("dashboard.standardRequest")}&quot;
                       </p>
                     </div>
                     <div className="text-xs font-medium text-slate-500">{formatDateTime(request.created_at)}</div>

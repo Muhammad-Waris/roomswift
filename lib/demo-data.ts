@@ -116,6 +116,9 @@ export const demoRoomRequests: RoomRequest[] = [
   {
     id: "request-1",
     room_number: "101",
+    room_id: "101",
+    table_id: null,
+    mode: "hotel",
     request_type: "food",
     item_id: "menu-2",
     item_name: "Chicken Biryani",
@@ -127,6 +130,9 @@ export const demoRoomRequests: RoomRequest[] = [
   {
     id: "request-2",
     room_number: "101",
+    room_id: "101",
+    table_id: null,
+    mode: "hotel",
     request_type: "service",
     item_id: "service-1",
     item_name: "Water Bottle",
@@ -138,6 +144,9 @@ export const demoRoomRequests: RoomRequest[] = [
   {
     id: "request-3",
     room_number: "102",
+    room_id: "102",
+    table_id: null,
+    mode: "hotel",
     request_type: "service",
     item_id: "service-3",
     item_name: "Room Cleaning",
@@ -149,6 +158,9 @@ export const demoRoomRequests: RoomRequest[] = [
   {
     id: "request-4",
     room_number: "201",
+    room_id: "201",
+    table_id: null,
+    mode: "hotel",
     request_type: "food",
     item_id: "menu-4",
     item_name: "Tea",
@@ -156,7 +168,22 @@ export const demoRoomRequests: RoomRequest[] = [
     status: "Completed",
     created_at: ago(52),
     updated_at: ago(20)
+  },
+  {
+    id: "request-5",
+    room_number: null,
+    room_id: null,
+    table_id: "T01",
+    mode: "restaurant",
+    request_type: "food",
+    item_id: "menu-3",
+    item_name: "Zinger Burger",
+    guest_note: "Add extra sauce.",
+    status: "Completed",
+    created_at: ago(28),
+    updated_at: ago(16)
   }
 ];
 
 export const demoRooms = ["101", "102"];
+export const demoTables = ["T01", "T02", "T03"];

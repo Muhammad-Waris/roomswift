@@ -26,15 +26,58 @@ create unique index if not exists service_items_name_key on public.service_items
 
 create table if not exists public.room_requests (
   id uuid primary key default gen_random_uuid(),
-  room_number text not null,
+  room_number text null,
+  room_id text null,
+  table_id text null,
+  mode text not null default 'hotel' check (mode in ('hotel', 'restaurant')),
   request_type text not null check (request_type in ('food', 'service')),
   item_id uuid null,
   item_name text not null,
   guest_note text null,
   status text not null default 'Pending' check (status in ('Pending', 'Accepted', 'In Progress', 'Completed')),
   created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
+  updated_at timestamptz not null default now(),
+  constraint room_requests_location_check check (
+    (mode = 'hotel' and coalesce(room_id, room_number) is not null)
+    or
+    (mode = 'restaurant' and table_id is not null)
+  )
 );
+
+alter table public.room_requests alter column room_number drop not null;
+alter table public.room_requests add column if not exists room_id text null;
+alter table public.room_requests add column if not exists table_id text null;
+alter table public.room_requests add column if not exists mode text not null default 'hotel';
+
+update public.room_requests
+set
+  room_id = coalesce(room_id, room_number),
+  mode = coalesce(mode, 'hotel')
+where mode = 'hotel';
+
+do $$
+begin
+  alter table public.room_requests
+    add constraint room_requests_mode_check check (mode in ('hotel', 'restaurant'));
+exception
+  when duplicate_object then null;
+end $$;
+
+do $$
+begin
+  alter table public.room_requests
+    add constraint room_requests_location_check check (
+      (mode = 'hotel' and coalesce(room_id, room_number) is not null)
+      or
+      (mode = 'restaurant' and table_id is not null)
+    );
+exception
+  when duplicate_object then null;
+end $$;
+
+create index if not exists room_requests_room_id_idx on public.room_requests (room_id);
+create index if not exists room_requests_table_id_idx on public.room_requests (table_id);
+create index if not exists room_requests_mode_idx on public.room_requests (mode);
 
 create or replace function public.set_updated_at()
 returns trigger
@@ -117,15 +160,16 @@ set
   icon_name = excluded.icon_name,
   available = excluded.available;
 
-insert into public.room_requests (room_number, request_type, item_name, guest_note, status, created_at, updated_at)
+insert into public.room_requests (room_number, room_id, table_id, mode, request_type, item_name, guest_note, status, created_at, updated_at)
 select *
 from (
   values
-    ('101', 'food', 'Chicken Biryani', 'Please make it mildly spicy.', 'In Progress', now() - interval '18 minutes', now() - interval '10 minutes'),
-    ('101', 'service', 'Water Bottle', 'Two bottles if possible.', 'Pending', now() - interval '4 minutes', now() - interval '4 minutes'),
-    ('102', 'service', 'Room Cleaning', 'After 3 PM please.', 'Accepted', now() - interval '34 minutes', now() - interval '30 minutes'),
-    ('201', 'food', 'Tea', null, 'Completed', now() - interval '52 minutes', now() - interval '20 minutes')
-) as seed(room_number, request_type, item_name, guest_note, status, created_at, updated_at)
+    ('101', '101', null, 'hotel', 'food', 'Chicken Biryani', 'Please make it mildly spicy.', 'In Progress', now() - interval '18 minutes', now() - interval '10 minutes'),
+    ('101', '101', null, 'hotel', 'service', 'Water Bottle', 'Two bottles if possible.', 'Pending', now() - interval '4 minutes', now() - interval '4 minutes'),
+    ('102', '102', null, 'hotel', 'service', 'Room Cleaning', 'After 3 PM please.', 'Accepted', now() - interval '34 minutes', now() - interval '30 minutes'),
+    ('201', '201', null, 'hotel', 'food', 'Tea', null, 'Completed', now() - interval '52 minutes', now() - interval '20 minutes'),
+    (null, null, 'T01', 'restaurant', 'food', 'Zinger Burger', 'Add extra sauce.', 'Completed', now() - interval '28 minutes', now() - interval '16 minutes')
+) as seed(room_number, room_id, table_id, mode, request_type, item_name, guest_note, status, created_at, updated_at)
 where not exists (
   select 1 from public.room_requests
 );

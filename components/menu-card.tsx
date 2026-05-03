@@ -15,6 +15,8 @@ interface MenuCardProps {
   actionLabel: string;
   notePlaceholder: string;
   noteValue: string;
+  processingLabel: string;
+  specialInstructionsLabel: string;
   isLoading?: boolean;
   onNoteChange: (note: string) => void;
   onOrder: () => void;
@@ -27,6 +29,8 @@ export function MenuCard({
   actionLabel,
   notePlaceholder,
   noteValue,
+  processingLabel,
+  specialInstructionsLabel,
   isLoading,
   onNoteChange,
   onOrder
@@ -105,7 +109,7 @@ export function MenuCard({
                 ? "bg-primary/10 border-primary/30 text-primary" 
                 : "bg-white/5 border-white/5 text-slate-400 hover:text-white hover:bg-white/10"
             )}
-            title="Special Instructions"
+            title={specialInstructionsLabel}
           >
             {showNote ? <MessageSquareX className="h-5 w-5" /> : <MessageSquarePlus className="h-5 w-5" />}
           </button>
@@ -119,7 +123,7 @@ export function MenuCard({
             {isLoading ? (
               <div className="flex items-center gap-2">
                 <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
-                Processing...
+                {processingLabel}
               </div>
             ) : actionLabel}
           </Button>

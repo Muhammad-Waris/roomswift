@@ -1,6 +1,10 @@
+"use client";
+
 import { Clock3, MessageSquareText } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import { EmptyState } from "@/components/empty-state";
+import { FeedbackForm } from "@/components/feedback-form";
 import { RequestTimeline } from "@/components/request-timeline";
 import { StatusBadge } from "@/components/status-badge";
 import { Card } from "@/components/ui/card";
@@ -14,8 +18,10 @@ export function RequestStatusList({
   requests: RoomRequest[];
   emptyLabel: string;
 }) {
+  const { t } = useTranslation();
+
   if (requests.length === 0) {
-    return <EmptyState title="No requests yet" description={emptyLabel} />;
+    return <EmptyState title={t("guest.noRequestsTitle")} description={emptyLabel} />;
   }
 
   return (
@@ -43,10 +49,15 @@ export function RequestStatusList({
             </div>
             <div className="rounded-2xl border border-white/10 bg-slate-950/40 p-4">
               <p className="mb-3 text-xs uppercase tracking-[0.24em] text-slate-500">
-                Status Timeline
+                {t("guest.statusTimeline")}
               </p>
               <RequestTimeline status={request.status} compact />
             </div>
+            {request.status === "Completed" && request.request_type === "food" ? (
+              <div className="md:col-span-2">
+                <FeedbackForm request={request} />
+              </div>
+            ) : null}
           </div>
         </Card>
       ))}

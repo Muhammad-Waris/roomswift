@@ -4,17 +4,85 @@ import {
   demoServiceItems
 } from "@/lib/demo-data";
 import { getSupabaseBrowserClient, hasSupabaseEnv } from "@/lib/supabase";
-import { MenuItem, RequestStatus, RoomRequest, ServiceItem } from "@/types";
+import {
+  MenuItem,
+  RequestScope,
+  RequestStatus,
+  RoomRequest,
+  ServiceItem,
+  ServiceMode
+} from "@/types";
 
 const STORAGE_KEY = "roomswift-demo-requests";
 
+export type RequestScopeInput = string | RequestScope | undefined;
+
+export interface CreateRequestInput {
+  mode?: ServiceMode;
+  roomNumber?: string;
+  roomId?: string;
+  tableId?: string;
+  requestType: "food" | "service";
+  itemId?: string | null;
+  itemName: string;
+  guestNote?: string;
+}
+
+export function normalizeRequestScope(
+  scope?: RequestScopeInput
+): Required<Pick<RequestScope, "mode">> & RequestScope {
+  if (typeof scope === "string") {
+    return { mode: "hotel", roomId: scope };
+  }
+
+  const mode = scope?.mode ?? (scope?.tableId ? "restaurant" : "hotel");
+  return {
+    mode,
+    roomId: scope?.roomId,
+    tableId: scope?.tableId
+  };
+}
+
+function normalizeRequest(request: RoomRequest): RoomRequest {
+  const mode = request.mode ?? (request.table_id ? "restaurant" : "hotel");
+  const roomId = request.room_id ?? request.room_number ?? null;
+
+  return {
+    ...request,
+    mode,
+    room_id: mode === "hotel" ? roomId : request.room_id ?? null,
+    table_id: mode === "restaurant" ? request.table_id ?? request.room_number ?? null : request.table_id ?? null,
+    room_number: mode === "hotel" ? request.room_number ?? roomId : request.room_number ?? null
+  };
+}
+
+export function requestMatchesScope(request: RoomRequest, scope?: RequestScopeInput) {
+  const normalizedScope = normalizeRequestScope(scope);
+  const normalizedRequest = normalizeRequest(request);
+
+  if (normalizedScope.mode === "restaurant") {
+    return normalizedRequest.mode === "restaurant" && normalizedRequest.table_id === normalizedScope.tableId;
+  }
+
+  if (!normalizedScope.roomId) {
+    return true;
+  }
+
+  return (
+    normalizedRequest.mode !== "restaurant" &&
+    (normalizedRequest.room_id === normalizedScope.roomId ||
+      normalizedRequest.room_number === normalizedScope.roomId)
+  );
+}
+
 function readLocalRequests() {
   if (typeof window === "undefined") {
-    return demoRoomRequests;
+    return demoRoomRequests.map(normalizeRequest);
   }
 
   const raw = window.localStorage.getItem(STORAGE_KEY);
-  return raw ? (JSON.parse(raw) as RoomRequest[]) : demoRoomRequests;
+  const requests = raw ? (JSON.parse(raw) as RoomRequest[]) : demoRoomRequests;
+  return requests.map(normalizeRequest);
 }
 
 function writeLocalRequests(requests: RoomRequest[]) {
@@ -24,7 +92,7 @@ function writeLocalRequests(requests: RoomRequest[]) {
 }
 
 function sortRequests(requests: RoomRequest[]) {
-  return [...requests].sort(
+  return [...requests].map(normalizeRequest).sort(
     (a, b) => +new Date(b.created_at) - +new Date(a.created_at)
   );
 }
@@ -65,12 +133,13 @@ export async function getServiceItems(): Promise<ServiceItem[]> {
   return data ?? [];
 }
 
-export async function getRoomRequests(roomNumber?: string): Promise<RoomRequest[]> {
+export async function getRoomRequests(scope?: RequestScopeInput): Promise<RoomRequest[]> {
+  const normalizedScope = normalizeRequestScope(scope);
   const client = getSupabaseBrowserClient();
   if (!client) {
     const requests = sortRequests(readLocalRequests());
-    return roomNumber
-      ? requests.filter((request) => request.room_number === roomNumber)
+    return normalizedScope.roomId || normalizedScope.tableId
+      ? requests.filter((request) => requestMatchesScope(request, normalizedScope))
       : requests;
   }
 
@@ -79,8 +148,12 @@ export async function getRoomRequests(roomNumber?: string): Promise<RoomRequest[
     .select("*")
     .order("created_at", { ascending: false });
 
-  if (roomNumber) {
-    query = query.eq("room_number", roomNumber);
+  if (normalizedScope.mode === "restaurant" && normalizedScope.tableId) {
+    query = query.eq("mode", "restaurant").eq("table_id", normalizedScope.tableId);
+  } else if (normalizedScope.roomId) {
+    query = query
+      .eq("mode", "hotel")
+      .or(`room_id.eq.${normalizedScope.roomId},room_number.eq.${normalizedScope.roomId}`);
   }
 
   const { data, error } = await query;
@@ -88,15 +161,7 @@ export async function getRoomRequests(roomNumber?: string): Promise<RoomRequest[
     throw error;
   }
 
-  return data ?? [];
-}
-
-interface CreateRequestInput {
-  roomNumber: string;
-  requestType: "food" | "service";
-  itemId?: string | null;
-  itemName: string;
-  guestNote?: string;
+  return sortRequests(data ?? []);
 }
 
 function notifyStorageUpdate() {
@@ -106,9 +171,38 @@ function notifyStorageUpdate() {
   }
 }
 
+function trackFoodOrder(request: RoomRequest) {
+  if (typeof window === "undefined" || request.request_type !== "food") {
+    return;
+  }
+
+  const normalized = normalizeRequest(request);
+
+  void fetch("/api/orders", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      requestId: normalized.id,
+      itemId: normalized.item_id ?? null,
+      itemName: normalized.item_name,
+      mode: normalized.mode ?? "hotel",
+      roomId: normalized.room_id ?? normalized.room_number ?? null,
+      tableId: normalized.table_id ?? null,
+      guestNote: normalized.guest_note ?? null
+    })
+  }).catch(() => undefined);
+}
+
 export async function createRoomRequest(input: CreateRequestInput) {
+  const mode = input.mode ?? (input.tableId ? "restaurant" : "hotel");
+  const roomId = mode === "hotel" ? input.roomId ?? input.roomNumber ?? null : null;
+  const tableId = mode === "restaurant" ? input.tableId ?? null : null;
+
   const payload = {
-    room_number: input.roomNumber,
+    room_number: roomId,
+    room_id: roomId,
+    table_id: tableId,
+    mode,
     request_type: input.requestType,
     item_id: input.itemId ?? null,
     item_name: input.itemName,
@@ -131,6 +225,7 @@ export async function createRoomRequest(input: CreateRequestInput) {
 
     writeLocalRequests(next);
     notifyStorageUpdate();
+    trackFoodOrder(next[0]);
     return next[0];
   }
 
@@ -144,7 +239,9 @@ export async function createRoomRequest(input: CreateRequestInput) {
     throw error;
   }
 
-  return data;
+  const created = normalizeRequest(data as RoomRequest);
+  trackFoodOrder(created);
+  return created;
 }
 
 export async function updateRequestStatus(id: string, status: RequestStatus) {
@@ -171,7 +268,7 @@ export async function updateRequestStatus(id: string, status: RequestStatus) {
     throw error;
   }
 
-  return data;
+  return normalizeRequest(data as RoomRequest);
 }
 
 export function getRealtimeClient() {

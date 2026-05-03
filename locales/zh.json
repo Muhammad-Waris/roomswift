@@ -1,0 +1,106 @@
+{
+  "language": {
+    "label": "语言",
+    "english": "English",
+    "urdu": "اردو",
+    "arabic": "العربية",
+    "chinese": "中文"
+  },
+  "nav": {
+    "pricing": "价格",
+    "manager": "经理",
+    "staff": "员工",
+    "guestDemo": "客人演示",
+    "launchGuestDemo": "打开客人演示"
+  },
+  "mode": {
+    "label": "系统模式",
+    "hotel": "酒店模式",
+    "restaurant": "餐厅模式"
+  },
+  "status": {
+    "Pending": "待处理",
+    "Accepted": "已接受",
+    "In Progress": "进行中",
+    "Completed": "已完成"
+  },
+  "guest": {
+    "roomExperience": "客房体验",
+    "tableExperience": "餐桌体验",
+    "suite": "套房",
+    "table": "餐桌",
+    "staffAccess": "员工入口",
+    "smartConcierge": "智能礼宾",
+    "tabs": {
+      "menu": "菜单",
+      "services": "服务",
+      "status": "状态"
+    },
+    "categories": {
+      "all": "全部"
+    },
+    "available": "可下单",
+    "unavailable": "已售罄",
+    "submitFood": "立即下单",
+    "submitService": "请求服务",
+    "notePlaceholder": "添加特殊要求...",
+    "noRequestsTitle": "暂无请求",
+    "noRequests": "此下单点暂无进行中的请求。",
+    "requestSuccess": "{{itemName}} 已提交！",
+    "requestError": "提交请求失败，请重试。",
+    "processing": "处理中...",
+    "sending": "发送中...",
+    "specialInstructions": "特殊要求",
+    "addInstructions": "添加要求",
+    "latestRequest": "最新请求",
+    "statusTimeline": "状态时间线",
+    "operations": "运营",
+    "liveBoard": "实时看板",
+    "inPrep": "准备中",
+    "completed": "已完成",
+    "latestProgress": "最新进度",
+    "trackingLive": "正在实时跟踪当前请求状态。",
+    "noLiveOrders": "暂无实时订单",
+    "noLiveOrdersDescription": "提交请求后可在此查看实时进度。",
+    "returnHome": "返回首页",
+    "connectedEcosystem": "互联系统",
+    "connectedDescription": "在另一台设备打开员工看板，体验完整运营流程。",
+    "kitchenOps": "厨房运营",
+    "valetService": "服务团队",
+    "managerSuite": "经理套件"
+  },
+  "quickActions": {
+    "water": "新鲜饮用水",
+    "towels": "加毛巾",
+    "clean": "清洁套房",
+    "coffee": "加咖啡"
+  },
+  "hotSellers": {
+    "title": "热卖菜品",
+    "subtitle": "根据实时订单数量生成的热门选择。",
+    "orders": "{{count}} 单",
+    "loading": "正在查找热门菜品...",
+    "empty": "有餐品订单后会显示热卖菜品。",
+    "orderAgain": "下单"
+  },
+  "feedback": {
+    "title": "这个订单体验如何？",
+    "subtitle": "你的反馈能帮助团队提升服务质量。",
+    "ratingLabel": "评分",
+    "optionalComment": "可选评论",
+    "commentPlaceholder": "告诉我们哪里做得好，或哪里可以改进...",
+    "submit": "提交反馈",
+    "thanks": "感谢你的反馈。",
+    "error": "暂时无法保存反馈。",
+    "averageRating": "平均评分",
+    "latestFeedback": "最新反馈",
+    "noFeedback": "还没有客人反馈。",
+    "totalResponses": "{{count}} 条反馈"
+  },
+  "dashboard": {
+    "location": "位置",
+    "room": "房间",
+    "table": "餐桌",
+    "standardRequest": "标准请求 - 无特殊备注。"
+  }
+}

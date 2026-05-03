@@ -1,4 +1,7 @@
+"use client";
+
 import { CheckCircle2, Circle } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import { RequestStatus } from "@/types";
 
@@ -11,6 +14,7 @@ export function RequestTimeline({
   status: RequestStatus;
   compact?: boolean;
 }) {
+  const { t } = useTranslation();
   const currentIndex = steps.indexOf(status);
 
   return (
@@ -27,7 +31,7 @@ export function RequestTimeline({
               {reached ? <CheckCircle2 className="h-4 w-4" /> : <Circle className="h-3.5 w-3.5" />}
             </div>
             <span className={reached ? "text-sm text-white" : "text-sm text-slate-500"}>
-              {step}
+              {t(`status.${step}`)}
             </span>
           </div>
         );

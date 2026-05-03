@@ -1,0 +1,106 @@
+{
+  "language": {
+    "label": "Language",
+    "english": "English",
+    "urdu": "Urdu",
+    "arabic": "Arabic",
+    "chinese": "Chinese"
+  },
+  "nav": {
+    "pricing": "Pricing",
+    "manager": "Manager",
+    "staff": "Staff",
+    "guestDemo": "Guest Demo",
+    "launchGuestDemo": "Launch Guest Demo"
+  },
+  "mode": {
+    "label": "System Mode",
+    "hotel": "Hotel Mode",
+    "restaurant": "Restaurant Mode"
+  },
+  "status": {
+    "Pending": "Pending",
+    "Accepted": "Accepted",
+    "In Progress": "In Progress",
+    "Completed": "Completed"
+  },
+  "guest": {
+    "roomExperience": "Room Experience",
+    "tableExperience": "Table Experience",
+    "suite": "Suite",
+    "table": "Table",
+    "staffAccess": "Staff Access",
+    "smartConcierge": "Smart Concierge",
+    "tabs": {
+      "menu": "Menu",
+      "services": "Services",
+      "status": "Status"
+    },
+    "categories": {
+      "all": "All"
+    },
+    "available": "Ready to order",
+    "unavailable": "Out of stock",
+    "submitFood": "Order Now",
+    "submitService": "Request Service",
+    "notePlaceholder": "Add special instructions...",
+    "noRequestsTitle": "No requests yet",
+    "noRequests": "No active requests for this order point.",
+    "requestSuccess": "{{itemName}} requested!",
+    "requestError": "Failed to place request. Please try again.",
+    "processing": "Processing...",
+    "sending": "Sending...",
+    "specialInstructions": "Special Instructions",
+    "addInstructions": "Add Instructions",
+    "latestRequest": "Latest Request",
+    "statusTimeline": "Status Timeline",
+    "operations": "Operations",
+    "liveBoard": "Live Board",
+    "inPrep": "In Prep",
+    "completed": "Completed",
+    "latestProgress": "Latest Progress",
+    "trackingLive": "Tracking current request status live.",
+    "noLiveOrders": "No Live Orders",
+    "noLiveOrdersDescription": "Place a request to see the live timeline update here.",
+    "returnHome": "Return to Home",
+    "connectedEcosystem": "Connected Ecosystem",
+    "connectedDescription": "Experience the full operational flow by opening the staff dashboards on another device.",
+    "kitchenOps": "Kitchen Ops",
+    "valetService": "Valet Service",
+    "managerSuite": "Manager Suite"
+  },
+  "quickActions": {
+    "water": "Fresh Water",
+    "towels": "Extra Towels",
+    "clean": "Clean Suite",
+    "coffee": "More Coffee"
+  },
+  "hotSellers": {
+    "title": "Hot Sellers",
+    "subtitle": "Top food picks based on live order counts.",
+    "orders": "{{count}} orders",
+    "loading": "Finding top picks...",
+    "empty": "Hot sellers will appear after food orders are placed.",
+    "orderAgain": "Order"
+  },
+  "feedback": {
+    "title": "How was this order?",
+    "subtitle": "Your feedback helps the team improve service quality.",
+    "ratingLabel": "Rating",
+    "optionalComment": "Optional comment",
+    "commentPlaceholder": "Tell us what went well or what could improve...",
+    "submit": "Send Feedback",
+    "thanks": "Thanks for your feedback.",
+    "error": "Feedback could not be saved right now.",
+    "averageRating": "Average Rating",
+    "latestFeedback": "Latest Feedback",
+    "noFeedback": "No guest feedback has been submitted yet.",
+    "totalResponses": "{{count}} responses"
+  },
+  "dashboard": {
+    "location": "Location",
+    "room": "Room",
+    "table": "Table",
+    "standardRequest": "Standard request - no special notes."
+  }
+}

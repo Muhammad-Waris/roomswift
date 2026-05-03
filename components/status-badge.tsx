@@ -1,5 +1,8 @@
+"use client";
+
 import { RequestStatus } from "@/types";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 const statusStyles: Record<RequestStatus, string> = {
   Pending: "bg-amber-500/15 text-amber-200 ring-1 ring-amber-400/20",
@@ -9,6 +12,8 @@ const statusStyles: Record<RequestStatus, string> = {
 };
 
 export function StatusBadge({ status }: { status: RequestStatus }) {
+  const { t } = useTranslation();
+
   return (
     <span
       className={cn(
@@ -16,7 +21,7 @@ export function StatusBadge({ status }: { status: RequestStatus }) {
         statusStyles[status]
       )}
     >
-      {status}
+      {t(`status.${status}`)}
     </span>
   );
 }

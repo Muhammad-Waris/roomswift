@@ -12,6 +12,8 @@ interface ServiceCardProps {
   actionLabel: string;
   notePlaceholder: string;
   noteValue: string;
+  sendingLabel: string;
+  addInstructionsLabel: string;
   isLoading?: boolean;
   onNoteChange: (note: string) => void;
   onRequest: () => void;
@@ -22,6 +24,8 @@ export function ServiceCard({
   actionLabel,
   notePlaceholder,
   noteValue,
+  sendingLabel,
+  addInstructionsLabel,
   isLoading,
   onNoteChange,
   onRequest
@@ -76,7 +80,7 @@ export function ServiceCard({
               ? "bg-primary/10 border-primary/30 text-primary" 
               : "bg-white/5 border-white/5 text-slate-400 hover:text-white hover:bg-white/10"
           )}
-          title="Add Instructions"
+          title={addInstructionsLabel}
         >
           {showNote ? <MessageSquareX className="h-6 w-6" /> : <MessageSquarePlus className="h-6 w-6" />}
         </button>
@@ -90,7 +94,7 @@ export function ServiceCard({
           {isLoading ? (
             <div className="flex items-center gap-2">
               <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
-              Sending...
+              {sendingLabel}
             </div>
           ) : actionLabel}
         </Button>

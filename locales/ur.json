@@ -1,0 +1,106 @@
+{
+  "language": {
+    "label": "زبان",
+    "english": "English",
+    "urdu": "اردو",
+    "arabic": "العربية",
+    "chinese": "中文"
+  },
+  "nav": {
+    "pricing": "قیمت",
+    "manager": "مینجر",
+    "staff": "اسٹاف",
+    "guestDemo": "گیسٹ ڈیمو",
+    "launchGuestDemo": "گیسٹ ڈیمو کھولیں"
+  },
+  "mode": {
+    "label": "سسٹم موڈ",
+    "hotel": "ہوٹل موڈ",
+    "restaurant": "ریستوران موڈ"
+  },
+  "status": {
+    "Pending": "زیر التوا",
+    "Accepted": "قبول ہو گیا",
+    "In Progress": "جاری ہے",
+    "Completed": "مکمل"
+  },
+  "guest": {
+    "roomExperience": "روم تجربہ",
+    "tableExperience": "ٹیبل تجربہ",
+    "suite": "سوئٹ",
+    "table": "ٹیبل",
+    "staffAccess": "اسٹاف رسائی",
+    "smartConcierge": "اسمارٹ کنسیرج",
+    "tabs": {
+      "menu": "مینو",
+      "services": "سروسز",
+      "status": "اسٹیٹس"
+    },
+    "categories": {
+      "all": "سب"
+    },
+    "available": "آرڈر کے لیے تیار",
+    "unavailable": "دستیاب نہیں",
+    "submitFood": "آرڈر کریں",
+    "submitService": "سروس مانگیں",
+    "notePlaceholder": "خاص ہدایات لکھیں...",
+    "noRequestsTitle": "ابھی کوئی درخواست نہیں",
+    "noRequests": "اس پوائنٹ کے لیے کوئی فعال درخواست نہیں ہے۔",
+    "requestSuccess": "{{itemName}} کی درخواست بھیج دی گئی!",
+    "requestError": "درخواست بھیجنے میں مسئلہ ہوا۔ دوبارہ کوشش کریں۔",
+    "processing": "پروسیسنگ...",
+    "sending": "بھیجا جا رہا ہے...",
+    "specialInstructions": "خاص ہدایات",
+    "addInstructions": "ہدایات شامل کریں",
+    "latestRequest": "تازہ درخواست",
+    "statusTimeline": "اسٹیٹس ٹائم لائن",
+    "operations": "آپریشنز",
+    "liveBoard": "لائیو بورڈ",
+    "inPrep": "تیاری میں",
+    "completed": "مکمل",
+    "latestProgress": "تازہ پیش رفت",
+    "trackingLive": "موجودہ درخواست کا اسٹیٹس لائیو ٹریک ہو رہا ہے۔",
+    "noLiveOrders": "کوئی لائیو آرڈر نہیں",
+    "noLiveOrdersDescription": "لائیو ٹائم لائن دیکھنے کے لیے درخواست بھیجیں۔",
+    "returnHome": "ہوم پر واپس جائیں",
+    "connectedEcosystem": "منسلک نظام",
+    "connectedDescription": "دوسرے ڈیوائس پر اسٹاف ڈیش بورڈ کھول کر مکمل آپریشنل فلو دیکھیں۔",
+    "kitchenOps": "کچن آپریشنز",
+    "valetService": "ویلے سروس",
+    "managerSuite": "مینجر سوئٹ"
+  },
+  "quickActions": {
+    "water": "تازہ پانی",
+    "towels": "اضافی تولیے",
+    "clean": "سوئٹ صاف کریں",
+    "coffee": "مزید کافی"
+  },
+  "hotSellers": {
+    "title": "ہاٹ سیلرز",
+    "subtitle": "لائیو آرڈر گنتی کے مطابق پسندیدہ کھانے۔",
+    "orders": "{{count}} آرڈرز",
+    "loading": "مشہور آئٹمز تلاش ہو رہی ہیں...",
+    "empty": "کھانے کے آرڈرز کے بعد ہاٹ سیلرز یہاں آئیں گے۔",
+    "orderAgain": "آرڈر"
+  },
+  "feedback": {
+    "title": "یہ آرڈر کیسا تھا؟",
+    "subtitle": "آپ کی رائے ٹیم کو سروس بہتر بنانے میں مدد دیتی ہے۔",
+    "ratingLabel": "ریٹنگ",
+    "optionalComment": "اختیاری تبصرہ",
+    "commentPlaceholder": "بتائیں کیا اچھا تھا یا کیا بہتر ہو سکتا ہے...",
+    "submit": "فیڈبیک بھیجیں",
+    "thanks": "آپ کی رائے کا شکریہ۔",
+    "error": "فیڈبیک ابھی محفوظ نہیں ہو سکا۔",
+    "averageRating": "اوسط ریٹنگ",
+    "latestFeedback": "تازہ فیڈبیک",
+    "noFeedback": "ابھی کوئی گیسٹ فیڈبیک نہیں ملا۔",
+    "totalResponses": "{{count}} جوابات"
+  },
+  "dashboard": {
+    "location": "مقام",
+    "room": "کمرہ",
+    "table": "ٹیبل",
+    "standardRequest": "عام درخواست - کوئی خاص نوٹ نہیں۔"
+  }
+}

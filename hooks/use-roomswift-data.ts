@@ -9,10 +9,19 @@ import {
   isRealtimeAvailable,
   getRoomRequests,
   getServiceItems,
+  normalizeRequestScope,
+  requestMatchesScope,
   updateRequestStatus
 } from "@/lib/data";
 import { subscribeToRoomRequests } from "@/lib/realtime";
-import { MenuItem, RequestStatus, RoomRequest, ServiceItem } from "@/types";
+import {
+  MenuItem,
+  RequestScope,
+  RequestStatus,
+  RoomRequest,
+  ServiceItem,
+  ServiceMode
+} from "@/types";
 
 function sortRequests(requests: RoomRequest[]) {
   return [...requests].sort(
@@ -23,10 +32,10 @@ function sortRequests(requests: RoomRequest[]) {
 function mergeRequestChange(
   current: RoomRequest[],
   change: { eventType: "INSERT" | "UPDATE" | "DELETE"; new: RoomRequest | null; old: Partial<RoomRequest> | null },
-  roomNumber?: string
+  scope?: string | RequestScope
 ) {
   const matchesRoom = (request: RoomRequest | null) =>
-    !roomNumber || request?.room_number === roomNumber;
+    !request || requestMatchesScope(request, scope);
 
   if (change.eventType === "DELETE") {
     const next = current.filter((request) => request.id !== change.old?.id);
@@ -34,7 +43,7 @@ function mergeRequestChange(
   }
 
   if (!change.new || !matchesRoom(change.new)) {
-    if (roomNumber && change.new && change.new.room_number !== roomNumber) {
+    if (change.new && !requestMatchesScope(change.new, scope)) {
       return current.filter((request) => request.id !== change.new?.id);
     }
     return current;
@@ -88,15 +97,24 @@ export function useCatalog() {
   return { menuItems, serviceItems, loading, error };
 }
 
-export function useRequests(roomNumber?: string) {
+export function useRequests(scope?: string | RequestScope) {
   const [requests, setRequests] = useState<RoomRequest[]>([]);
   const [loading, setLoading] = useState(true);
   const [mutatingIds, setMutatingIds] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
 
+  const requestScope = useMemo(
+    () => normalizeRequestScope(scope),
+    [
+      typeof scope === "string" ? scope : scope?.mode,
+      typeof scope === "string" ? undefined : scope?.roomId,
+      typeof scope === "string" ? undefined : scope?.tableId
+    ]
+  );
+
   const fetchRequests = useCallback(async () => {
     try {
-      const next = await getRoomRequests(roomNumber);
+      const next = await getRoomRequests(requestScope);
       setRequests(sortRequests(next));
       setError(null);
     } catch (err) {
@@ -104,7 +122,7 @@ export function useRequests(roomNumber?: string) {
     } finally {
       setLoading(false);
     }
-  }, [roomNumber]);
+  }, [requestScope]);
 
   useEffect(() => {
     fetchRequests();
@@ -116,7 +134,7 @@ export function useRequests(roomNumber?: string) {
     // Real-time Supabase Logic
     if (client) {
       const channel = subscribeToRoomRequests(client, (payload) => {
-        setRequests((current) => mergeRequestChange(current, payload, roomNumber));
+        setRequests((current) => mergeRequestChange(current, payload, requestScope));
       });
 
       return () => {
@@ -135,11 +153,14 @@ export function useRequests(roomNumber?: string) {
     return () => {
       window.removeEventListener("storage", handleStorageChange);
     };
-  }, [roomNumber, fetchRequests]);
+  }, [requestScope, fetchRequests]);
 
   const createRequest = useCallback(
     async (input: {
-      roomNumber: string;
+      mode?: ServiceMode;
+      roomNumber?: string;
+      roomId?: string;
+      tableId?: string;
       requestType: "food" | "service";
       itemId?: string | null;
       itemName: string;
@@ -152,7 +173,7 @@ export function useRequests(roomNumber?: string) {
           eventType: "INSERT",
           new: created,
           old: null
-        }, roomNumber));
+        }, requestScope));
         return created;
       } finally {
         setMutatingIds((current) =>
@@ -160,7 +181,7 @@ export function useRequests(roomNumber?: string) {
         );
       }
     },
-    [roomNumber]
+    [requestScope]
   );
 
   const changeStatus = useCallback(

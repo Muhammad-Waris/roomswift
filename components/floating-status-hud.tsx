@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, Clock, CheckCircle2, Loader2, Utensils, Bell } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { RoomRequest } from "@/types";
 import { cn } from "@/lib/utils";
 
@@ -16,6 +17,8 @@ export function FloatingStatusHUD({
   activeTab,
   onViewStatus
 }: FloatingStatusHUDProps) {
+  const { t } = useTranslation();
+
   if (!latestRequest || activeTab === "status") return null;
 
   const isCompleted = latestRequest.status === "Completed";
@@ -48,7 +51,7 @@ export function FloatingStatusHUD({
 
             <div className="flex-1 text-left">
               <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
-                Latest Request
+                {t("guest.latestRequest")}
               </p>
               <h4 className="mt-1 line-clamp-1 text-sm font-bold text-white">
                 {latestRequest.item_name}
@@ -66,7 +69,7 @@ export function FloatingStatusHUD({
                   isCompleted ? "text-emerald-400" : 
                   isPending ? "text-primary" : "text-slate-500"
                 )}>
-                  {latestRequest.status}
+                  {t(`status.${latestRequest.status}`)}
                 </span>
               </div>
             </div>

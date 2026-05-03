@@ -6,5 +6,5 @@ export default async function RoomPage({
   params: Promise<{ roomNumber: string }>;
 }) {
   const { roomNumber } = await params;
-  return <RoomPageClient roomNumber={roomNumber} />;
+  return <RoomPageClient mode="hotel" roomNumber={roomNumber} />;
 }

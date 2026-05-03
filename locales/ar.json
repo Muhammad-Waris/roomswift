@@ -1,0 +1,106 @@
+{
+  "language": {
+    "label": "اللغة",
+    "english": "English",
+    "urdu": "اردو",
+    "arabic": "العربية",
+    "chinese": "中文"
+  },
+  "nav": {
+    "pricing": "الأسعار",
+    "manager": "المدير",
+    "staff": "الفريق",
+    "guestDemo": "تجربة الضيف",
+    "launchGuestDemo": "فتح تجربة الضيف"
+  },
+  "mode": {
+    "label": "وضع النظام",
+    "hotel": "وضع الفندق",
+    "restaurant": "وضع المطعم"
+  },
+  "status": {
+    "Pending": "قيد الانتظار",
+    "Accepted": "مقبول",
+    "In Progress": "قيد التنفيذ",
+    "Completed": "مكتمل"
+  },
+  "guest": {
+    "roomExperience": "تجربة الغرفة",
+    "tableExperience": "تجربة الطاولة",
+    "suite": "جناح",
+    "table": "طاولة",
+    "staffAccess": "وصول الفريق",
+    "smartConcierge": "كونسيرج ذكي",
+    "tabs": {
+      "menu": "القائمة",
+      "services": "الخدمات",
+      "status": "الحالة"
+    },
+    "categories": {
+      "all": "الكل"
+    },
+    "available": "جاهز للطلب",
+    "unavailable": "غير متوفر",
+    "submitFood": "اطلب الآن",
+    "submitService": "اطلب الخدمة",
+    "notePlaceholder": "أضف تعليمات خاصة...",
+    "noRequestsTitle": "لا توجد طلبات بعد",
+    "noRequests": "لا توجد طلبات نشطة لهذا الموقع.",
+    "requestSuccess": "تم إرسال طلب {{itemName}}!",
+    "requestError": "تعذر إرسال الطلب. حاول مرة أخرى.",
+    "processing": "جار المعالجة...",
+    "sending": "جار الإرسال...",
+    "specialInstructions": "تعليمات خاصة",
+    "addInstructions": "إضافة تعليمات",
+    "latestRequest": "آخر طلب",
+    "statusTimeline": "مسار الحالة",
+    "operations": "العمليات",
+    "liveBoard": "لوحة مباشرة",
+    "inPrep": "قيد التحضير",
+    "completed": "مكتمل",
+    "latestProgress": "آخر تقدم",
+    "trackingLive": "يتم تتبع حالة الطلب الحالي مباشرة.",
+    "noLiveOrders": "لا توجد طلبات مباشرة",
+    "noLiveOrdersDescription": "أرسل طلبا لرؤية تحديث المسار المباشر هنا.",
+    "returnHome": "العودة للرئيسية",
+    "connectedEcosystem": "منظومة متصلة",
+    "connectedDescription": "افتح لوحات الفريق على جهاز آخر لرؤية سير العمل الكامل.",
+    "kitchenOps": "عمليات المطبخ",
+    "valetService": "خدمة الضيافة",
+    "managerSuite": "لوحة المدير"
+  },
+  "quickActions": {
+    "water": "ماء بارد",
+    "towels": "مناشف إضافية",
+    "clean": "تنظيف الجناح",
+    "coffee": "قهوة إضافية"
+  },
+  "hotSellers": {
+    "title": "الأكثر مبيعا",
+    "subtitle": "أفضل اختيارات الطعام حسب عدد الطلبات المباشر.",
+    "orders": "{{count}} طلبات",
+    "loading": "جار تحديد الأفضل...",
+    "empty": "ستظهر العناصر الأكثر مبيعا بعد إنشاء طلبات الطعام.",
+    "orderAgain": "اطلب"
+  },
+  "feedback": {
+    "title": "كيف كان هذا الطلب؟",
+    "subtitle": "تساعد ملاحظاتك الفريق على تحسين جودة الخدمة.",
+    "ratingLabel": "التقييم",
+    "optionalComment": "تعليق اختياري",
+    "commentPlaceholder": "أخبرنا بما كان جيدا أو ما يمكن تحسينه...",
+    "submit": "إرسال الملاحظات",
+    "thanks": "شكرا لملاحظاتك.",
+    "error": "تعذر حفظ الملاحظات الآن.",
+    "averageRating": "متوسط التقييم",
+    "latestFeedback": "أحدث الملاحظات",
+    "noFeedback": "لم يتم إرسال أي ملاحظات من الضيوف بعد.",
+    "totalResponses": "{{count}} ردود"
+  },
+  "dashboard": {
+    "location": "الموقع",
+    "room": "غرفة",
+    "table": "طاولة",
+    "standardRequest": "طلب عادي - لا توجد ملاحظات خاصة."
+  }
+}

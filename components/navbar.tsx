@@ -4,17 +4,20 @@ import { useState } from "react";
 import Link from "next/link";
 import { Hotel, LayoutDashboard, Menu, X, Zap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation();
 
   const navLinks = [
-    { href: "/#pricing", label: "Pricing" },
-    { href: "/manager", label: "Manager", icon: LayoutDashboard },
-    { href: "/staff", label: "Staff", icon: Zap },
+    { href: "/#pricing", label: t("nav.pricing") },
+    { href: "/manager", label: t("nav.manager"), icon: LayoutDashboard },
+    { href: "/staff", label: t("nav.staff"), icon: Zap },
   ];
 
   return (
@@ -58,8 +61,9 @@ export function Navbar() {
               "button-glow ml-2 rounded-full px-5"
             )}
           >
-            Guest Demo
+            {t("nav.guestDemo")}
           </Link>
+          <LanguageSwitcher compact />
         </nav>
 
         {/* Mobile Menu Button */}
@@ -122,8 +126,11 @@ export function Navbar() {
                     "button-glow w-full rounded-[2rem] text-lg font-bold"
                   )}
                 >
-                  Launch Guest Demo
+                  {t("nav.launchGuestDemo")}
                 </Link>
+                <div className="mt-4">
+                  <LanguageSwitcher compact />
+                </div>
               </motion.div>
             </div>
           </motion.div>

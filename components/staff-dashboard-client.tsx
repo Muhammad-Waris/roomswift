@@ -20,7 +20,7 @@ import { SupabaseBanner } from "@/components/supabase-banner";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useRequests } from "@/hooks/use-roomswift-data";
-import { formatDateTime } from "@/lib/utils";
+import { formatDateTime, getRequestLocationValue } from "@/lib/utils";
 import { RequestStatus } from "@/types";
 
 const filters: Array<"all" | "Pending" | "Accepted" | "In Progress" | "Completed"> =
@@ -159,7 +159,7 @@ export function StaffDashboardClient() {
           ) : (
             <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5">
               <div className="hidden grid-cols-[0.8fr_1.2fr_1.5fr_1fr_1fr_1.3fr] gap-4 border-b border-white/10 px-5 py-4 text-xs uppercase tracking-[0.24em] text-slate-400 md:grid">
-                <span>Room</span>
+                <span>Location</span>
                 <span>Type</span>
                 <span>Item / Note</span>
                 <span>Created</span>
@@ -173,8 +173,8 @@ export function StaffDashboardClient() {
                     className="grid gap-4 px-5 py-5 transition hover:bg-white/[0.03] md:grid-cols-[0.8fr_1.2fr_1.5fr_1fr_1fr_1.3fr] md:items-center"
                   >
                     <div>
-                      <p className="text-xs text-slate-500 md:hidden">Room</p>
-                      <p className="font-semibold text-white">{request.room_number}</p>
+                      <p className="text-xs text-slate-500 md:hidden">Location</p>
+                      <p className="font-semibold text-white">{getRequestLocationValue(request)}</p>
                     </div>
                     <div>
                       <p className="text-xs text-slate-500 md:hidden">Type</p>

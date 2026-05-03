@@ -1,6 +1,8 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+import { RoomRequest, ServiceMode } from "@/types";
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -28,11 +30,30 @@ export function calculateMinutesBetween(start: string, end: string) {
   return Math.max(0, Math.round(diff / 60000));
 }
 
+export function getRequestMode(request: Pick<RoomRequest, "mode" | "table_id">): ServiceMode {
+  return request.mode ?? (request.table_id ? "restaurant" : "hotel");
+}
+
+export function getRequestLocationValue(
+  request: Pick<RoomRequest, "room_id" | "room_number" | "table_id" | "mode">
+) {
+  return getRequestMode(request) === "restaurant"
+    ? request.table_id ?? "Table"
+    : request.room_id ?? request.room_number ?? "Room";
+}
+
+export function getRequestLocationLabel(
+  request: Pick<RoomRequest, "room_id" | "room_number" | "table_id" | "mode">
+) {
+  const value = getRequestLocationValue(request);
+  return getRequestMode(request) === "restaurant" ? `Table ${value}` : `Room ${value}`;
+}
+
 export function hasActiveRequestForItem(
   itemName: string,
   roomNumber: string,
   statuses: string[],
-  requests: Array<{ item_name: string; room_number: string; status: string }>
+  requests: Array<{ item_name: string; room_number?: string | null; status: string }>
 ) {
   return requests.some(
     (request) =>

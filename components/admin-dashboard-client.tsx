@@ -18,10 +18,19 @@ import { ManagerTeamLinks } from "@/components/manager-team-links";
 import { SupabaseBanner } from "@/components/supabase-banner";
 import { Button } from "@/components/ui/button";
 import { useRequests } from "@/hooks/use-roomswift-data";
-import { calculateMinutesBetween, generateAnalyticsBuckets } from "@/lib/utils";
+import { useFeedbackSummary } from "@/hooks/use-feedback-summary";
+import {
+  calculateMinutesBetween,
+  generateAnalyticsBuckets,
+  getRequestLocationLabel
+} from "@/lib/utils";
 
 export function AdminDashboardClient() {
   const { requests, loading, error, isRealtimeEnabled } = useRequests();
+  const {
+    summary: feedbackSummary,
+    loading: feedbackLoading
+  } = useFeedbackSummary(5);
 
   const analytics = useMemo(() => {
     const totalOrders = requests.filter((request) => request.request_type === "food").length;
@@ -40,7 +49,8 @@ export function AdminDashboardClient() {
 
     const roomWise = Object.entries(
       requests.reduce<Record<string, number>>((acc, request) => {
-        acc[request.room_number] = (acc[request.room_number] ?? 0) + 1;
+        const location = getRequestLocationLabel(request);
+        acc[location] = (acc[location] ?? 0) + 1;
         return acc;
       }, {})
     ).sort((a, b) => b[1] - a[1]);
@@ -66,7 +76,18 @@ export function AdminDashboardClient() {
       avgResponse,
       chartData: generateAnalyticsBuckets(requests),
       roomNumbers: Array.from(
-        new Set(requests.map((request) => request.room_number).filter(Boolean))
+        new Set(
+          requests
+            .map((request) => request.room_id ?? request.room_number)
+            .filter((value): value is string => Boolean(value))
+        )
+      ).sort(),
+      tableIds: Array.from(
+        new Set(
+          requests
+            .map((request) => request.table_id)
+            .filter((value): value is string => Boolean(value))
+        )
       ).sort()
     };
   }, [requests]);
@@ -126,6 +147,7 @@ export function AdminDashboardClient() {
             roomNumbers={
               analytics.roomNumbers.length ? analytics.roomNumbers : ["101", "102", "201"]
             }
+            tableIds={analytics.tableIds.length ? analytics.tableIds : ["T01", "T02", "T03"]}
           />
         </section>
 
@@ -144,6 +166,8 @@ export function AdminDashboardClient() {
             loading={loading}
             avgResponse={analytics.avgResponse}
             roomWise={analytics.roomWise}
+            feedbackSummary={feedbackSummary}
+            feedbackLoading={feedbackLoading}
           />
         </section>
     </div>

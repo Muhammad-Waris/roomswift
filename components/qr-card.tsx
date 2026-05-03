@@ -10,28 +10,30 @@ export function QRCard({
   roomNumber,
   qrDataUrl,
   roomUrl,
-  onCopy
+  onCopy,
+  label = "Room"
 }: {
   roomNumber: string;
   qrDataUrl: string;
   roomUrl: string;
   onCopy: () => void;
+  label?: "Room" | "Table";
 }) {
   return (
     <Card className="p-5 print:break-inside-avoid">
       <div className="mb-4 flex items-center justify-between">
         <div>
           <p className="text-xs uppercase tracking-[0.28em] text-slate-400">
-            Room Sticker
+            {label} Sticker
           </p>
-          <h3 className="font-display text-3xl text-white">Room {roomNumber}</h3>
+          <h3 className="font-display text-3xl text-white">{label} {roomNumber}</h3>
         </div>
         <div className="rounded-full border border-dashed border-white/10 px-3 py-1 text-xs text-primary">
           Scan to order
         </div>
       </div>
       <div className="mx-auto flex h-64 w-64 items-center justify-center rounded-[2rem] bg-white p-5">
-        <Image src={qrDataUrl} alt={`QR for room ${roomNumber}`} width={220} height={220} />
+        <Image src={qrDataUrl} alt={`QR for ${label.toLowerCase()} ${roomNumber}`} width={220} height={220} />
       </div>
       <p className="mt-4 break-all text-sm text-slate-300">{roomUrl}</p>
       <div className="mt-4 flex gap-2 print:hidden">

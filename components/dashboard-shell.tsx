@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 
 import { DashboardNav, DashboardNavGroup } from "@/components/dashboard-nav";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { ManagerSidebarServices } from "@/components/manager-sidebar-services";
 import { buttonVariants } from "@/components/ui/button";
 
@@ -129,6 +130,7 @@ export function DashboardShell({
             <div className="flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
               <div />
               <div className="flex items-center gap-2">
+                <LanguageSwitcher compact />
                 <Link
                   href="/manager"
                   className={buttonVariants({ variant: "ghost", className: "hidden sm:inline-flex" })}

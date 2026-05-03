@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 
 interface MenuTabsProps {
@@ -20,6 +20,8 @@ export function MenuTabs({
   selectedCategory,
   setSelectedCategory
 }: MenuTabsProps) {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
       <div className="glass-panel sticky top-20 z-10 flex flex-1 rounded-2xl p-1.5 backdrop-blur-3xl shadow-2xl border border-white/10 ring-1 ring-black/50">
@@ -34,7 +36,7 @@ export function MenuTabs({
             )}
             onClick={() => setActiveTab(tab)}
           >
-            {tab === "menu" ? "Menu" : tab === "services" ? "Services" : "Status"}
+            {t(`guest.tabs.${tab}`)}
           </button>
         ))}
       </div>
@@ -52,7 +54,7 @@ export function MenuTabs({
                   : "text-slate-500 hover:text-slate-300 border border-transparent"
               )}
             >
-              {cat}
+              {cat === "ALL" ? t("guest.categories.all") : cat}
             </button>
           ))}
         </div>
