@@ -15,6 +15,11 @@ import { FloatingStatusHUD } from "@/components/floating-status-hud";
 import { Card } from "@/components/ui/card";
 import { LoadingSkeleton } from "@/components/loading-skeleton";
 import { HotSellers } from "@/components/hot-sellers";
+import {
+  translateItemName,
+  translateMenuItem,
+  translateServiceItem
+} from "@/lib/localized-content";
 import { ServiceMode } from "@/types";
 
 // Atomic Components
@@ -104,7 +109,14 @@ export function RoomPageClient({
         itemName: input.itemName,
         guestNote: input.itemId ? notes[input.itemId] : undefined
       });
-      toast.success(t("guest.requestSuccess", { itemName: input.itemName }));
+      toast.success(
+        t("guest.requestSuccess", {
+          itemName: translateItemName(t, {
+            item_id: input.itemId ?? null,
+            item_name: input.itemName
+          })
+        })
+      );
       if (input.itemId) {
         setNotes((prev) => ({ ...prev, [input.itemId!]: "" }));
       }
@@ -189,7 +201,7 @@ export function RoomPageClient({
                             transition={{ delay: i * 0.05 }}
                           >
                             <MenuCard
-                              item={item}
+                              item={translateMenuItem(t, item)}
                               availabilityLabel={t("guest.available")}
                               unavailableLabel={t("guest.unavailable")}
                               actionLabel={t("guest.submitFood")}
@@ -235,7 +247,7 @@ export function RoomPageClient({
                           transition={{ delay: i * 0.05 }}
                         >
                           <ServiceCard
-                            item={item}
+                            item={translateServiceItem(t, item)}
                             actionLabel={t("guest.submitService")}
                             notePlaceholder={t("guest.notePlaceholder")}
                             sendingLabel={t("guest.sending")}

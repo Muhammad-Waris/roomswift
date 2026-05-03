@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { RequestTimeline } from "@/components/request-timeline";
 import { EmptyState } from "@/components/empty-state";
 import { LoadingSkeleton } from "@/components/loading-skeleton";
+import { translateItemName } from "@/lib/localized-content";
 import { RoomRequest, ServiceMode } from "@/types";
 
 interface RoomOperationalBoardProps {
@@ -82,7 +83,9 @@ export function RoomOperationalBoard({
             ) : latestRequest ? (
               <div className="animate-in fade-in duration-500">
                 <div className="mb-6">
-                  <p className="text-2xl font-bold text-white tracking-tight">{latestRequest.item_name}</p>
+                  <p className="text-2xl font-bold text-white tracking-tight">
+                    {translateItemName(t, latestRequest)}
+                  </p>
                   <p className="mt-2 text-sm text-slate-500">{t("guest.trackingLive")}</p>
                 </div>
                 <RequestTimeline status={latestRequest.status} />

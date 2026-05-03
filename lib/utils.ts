@@ -14,8 +14,21 @@ export function formatCurrency(value: number) {
   }).format(value);
 }
 
-export function formatDateTime(value: string) {
-  return new Intl.DateTimeFormat("en-US", {
+export function getIntlLocale(language = "en") {
+  if (language.startsWith("ur")) {
+    return "ur-PK";
+  }
+  if (language.startsWith("ar")) {
+    return "ar";
+  }
+  if (language.startsWith("zh")) {
+    return "zh-CN";
+  }
+  return "en-US";
+}
+
+export function formatDateTime(value: string, locale = "en-US") {
+  return new Intl.DateTimeFormat(locale, {
     dateStyle: "medium",
     timeStyle: "short"
   }).format(new Date(value));
@@ -64,13 +77,14 @@ export function hasActiveRequestForItem(
 }
 
 export function generateAnalyticsBuckets(
-  requests: Array<{ created_at: string; status: string }>
+  requests: Array<{ created_at: string; status: string }>,
+  locale = "en-US"
 ) {
   const today = new Date();
   return Array.from({ length: 6 }).map((_, index) => {
     const date = new Date(today);
     date.setDate(today.getDate() - (5 - index));
-    const label = date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+    const label = date.toLocaleDateString(locale, { month: "short", day: "numeric" });
     const sameDay = requests.filter(
       (request) => new Date(request.created_at).toDateString() === date.toDateString()
     );

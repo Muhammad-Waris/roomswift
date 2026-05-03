@@ -23,12 +23,13 @@ import { useFeedbackSummary } from "@/hooks/use-feedback-summary";
 import {
   calculateMinutesBetween,
   generateAnalyticsBuckets,
+  getIntlLocale,
   getRequestLocationValue,
   getRequestMode
 } from "@/lib/utils";
 
 export function AdminDashboardClient() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { requests, loading, error, isRealtimeEnabled } = useRequests();
   const {
     summary: feedbackSummary,
@@ -81,7 +82,7 @@ export function AdminDashboardClient() {
       topItems,
       roomWise,
       avgResponse,
-      chartData: generateAnalyticsBuckets(requests),
+      chartData: generateAnalyticsBuckets(requests, getIntlLocale(i18n.language)),
       roomNumbers: Array.from(
         new Set(
           requests
@@ -97,7 +98,7 @@ export function AdminDashboardClient() {
         )
       ).sort()
     };
-  }, [requests, t]);
+  }, [i18n.language, requests, t]);
 
   return (
     <div className="mx-auto max-w-7xl">

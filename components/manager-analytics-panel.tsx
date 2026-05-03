@@ -7,6 +7,7 @@ import { AdminRequestsChart } from "@/components/admin-requests-chart";
 import { EmptyState } from "@/components/empty-state";
 import { LoadingSkeleton } from "@/components/loading-skeleton";
 import { Card } from "@/components/ui/card";
+import { translateItemName } from "@/lib/localized-content";
 import { RequestAnalyticsPoint } from "@/types";
 
 export function ManagerAnalyticsPanel({
@@ -49,7 +50,7 @@ export function ManagerAnalyticsPanel({
             <div key={name}>
               <div className="mb-2 flex items-center justify-between text-sm">
                 <span className="text-white">
-                  {index + 1}. {name}
+                  {index + 1}. {translateItemName(t, { name })}
                 </span>
                 <span className="text-slate-400">
                   {t("manager.analytics.requests", { count })}

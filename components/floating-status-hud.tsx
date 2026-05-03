@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, Clock, CheckCircle2, Loader2, Utensils, Bell } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { RoomRequest } from "@/types";
+import { translateItemName } from "@/lib/localized-content";
 import { cn } from "@/lib/utils";
 
 interface FloatingStatusHUDProps {
@@ -54,7 +55,7 @@ export function FloatingStatusHUD({
                 {t("guest.latestRequest")}
               </p>
               <h4 className="mt-1 line-clamp-1 text-sm font-bold text-white">
-                {latestRequest.item_name}
+                {translateItemName(t, latestRequest)}
               </h4>
               <div className="mt-1 flex items-center gap-2">
                 {isCompleted ? (

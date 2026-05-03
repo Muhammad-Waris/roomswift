@@ -9,6 +9,7 @@ import {
   XAxis,
   YAxis
 } from "recharts";
+import { useTranslation } from "react-i18next";
 
 import { RequestAnalyticsPoint } from "@/types";
 
@@ -17,6 +18,8 @@ export function AdminRequestsChart({
 }: {
   data: RequestAnalyticsPoint[];
 }) {
+  const { t } = useTranslation();
+
   return (
     <div className="h-72 w-full">
       <ResponsiveContainer width="100%" height="100%">
@@ -42,8 +45,18 @@ export function AdminRequestsChart({
               color: "#fff"
             }}
           />
-          <Bar dataKey="total" fill="rgba(217,184,102,0.95)" radius={[8, 8, 0, 0]} />
-          <Bar dataKey="completed" fill="rgba(14,165,233,0.95)" radius={[8, 8, 0, 0]} />
+          <Bar
+            dataKey="total"
+            name={t("manager.stats.totalOrders")}
+            fill="rgba(217,184,102,0.95)"
+            radius={[8, 8, 0, 0]}
+          />
+          <Bar
+            dataKey="completed"
+            name={t("manager.stats.completed")}
+            fill="rgba(14,165,233,0.95)"
+            radius={[8, 8, 0, 0]}
+          />
         </BarChart>
       </ResponsiveContainer>
     </div>

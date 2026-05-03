@@ -25,7 +25,8 @@ import { SupabaseBanner } from "@/components/supabase-banner";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useRequests } from "@/hooks/use-roomswift-data";
-import { formatDateTime, getRequestLocationValue } from "@/lib/utils";
+import { translateGuestNote, translateItemName } from "@/lib/localized-content";
+import { formatDateTime, getIntlLocale, getRequestLocationValue } from "@/lib/utils";
 import { RequestStatus, RequestType } from "@/types";
 import { cn } from "@/lib/utils";
 
@@ -50,7 +51,10 @@ export function OperationsDashboardClient({
   queueType: RequestType;
   teamLabel: "Kitchen" | "Valet";
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const intlLocale = getIntlLocale(i18n.language);
+  const translatedTeamLabel =
+    queueType === "food" ? t("operations.teams.kitchen") : t("operations.teams.valet");
   const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("all");
   const [soundEnabled, setSoundEnabled] = useState(true);
   const previousIdsRef = useRef<string[]>([]);
@@ -83,12 +87,12 @@ export function OperationsDashboardClient({
         "data:audio/wav;base64,UklGRlQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YTAAAAAAgICAgP///wD///8AAP///wAA"
       );
       void audio.play().catch(() => undefined);
-      toast.success(`${teamLabel} received a new request`, {
+      toast.success(t("operations.toast.newRequest", { team: translatedTeamLabel }), {
         icon: <Zap className="h-4 w-4 text-primary" />
       });
     }
     previousIdsRef.current = currentIds;
-  }, [soundEnabled, teamLabel, teamRequests]);
+  }, [soundEnabled, t, teamRequests, translatedTeamLabel]);
 
   const todayString = new Date().toDateString();
   const todayRequests = teamRequests.filter(
@@ -100,11 +104,15 @@ export function OperationsDashboardClient({
   async function updateStatus(id: string, status: RequestStatus) {
     try {
       await changeStatus(id, status);
-      toast.success(`Request marked ${status}`);
+      toast.success(
+        t("operations.toast.marked", {
+          status: t(`status.${status}`)
+        })
+      );
     } catch (error) {
-      toast.error("Status update failed", {
+      toast.error(t("operations.toast.updateFailed"), {
         description:
-          error instanceof Error ? error.message : "Please try again in a moment."
+          error instanceof Error ? error.message : t("operations.toast.tryAgain")
       });
     }
   }
@@ -131,7 +139,7 @@ export function OperationsDashboardClient({
             <div className="hidden sm:block h-6 w-[1px] bg-white/10" />
             <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-emerald-300">
               <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              {isRealtimeEnabled ? "Realtime Live" : "Demo Fallback"}
+              {isRealtimeEnabled ? t("operations.realtimeLive") : t("operations.demoFallback")}
             </div>
           </div>
         }
@@ -143,9 +151,9 @@ export function OperationsDashboardClient({
 
       <section className="mt-8 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <StatsCard
-          title={`${teamLabel} Requests Today`}
+          title={t("operations.stats.teamToday", { team: translatedTeamLabel })}
           value={String(todayRequests)}
-          detail={`Total handled by ${teamLabel.toLowerCase()} team.`}
+          detail={t("operations.stats.teamDetail", { team: translatedTeamLabel })}
           icon={
             queueType === "food" ? (
               <CookingPot className="h-6 w-6" />
@@ -155,15 +163,15 @@ export function OperationsDashboardClient({
           }
         />
         <StatsCard
-          title="Pending Queue"
+          title={t("operations.stats.pendingQueue")}
           value={String(pendingCount)}
-          detail="Awaiting team acceptance."
+          detail={t("operations.stats.pendingDetail")}
           icon={<TimerReset className="h-6 w-6" />}
         />
         <StatsCard
-          title="Fulfillment"
+          title={t("operations.stats.fulfillment")}
           value={String(completedCount)}
-          detail="Successfully delivered today."
+          detail={t("operations.stats.fulfillmentDetail")}
           icon={<CheckCircle2 className="h-6 w-6" />}
         />
       </section>
@@ -172,7 +180,9 @@ export function OperationsDashboardClient({
         <Card className="glass-panel flex flex-col gap-4 sm:flex-row items-center justify-between overflow-hidden rounded-[2rem] p-4 shadow-xl">
           <div className="mb-4 flex items-center gap-3 px-3 sm:mb-0">
             <Filter className="h-4 w-4 text-primary" />
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-500">Filter Status</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-slate-500">
+              {t("operations.filterStatus")}
+            </span>
           </div>
           <div className="flex flex-wrap gap-2">
             {filters.map((filter) => (
@@ -186,7 +196,7 @@ export function OperationsDashboardClient({
                     : "bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white"
                 )}
               >
-                {filter}
+                {filter === "all" ? t("guest.categories.all") : t(`status.${filter}`)}
               </button>
             ))}
           </div>
@@ -201,18 +211,18 @@ export function OperationsDashboardClient({
             </Card>
           ) : filteredRequests.length === 0 ? (
             <EmptyState
-              title={`Clean Queue`}
-              description={`No ${teamLabel.toLowerCase()} requests found for this filter.`}
+              title={t("operations.emptyTitle")}
+              description={t("operations.emptyDescription", { team: translatedTeamLabel })}
             />
           ) : (
             <div className="overflow-hidden rounded-[2.5rem] border border-white/5 bg-slate-950/40 shadow-2xl backdrop-blur-md">
               <div className="hidden grid-cols-[0.8fr_1.4fr_1.6fr_1fr_1fr_1.4fr] gap-4 border-b border-white/5 px-8 py-5 text-[10px] uppercase tracking-[0.3em] font-bold text-slate-500 bg-white/5 md:grid">
                 <span>{t("dashboard.location")}</span>
-                <span>Fulfillment</span>
-                <span>Guest Instructions</span>
-                <span>Created</span>
-                <span>Status</span>
-                <span className="text-right">Manage</span>
+                <span>{t("operations.table.fulfillment")}</span>
+                <span>{t("operations.table.guestInstructions")}</span>
+                <span>{t("common.created")}</span>
+                <span>{t("common.status")}</span>
+                <span className="text-right">{t("operations.table.manage")}</span>
               </div>
               <div className="divide-y divide-white/5">
                 {filteredRequests.map((request) => (
@@ -229,23 +239,31 @@ export function OperationsDashboardClient({
                       </p>
                     </div>
                     <div>
-                      <p className="font-bold text-white tracking-tight">{request.item_name}</p>
+                      <p className="font-bold text-white tracking-tight">
+                        {translateItemName(t, request)}
+                      </p>
                       <p className="mt-1 text-[10px] uppercase tracking-widest font-semibold text-slate-500">
-                        {queueType === "food" ? "Kitchen Duty" : "Service Team"}
+                        {queueType === "food"
+                          ? t("operations.teams.kitchenDuty")
+                          : t("operations.teams.serviceTeam")}
                       </p>
                     </div>
                     <div>
                       <p className="text-sm leading-relaxed text-slate-400 italic">
-                        &quot;{request.guest_note || t("dashboard.standardRequest")}&quot;
+                        &quot;{request.guest_note
+                          ? translateGuestNote(t, request.guest_note)
+                          : t("dashboard.standardRequest")}&quot;
                       </p>
                     </div>
-                    <div className="text-xs font-medium text-slate-500">{formatDateTime(request.created_at)}</div>
+                    <div className="text-xs font-medium text-slate-500">
+                      {formatDateTime(request.created_at, intlLocale)}
+                    </div>
                     <div>
                       <StatusBadge status={request.status} />
                       {mutatingIds.includes(request.id) && (
                         <div className="mt-2 flex items-center gap-2 text-[10px] font-bold text-primary animate-pulse">
                           <Radio className="h-3 w-3" />
-                          UPDATING...
+                          {t("common.updating")}
                         </div>
                       )}
                     </div>
@@ -258,7 +276,7 @@ export function OperationsDashboardClient({
                           disabled={mutatingIds.includes(request.id)}
                           onClick={() => updateStatus(request.id, "Accepted")}
                         >
-                          Accept
+                          {t("operations.actions.accept")}
                         </Button>
                        )}
                        {request.status !== "Completed" && (
@@ -270,7 +288,7 @@ export function OperationsDashboardClient({
                             disabled={request.status === "In Progress" || mutatingIds.includes(request.id)}
                             onClick={() => updateStatus(request.id, "In Progress")}
                           >
-                            Work On
+                            {t("operations.actions.workOn")}
                           </Button>
                           <Button
                             size="sm"
@@ -278,7 +296,7 @@ export function OperationsDashboardClient({
                             disabled={mutatingIds.includes(request.id)}
                             onClick={() => updateStatus(request.id, "Completed")}
                           >
-                            Done
+                            {t("operations.actions.done")}
                           </Button>
                         </>
                        )}

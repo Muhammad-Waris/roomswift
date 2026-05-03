@@ -33,7 +33,7 @@ export function Navbar() {
               RoomSwift
             </span>
             <span className="text-[10px] uppercase tracking-[0.3em] text-slate-500">
-              Smart Hospitality
+              {t("nav.subtitle")}
             </span>
           </div>
         </Link>

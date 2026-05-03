@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
+import { translateCategory } from "@/lib/localized-content";
 import { cn } from "@/lib/utils";
 
 interface MenuTabsProps {
@@ -54,7 +55,7 @@ export function MenuTabs({
                   : "text-slate-500 hover:text-slate-300 border border-transparent"
               )}
             >
-              {cat === "ALL" ? t("guest.categories.all") : cat}
+              {translateCategory(t, cat)}
             </button>
           ))}
         </div>

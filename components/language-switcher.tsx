@@ -1,13 +1,11 @@
 "use client";
 
 import { Languages } from "lucide-react";
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 import {
   LANGUAGE_STORAGE_KEY,
   normalizeLanguage,
-  rtlLanguages,
   supportedLanguages
 } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -16,12 +14,6 @@ import { LanguageCode } from "@/types";
 export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
   const { i18n, t } = useTranslation();
   const activeLanguage = normalizeLanguage(i18n.resolvedLanguage ?? i18n.language);
-
-  useEffect(() => {
-    const language = normalizeLanguage(i18n.resolvedLanguage ?? i18n.language);
-    document.documentElement.lang = language;
-    document.documentElement.dir = rtlLanguages.includes(language) ? "rtl" : "ltr";
-  }, [i18n.language, i18n.resolvedLanguage]);
 
   function changeLanguage(language: LanguageCode) {
     window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language);

@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { translateMenuItem } from "@/lib/localized-content";
 import { formatCurrency } from "@/lib/utils";
 import { HotItem, MenuItem } from "@/types";
 
@@ -60,33 +61,37 @@ export function HotSellers({
       </div>
 
       <div className="mt-5 grid gap-3 md:grid-cols-2">
-        {items.map(({ hotItem, menuItem }) => (
-          <div
-            key={menuItem.id}
-            className="flex items-center justify-between gap-4 rounded-[1.5rem] border border-white/5 bg-white/5 px-4 py-3"
-          >
-            <div className="flex min-w-0 items-center gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <UtensilsCrossed className="h-5 w-5" />
-              </div>
-              <div className="min-w-0">
-                <p className="truncate font-bold text-white">{menuItem.name}</p>
-                <p className="text-xs text-slate-500">
-                  {t("hotSellers.orders", { count: hotItem.orderCount })} ·{" "}
-                  {formatCurrency(menuItem.price)}
-                </p>
-              </div>
-            </div>
-            <Button
-              size="sm"
-              className="shrink-0 rounded-xl"
-              disabled={!menuItem.available || mutatingIds.includes(menuItem.name)}
-              onClick={() => onOrder(menuItem)}
+        {items.map(({ hotItem, menuItem }) => {
+          const localizedMenuItem = translateMenuItem(t, menuItem);
+
+          return (
+            <div
+              key={menuItem.id}
+              className="flex items-center justify-between gap-4 rounded-[1.5rem] border border-white/5 bg-white/5 px-4 py-3"
             >
-              {t("hotSellers.orderAgain")}
-            </Button>
-          </div>
-        ))}
+              <div className="flex min-w-0 items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <UtensilsCrossed className="h-5 w-5" />
+                </div>
+                <div className="min-w-0">
+                  <p className="truncate font-bold text-white">{localizedMenuItem.name}</p>
+                  <p className="text-xs text-slate-500">
+                    {t("hotSellers.orders", { count: hotItem.orderCount })} ·{" "}
+                    {formatCurrency(menuItem.price)}
+                  </p>
+                </div>
+              </div>
+              <Button
+                size="sm"
+                className="shrink-0 rounded-xl"
+                disabled={!menuItem.available || mutatingIds.includes(menuItem.name)}
+                onClick={() => onOrder(menuItem)}
+              >
+                {t("hotSellers.orderAgain")}
+              </Button>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

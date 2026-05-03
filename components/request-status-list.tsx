@@ -8,7 +8,8 @@ import { FeedbackForm } from "@/components/feedback-form";
 import { RequestTimeline } from "@/components/request-timeline";
 import { StatusBadge } from "@/components/status-badge";
 import { Card } from "@/components/ui/card";
-import { formatDateTime } from "@/lib/utils";
+import { translateGuestNote, translateItemName } from "@/lib/localized-content";
+import { formatDateTime, getIntlLocale } from "@/lib/utils";
 import { RoomRequest } from "@/types";
 
 export function RequestStatusList({
@@ -18,7 +19,8 @@ export function RequestStatusList({
   requests: RoomRequest[];
   emptyLabel: string;
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const intlLocale = getIntlLocale(i18n.language);
 
   if (requests.length === 0) {
     return <EmptyState title={t("guest.noRequestsTitle")} description={emptyLabel} />;
@@ -31,19 +33,19 @@ export function RequestStatusList({
           <div className="grid gap-4 md:grid-cols-[1fr_220px]">
             <div>
               <p className="text-base font-semibold text-white">
-                {request.item_name}
+                {translateItemName(t, request)}
               </p>
               <div className="mt-2 flex flex-wrap items-center gap-3 text-xs text-slate-400">
                 <div className="flex items-center gap-2" suppressHydrationWarning>
                   <Clock3 className="h-4 w-4" />
-                  {formatDateTime(request.created_at)}
+                  {formatDateTime(request.created_at, intlLocale)}
                 </div>
                 <StatusBadge status={request.status} />
               </div>
               {request.guest_note ? (
                 <div className="mt-3 flex items-start gap-2 text-sm text-slate-300">
                   <MessageSquareText className="mt-0.5 h-4 w-4 text-slate-500" />
-                  {request.guest_note}
+                  {translateGuestNote(t, request.guest_note)}
                 </div>
               ) : null}
             </div>

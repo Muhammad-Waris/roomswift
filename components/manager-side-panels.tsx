@@ -6,7 +6,8 @@ import { useTranslation } from "react-i18next";
 import { LoadingSkeleton } from "@/components/loading-skeleton";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { formatDateTime } from "@/lib/utils";
+import { translateItemName } from "@/lib/localized-content";
+import { formatDateTime, getIntlLocale } from "@/lib/utils";
 import { FeedbackSummary } from "@/types";
 
 export function ManagerSidePanels({
@@ -22,7 +23,8 @@ export function ManagerSidePanels({
   feedbackSummary: FeedbackSummary;
   feedbackLoading: boolean;
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const intlLocale = getIntlLocale(i18n.language);
 
   return (
     <div className="space-y-6">
@@ -120,14 +122,16 @@ export function ManagerSidePanels({
                   className="rounded-2xl border border-white/5 bg-slate-950/40 px-4 py-3"
                 >
                   <div className="flex items-center justify-between gap-3">
-                    <span className="font-semibold text-white">{feedback.itemName}</span>
+                    <span className="font-semibold text-white">
+                      {translateItemName(t, { name: feedback.itemName })}
+                    </span>
                     <span className="text-sm font-bold text-primary">{feedback.rating}/5</span>
                   </div>
                   {feedback.comment ? (
                     <p className="mt-2 text-sm text-slate-400">{feedback.comment}</p>
                   ) : null}
                   <p className="mt-2 text-xs text-slate-600">
-                    {formatDateTime(feedback.createdAt)}
+                    {formatDateTime(feedback.createdAt, intlLocale)}
                   </p>
                 </div>
               ))

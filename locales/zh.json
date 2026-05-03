@@ -6,7 +6,12 @@
     "arabic": "العربية",
     "chinese": "中文"
   },
+  "metadata": {
+    "title": "RoomSwift | 酒店运营的未来",
+    "description": "面向智慧酒店和现代餐厅的高端二维码优先运营平台。"
+  },
   "nav": {
+    "subtitle": "智慧酒店服务",
     "pricing": "价格",
     "manager": "经理",
     "staff": "员工",
@@ -113,6 +118,294 @@
     "description": "将演示保存到主屏幕，展演 walkthrough 会更顺畅。",
     "install": "安装",
     "notNow": "暂不"
+  },
+  "common": {
+    "recommended": "推荐",
+    "month": "/月",
+    "launchDemo": "启动演示",
+    "created": "创建时间",
+    "status": "状态",
+    "actions": "操作",
+    "location": "位置",
+    "type": "类型",
+    "noNoteProvided": "未提供备注",
+    "syncing": "同步中...",
+    "updating": "更新中..."
+  },
+  "home": {
+    "eyebrow": "酒店服务的未来",
+    "headline": "酒店体验，",
+    "headlineAccent": "重新定义。",
+    "description": "RoomSwift 是面向智慧酒店和现代餐厅的高端二维码平台。简化点单、自动化服务请求，并用实时运营仪表盘赋能团队。",
+    "tryGuestDemo": "试用客人演示",
+    "managerView": "经理视图",
+    "productionGrade": "生产级",
+    "realtimeSync": "实时同步",
+    "featuresTitle": "为规模化而生",
+    "featuresSubtitle": "高效运营餐饮或酒店所需的一切。",
+    "operationsEyebrow": "实时运营",
+    "operationsTitle": "一个平台，",
+    "operationsAccent": "多种视角。",
+    "versionBadge": "V.1.0 已准备部署",
+    "pricingEyebrow": "可扩展增长",
+    "pricingTitle": "透明价格",
+    "pricingDescription": "为你的场所选择合适方案。无论是精品咖啡馆还是豪华酒店集团，我们都能支持。",
+    "ctaTitle": "准备提升你的客人体验了吗？",
+    "ctaDescription": "加入正在打造下一代酒店体验的智慧酒店和餐厅。",
+    "startLiveDemo": "开始实时演示",
+    "viewAnalytics": "查看分析",
+    "copyright": "2026 RoomSwift 智慧酒店系统。保留所有权利。",
+    "features": {
+      "qrFirst": {
+        "title": "二维码优先体验",
+        "description": "客人扫描房间专属二维码，即可打开优化后的点单套件。无需安装应用，没有阻碍。"
+      },
+      "realtime": {
+        "title": "实时运营",
+        "description": "厨房和服务团队即时收到请求。实时更新让客人每一步都清楚。"
+      },
+      "staff": {
+        "title": "员工协同",
+        "description": "为不同履约流程提供专属仪表盘，轻松将请求从待处理推进到已送达。"
+      },
+      "insights": {
+        "title": "经理洞察",
+        "description": "在统一分析式经理仪表盘中跟踪绩效、热卖项目和房间活动。"
+      }
+    },
+    "previews": {
+      "guest": {
+        "title": "客房界面",
+        "description": "高端移动优先的餐饮与服务菜单。",
+        "badge": "客人体验"
+      },
+      "kitchen": {
+        "title": "厨房运营",
+        "description": "用于快速备餐与流转的实时餐品队列。",
+        "badge": "餐品团队"
+      },
+      "valet": {
+        "title": "服务履约",
+        "description": "协调清洁、客房服务和履约流程。",
+        "badge": "服务团队"
+      },
+      "manager": {
+        "title": "管理视图",
+        "description": "面向管理层的分析与控制。",
+        "badge": "数据分析"
+      }
+    },
+    "plans": {
+      "essential": {
+        "name": "基础版",
+        "price": "49",
+        "description": "适合希望简化客人请求的单店精品酒店和餐厅。",
+        "button": "开始免费试用",
+        "features": {
+          "qrSuite": "二维码客人套件",
+          "foodQueue": "实时餐品队列",
+          "basicAnalytics": "基础分析",
+          "support": "标准支持",
+          "sla": "99.5% 在线 SLA"
+        }
+      },
+      "professional": {
+        "name": "专业版",
+        "price": "99",
+        "description": "最受欢迎，适合需要多团队协同的高流量酒店。",
+        "button": "立即开始",
+        "features": {
+          "essential": "包含基础版全部功能",
+          "dashboards": "高级员工仪表盘",
+          "analytics": "完整运营分析",
+          "branding": "自定义品牌",
+          "support": "优先邮件支持"
+        }
+      },
+      "enterprise": {
+        "name": "企业版",
+        "price": "定制",
+        "description": "为大型酒店集团和度假村提供专属基础设施与支持。",
+        "button": "联系销售",
+        "features": {
+          "multiProperty": "多物业支持",
+          "api": "API 与 Webhook",
+          "account": "24/7 专属客户经理",
+          "integration": "定制集成服务",
+          "training": "现场培训"
+        }
+      }
+    }
+  },
+  "staffPortal": {
+    "eyebrow": "团队运营",
+    "title": "员工入口",
+    "description": "选择你的运营部门，进入实时请求队列和履约仪表盘。",
+    "openQueue": "打开队列",
+    "kitchenTitle": "厨房仪表盘",
+    "kitchenDescription": "处理备餐、跟踪订单状态，并与服务团队实时协同。",
+    "valetTitle": "服务仪表盘",
+    "valetDescription": "通过统一运营视图管理清洁、维护和客人服务请求。"
+  },
+  "qrDemo": {
+    "eyebrow": "演示二维码中心",
+    "title": "房间二维码展示",
+    "description": "为你的大学展台打印这些房间贴纸。每个二维码都会立即打开客人网页应用，无需登录或安装应用。",
+    "setup": "建议演示设置：打印 101 房间和 102 房间，放在展台上，并用“扫码测试”按钮在展示前快速验证流程。",
+    "copied": "{{room}} 房间链接已复制"
+  },
+  "offline": {
+    "eyebrow": "离线模式",
+    "title": "RoomSwift 暂时离线",
+    "description": "你的设备似乎处于离线状态。网络恢复后，请刷新页面以继续客人请求和实时员工更新。",
+    "returnHome": "返回首页"
+  },
+  "notFound": {
+    "title": "未找到房间",
+    "description": "找不到请求的 RoomSwift 页面。请使用下面的演示房间继续展示。",
+    "openDemo": "打开 101 演示房间"
+  },
+  "loading": {
+    "message": "正在加载 RoomSwift..."
+  },
+  "operations": {
+    "teams": {
+      "kitchen": "厨房",
+      "valet": "服务",
+      "kitchenDuty": "厨房任务",
+      "serviceTeam": "服务团队"
+    },
+    "kitchen": {
+      "eyebrow": "厨房仪表盘",
+      "title": "餐品准备指挥中心",
+      "description": "接受、准备并完成来自房间和餐桌的实时餐品订单。"
+    },
+    "valet": {
+      "eyebrow": "服务仪表盘",
+      "title": "客房服务与履约流程",
+      "description": "在一个实时运营队列中处理清洁、维护、饮水、毛巾和配送式服务请求。"
+    },
+    "realtimeLive": "实时在线",
+    "demoFallback": "演示备用",
+    "filterStatus": "筛选状态",
+    "stats": {
+      "teamToday": "{{team}}今日请求",
+      "teamDetail": "{{team}}团队已处理总数。",
+      "pendingQueue": "待处理队列",
+      "pendingDetail": "等待团队接受。",
+      "fulfillment": "履约",
+      "fulfillmentDetail": "今日已成功送达。"
+    },
+    "table": {
+      "fulfillment": "履约",
+      "guestInstructions": "客人说明",
+      "manage": "管理"
+    },
+    "emptyTitle": "队列为空",
+    "emptyDescription": "此筛选条件下没有{{team}}请求。",
+    "actions": {
+      "accept": "接受",
+      "workOn": "开始处理",
+      "done": "完成"
+    },
+    "toast": {
+      "newRequest": "{{team}}收到新请求",
+      "marked": "请求已标记为{{status}}",
+      "updateFailed": "状态更新失败",
+      "tryAgain": "请稍后重试。"
+    }
+  },
+  "staffDashboard": {
+    "eyebrow": "员工仪表盘",
+    "title": "实时请求运营",
+    "description": "监控所有传入请求，快速接受任务，并为客房视图实时更新状态。",
+    "soundOn": "声音开启",
+    "soundOff": "声音关闭",
+    "realtimeConnected": "实时流程已连接",
+    "localFallback": "本地演示备用",
+    "stats": {
+      "totalToday": "今日请求总数",
+      "totalTodayDetail": "今天演示会话中创建的所有请求。",
+      "pending": "待处理",
+      "pendingDetail": "等待员工接受。",
+      "completed": "已完成",
+      "completedDetail": "客人页面可见的已完成任务。"
+    },
+    "filterRequests": "筛选请求",
+    "emptyTitle": "没有匹配请求",
+    "emptyDescription": "新的房间订单和服务呼叫会实时显示在这里。",
+    "itemNote": "项目 / 备注",
+    "newRequest": "收到新的客人请求",
+    "requestType": {
+      "food": "餐品",
+      "service": "服务"
+    }
+  },
+  "catalog": {
+    "categories": {
+      "snacks": "小食",
+      "mainCourse": "主菜",
+      "fastFood": "快餐",
+      "beverages": "饮品"
+    },
+    "menu": {
+      "menu-1": {
+        "name": "俱乐部三明治",
+        "description": "烤三层三明治，配薯条和店制蘸酱。"
+      },
+      "menu-2": {
+        "name": "鸡肉印度香饭",
+        "description": "香米搭配调味鸡肉和酸奶酱。"
+      },
+      "menu-3": {
+        "name": "香辣鸡腿堡",
+        "description": "酥脆鸡肉汉堡，配生菜、芝士和辣味蛋黄酱。"
+      },
+      "menu-4": {
+        "name": "茶",
+        "description": "新鲜冲泡的茶，客房内搭配饼干供应。"
+      },
+      "menu-5": {
+        "name": "咖啡",
+        "description": "顺滑咖啡，可选择牛奶和糖。"
+      },
+      "menu-6": {
+        "name": "鲜青柠饮",
+        "description": "冰镇青柠饮品，适合清爽的下午休息。"
+      }
+    },
+    "notes": {
+      "mildSpicy": "请做成微辣。",
+      "twoBottles": "可以的话请送两瓶。",
+      "after3pm": "请下午 3 点后处理。",
+      "extraSauce": "请加额外酱料。"
+    },
+    "service": {
+      "service-1": {
+        "name": "瓶装水",
+        "description": "为房间请求冰镇矿泉水。"
+      },
+      "service-2": {
+        "name": "额外毛巾",
+        "description": "新毛巾送至你的房间。"
+      },
+      "service-3": {
+        "name": "房间清洁",
+        "description": "快速房间整理的客房清洁支持。"
+      },
+      "service-4": {
+        "name": "维修帮助",
+        "description": "为空调、电视、灯光或设施问题提供技术支持。"
+      },
+      "service-5": {
+        "name": "叫醒服务",
+        "description": "从前台设置早晨叫醒提醒。"
+      },
+      "service-6": {
+        "name": "茶具准备",
+        "description": "准备茶盘、杯子、水壶和糖包。"
+      }
+    }
   },
   "manager": {
     "console": {
