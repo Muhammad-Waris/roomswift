@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 42% 8%;
+    --foreground: 210 40% 98%;
+    
+    /* Premium Gold Theme */
+    --primary: 43 67% 63%;
+    --primary-foreground: 220 42% 8%;
+    
+    /* Deep Slate Layers */
+    --card: 220 34% 12%;
+    --card-foreground: 210 40% 98%;
+    --secondary: 221 39% 16%;
+    --secondary-foreground: 210 40% 96%;
+    
+    /* Status Colors */
+    --success: 160 84% 39%;
+    --warning: 42 96% 58%;
+    --danger: 0 84% 60%;
+    
+    --border: 214 31% 20%;
+    --input: 214 31% 20%;
+    --muted: 222 28% 16%;
+    --muted-foreground: 215 20% 72%;
+    --accent: 196 82% 57%;
+    --accent-foreground: 220 42% 8%;
+    
+    --radius: 2.5rem; /* Larger, more premium corners */
+  }
+
+  * {
+    @apply border-border/50;
+  }
+  
+  body {
+    @apply bg-background text-foreground min-h-screen;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background: 
+      radial-gradient(circle at top right, rgba(217, 184, 102, 0.15), transparent 35%),
+      radial-gradient(circle at bottom left, rgba(56, 189, 248, 0.1), transparent 35%),
+      linear-gradient(180deg, #07111f 0%, #050a13 100%);
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-slate-950/20 backdrop-blur-2xl border border-white/10;
+    box-shadow: 
+      0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+      0 20px 50px -12px rgba(0, 0, 0, 0.7);
+  }
+
+  .glass-card {
+    @apply bg-white/5 border border-white/5 backdrop-blur-xl transition-all duration-300;
+  }
+
+
+  .grid-overlay {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .button-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .button-glow::after {
+    content: "";
+    @apply absolute inset-0 bg-white/20 translate-x-[-100%] transition-transform duration-500 ease-in-out;
+  }
+
+  .button-glow:hover::after {
+    @apply translate-x-[100%];
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-white/90 to-primary/60;
+  }
+
+  .premium-shadow {
+    box-shadow: 0 0 40px -10px rgba(217, 184, 102, 0.2);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full transition hover:bg-white/20;
+}
