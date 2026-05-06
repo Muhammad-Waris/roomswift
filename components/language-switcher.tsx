@@ -24,7 +24,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
     <div
       className={cn(
         "flex items-center gap-2 rounded-full border border-white/5 bg-slate-950/50 p-1 backdrop-blur-md",
-        compact ? "max-w-full overflow-x-auto" : ""
+        compact ? "max-w-full flex-wrap justify-center rounded-2xl" : ""
       )}
       aria-label={t("language.label")}
     >

@@ -18,16 +18,15 @@ export function QuickConcierge({ onRequest }: QuickConciergeProps) {
   const { t } = useTranslation();
 
   return (
-    <header className="space-y-6">
-      <div className="flex items-center gap-3">
-        <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-primary">
+    <section className="space-y-4 border-b border-white/5 pb-6">
+      <div className="flex items-center justify-between gap-4">
+        <span className="text-[10px] font-bold uppercase tracking-[0.32em] text-primary">
           {t("guest.smartConcierge")}
         </span>
-        <div className="h-px flex-1 bg-gradient-to-l from-transparent via-primary/30 to-transparent" />
+        <div className="h-px flex-1 bg-white/10" />
       </div>
 
-      <div className="flex overflow-x-auto pb-4 gap-4 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 snap-x snap-mandatory">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {quickHotelServices.map((service, i) => {
           const Icon = getIcon(service.icon_name);
 
@@ -42,18 +41,18 @@ export function QuickConcierge({ onRequest }: QuickConciergeProps) {
                 itemId: service.id,
                 itemName: service.name
               })}
-              className="flex flex-col items-center gap-3 min-w-[104px] p-5 rounded-[2rem] glass-panel border border-white/5 bg-white/5 transition-all hover:bg-primary/5 hover:border-primary/20 active:scale-95 group snap-center"
+              className="glass-panel group flex min-h-[128px] flex-col items-center justify-center gap-3 rounded-2xl border border-white/5 bg-white/5 p-4 text-center shadow-lg transition-all hover:border-primary/20 hover:bg-primary/5 active:scale-[0.98]"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900/50 text-slate-400 group-hover:text-primary group-hover:bg-primary/10 transition-colors shadow-inner">
-                <Icon className="h-6 w-6" />
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900/60 text-slate-400 shadow-inner transition-colors group-hover:bg-primary/10 group-hover:text-primary">
+                <Icon className="h-5 w-5" />
               </div>
-              <span className="text-[10px] font-bold text-slate-400 group-hover:text-white uppercase tracking-wider text-center">
+              <span className="text-[10px] font-bold uppercase leading-snug tracking-wider text-slate-400 group-hover:text-white">
                 {t(`catalog.service.${service.id}.name`, { defaultValue: service.name })}
               </span>
             </motion.button>
           );
         })}
       </div>
-    </header>
+    </section>
   );
 }

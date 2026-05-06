@@ -35,14 +35,14 @@ export function RoomOperationalBoard({
   ];
 
   return (
-    <aside className="space-y-8">
-      <Card className="glass-panel sticky top-28 rounded-[3rem] p-8 shadow-2xl">
+    <section className="grid gap-4 border-t border-white/5 pt-8 lg:grid-cols-[1.15fr_0.85fr]">
+      <Card className="glass-panel rounded-[2rem] p-5 shadow-lg sm:p-6">
         <div className="flex items-center justify-between">
           <div>
             <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary">
               {t("guest.operations")}
             </p>
-            <h3 className="mt-2 text-2xl font-bold text-white tracking-tight">
+            <h3 className="mt-2 text-2xl font-bold tracking-tight text-white">
               {t("guest.liveBoard")}
             </h3>
           </div>
@@ -51,15 +51,15 @@ export function RoomOperationalBoard({
           </div>
         </div>
 
-        <div className="mt-8 space-y-6">
-          <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-[2rem] bg-white/5 p-6 border border-white/5 text-center">
+        <div className="mt-6 space-y-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="rounded-2xl border border-white/5 bg-white/5 p-4 text-center sm:p-5">
               <p className="text-3xl font-bold text-white tracking-tighter">{statusCounts.pending}</p>
               <p className="mt-1 text-[10px] uppercase tracking-widest text-slate-500 font-bold">
                 {t("guest.inPrep")}
               </p>
             </div>
-            <div className="rounded-[2rem] bg-white/5 p-6 border border-white/5 text-center">
+            <div className="rounded-2xl border border-white/5 bg-white/5 p-4 text-center sm:p-5">
               <p className="text-3xl font-bold text-white tracking-tighter">{statusCounts.completed}</p>
               <p className="mt-1 text-[10px] uppercase tracking-widest text-slate-500 font-bold">
                 {t("guest.completed")}
@@ -67,8 +67,8 @@ export function RoomOperationalBoard({
             </div>
           </div>
 
-          <div className="rounded-[2.5rem] bg-slate-950/50 p-8 border border-white/5">
-            <div className="flex items-center gap-3 mb-6">
+          <div className="rounded-[1.5rem] border border-white/5 bg-slate-950/50 p-5">
+            <div className="mb-5 flex items-center gap-3">
               <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
               <span className="text-xs font-bold text-slate-300 uppercase tracking-widest">
                 {t("guest.latestProgress")}
@@ -83,7 +83,7 @@ export function RoomOperationalBoard({
             ) : latestRequest ? (
               <div className="animate-in fade-in duration-500">
                 <div className="mb-6">
-                  <p className="text-2xl font-bold text-white tracking-tight">
+                  <p className="text-xl font-bold tracking-tight text-white sm:text-2xl">
                     {translateItemName(t, latestRequest)}
                   </p>
                   <p className="mt-2 text-sm text-slate-500">{t("guest.trackingLive")}</p>
@@ -100,31 +100,34 @@ export function RoomOperationalBoard({
 
           <Link 
             href="/"
-            className={cn(buttonVariants({ variant: "ghost" }), "w-full rounded-2xl border border-white/5 bg-white/5 text-slate-300 hover:text-white")}
+            className={cn(
+              buttonVariants({ variant: "ghost" }),
+              "min-h-11 w-full rounded-2xl border border-white/5 bg-white/5 text-slate-300 hover:text-white"
+            )}
           >
             {t("guest.returnHome")}
           </Link>
         </div>
       </Card>
 
-      <Card className="glass-panel overflow-hidden rounded-[3rem] p-8 shadow-2xl relative">
+      <Card className="glass-panel relative overflow-hidden rounded-[2rem] p-5 shadow-lg sm:p-6">
         <div className="absolute top-0 right-0 h-32 w-32 bg-primary/5 blur-3xl" />
         <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary">
           {t("mode.label")}
         </p>
-        <h3 className="mt-4 text-2xl font-bold text-white tracking-tight">
+        <h3 className="mt-4 text-2xl font-bold tracking-tight text-white">
           {t("guest.connectedEcosystem")}
         </h3>
         <p className="mt-4 text-sm text-slate-400 leading-relaxed">
           {t("guest.connectedDescription")}
         </p>
         
-        <div className="mt-8 space-y-3">
+        <div className="mt-6 space-y-3">
           {links.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="flex items-center justify-between group rounded-[1.5rem] border border-white/5 bg-white/5 px-6 py-4 transition-all hover:bg-white/10 hover:border-primary/20"
+              className="group flex min-h-14 items-center justify-between rounded-2xl border border-white/5 bg-white/5 px-4 py-3 transition-all hover:border-primary/20 hover:bg-white/10"
             >
               <div className="flex items-center gap-4">
                 <item.icon className="h-5 w-5 text-slate-500 group-hover:text-primary" />
@@ -135,6 +138,6 @@ export function RoomOperationalBoard({
           ))}
         </div>
       </Card>
-    </aside>
+    </section>
   );
 }

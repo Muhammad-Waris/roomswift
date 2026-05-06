@@ -73,24 +73,24 @@ function ServiceTicketCard({
     >
       <Card
         className={cn(
-          "group relative flex h-full flex-col overflow-hidden rounded-[2rem] p-5 transition-all hover:border-primary/35 sm:p-6",
+          "group relative flex min-h-[236px] flex-col overflow-hidden rounded-2xl p-4 shadow-lg transition-all hover:border-primary/35 sm:p-5",
           service.urgent
-            ? "border-rose-400/40 bg-rose-500/10 shadow-2xl shadow-rose-950/20 hover:border-rose-300/60"
+            ? "border-rose-400/40 bg-rose-500/10 shadow-rose-950/20 hover:border-rose-300/60"
             : "glass-panel"
         )}
       >
         <div className="flex items-start justify-between gap-4">
           <div
             className={cn(
-              "flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl shadow-inner transition-transform group-hover:scale-105",
+              "flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl shadow-inner transition-transform group-hover:scale-105",
               service.urgent ? "bg-rose-500 text-white" : "bg-primary/10 text-primary"
             )}
           >
-            <Icon className="h-6 w-6" />
+            <Icon className="h-5 w-5" />
           </div>
           <span
             className={cn(
-              "rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider",
+              "rounded-full px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider",
               service.urgent ? "bg-rose-500/20 text-rose-100" : "bg-emerald-500/10 text-emerald-300"
             )}
           >
@@ -100,11 +100,11 @@ function ServiceTicketCard({
           </span>
         </div>
 
-        <div className="mt-5">
-          <h3 className="text-xl font-bold tracking-tight text-white">
+        <div className="mt-4">
+          <h3 className="text-base font-semibold leading-snug tracking-tight text-white sm:text-lg">
             {t(`catalog.service.${service.id}.name`, { defaultValue: service.name })}
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-slate-400">
+          <p className="mt-2 min-h-[44px] text-xs leading-relaxed text-slate-400 sm:text-sm">
             {t(`catalog.service.${service.id}.description`, {
               defaultValue: service.description
             })}
@@ -112,7 +112,7 @@ function ServiceTicketCard({
         </div>
 
         {service.optionGroups?.length ? (
-          <div className="mt-5 space-y-4">
+          <div className="mt-4 space-y-3">
             {service.optionGroups.map((group) => {
               const selectedValue = selectedOptions[group.key] ?? group.options[0]?.value;
 
@@ -129,7 +129,7 @@ function ServiceTicketCard({
                         aria-pressed={selectedValue === option.value}
                         onClick={() => onSelectOption(group.key, option.value)}
                         className={cn(
-                          "rounded-full border px-3 py-2 text-xs font-semibold transition-all",
+                          "min-h-9 rounded-full border px-3 py-1.5 text-[11px] font-semibold transition-all",
                           selectedValue === option.value
                             ? service.urgent
                               ? "border-rose-300 bg-rose-400/20 text-white"
@@ -161,17 +161,17 @@ function ServiceTicketCard({
                 placeholder={t("hotelServices.notePlaceholder", {
                   defaultValue: "Add room details or staff instructions..."
                 })}
-                className="mt-5 h-24 w-full resize-none rounded-2xl border border-white/10 bg-slate-950/45 px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-slate-600 focus:border-primary/40"
+                className="mt-4 h-24 w-full resize-none rounded-2xl border border-white/10 bg-slate-950/45 px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-slate-600 focus:border-primary/40"
               />
             </motion.div>
           ) : null}
         </AnimatePresence>
 
-        <div className="mt-6 flex gap-3">
+        <div className="mt-auto flex gap-2 pt-4">
           <Button
             type="button"
             variant="secondary"
-            className="h-12 rounded-2xl px-4 text-xs"
+            className="h-11 rounded-2xl px-3 text-xs"
             onClick={() => setShowDetails((current) => !current)}
           >
             {showDetails
@@ -181,7 +181,7 @@ function ServiceTicketCard({
           <Button
             type="button"
             variant={service.urgent ? "danger" : "primary"}
-            className="h-12 flex-1 rounded-2xl text-xs font-bold uppercase tracking-wider"
+            className="h-11 flex-1 rounded-2xl text-[11px] font-bold uppercase tracking-wider"
             disabled={!service.available || isLoading}
             onClick={onRequest}
           >
@@ -235,14 +235,14 @@ export function GuestServicesSection({ mutatingIds, onRequest }: GuestServicesSe
   }
 
   return (
-    <div className="space-y-10">
-      <div className="space-y-3">
+    <div className="space-y-8">
+      <div className="space-y-3 border-b border-white/5 pb-6">
         <p className="text-[10px] font-bold uppercase tracking-[0.32em] text-primary">
           {t("hotelServices.eyebrow", { defaultValue: "Internal Hotel Services" })}
         </p>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
               {t("hotelServices.title", { defaultValue: "Hotel concierge services" })}
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-400">
@@ -264,11 +264,11 @@ export function GuestServicesSection({ mutatingIds, onRequest }: GuestServicesSe
         const visibleServices = expanded ? categoryServices : primaryServices;
 
         return (
-          <section key={category.id} className="space-y-5">
+          <section key={category.id} className="space-y-4 border-b border-white/5 pb-8 last:border-b-0 last:pb-0">
             <div className="flex items-start gap-4">
               <div
                 className={cn(
-                  "flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl",
+                  "flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl",
                   category.id === "emergency"
                     ? "bg-rose-500/15 text-rose-300"
                     : "bg-primary/10 text-primary"
@@ -277,7 +277,7 @@ export function GuestServicesSection({ mutatingIds, onRequest }: GuestServicesSe
                 <Icon className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">
+                <h3 className="text-xl font-bold leading-tight text-white">
                   {t(`hotelServices.categories.${category.id}.title`, {
                     defaultValue: category.title
                   })}
@@ -292,8 +292,10 @@ export function GuestServicesSection({ mutatingIds, onRequest }: GuestServicesSe
 
             <div
               className={cn(
-                "grid gap-4",
-                category.id === "emergency" ? "grid-cols-1" : "sm:grid-cols-2"
+                "grid gap-3 sm:gap-4",
+                category.id === "emergency"
+                  ? "grid-cols-1"
+                  : "grid-cols-2 md:grid-cols-3 xl:grid-cols-4"
               )}
             >
               {visibleServices.map((service, index) => (
@@ -325,7 +327,7 @@ export function GuestServicesSection({ mutatingIds, onRequest }: GuestServicesSe
               <Button
                 type="button"
                 variant="ghost"
-                className="h-11 rounded-2xl px-4 text-xs"
+                className="h-11 rounded-2xl border border-white/5 bg-white/5 px-4 text-xs"
                 onClick={() =>
                   setExpandedCategories((current) => ({
                     ...current,

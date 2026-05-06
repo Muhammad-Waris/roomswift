@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 interface MenuTabsProps {
   activeTab: string;
-  setActiveTab: (tab: any) => void;
+  setActiveTab: (tab: "menu" | "services" | "status") => void;
   tabs: string[];
   categories: string[];
   selectedCategory: string;
@@ -24,18 +24,18 @@ export function MenuTabs({
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-      <div className="glass-panel sticky top-20 z-10 flex flex-1 rounded-2xl p-1.5 backdrop-blur-3xl shadow-2xl border border-white/10 ring-1 ring-black/50">
+    <div className="space-y-4">
+      <div className="glass-panel grid grid-cols-3 rounded-2xl border border-white/10 p-1.5 shadow-lg">
         {tabs.map((tab) => (
           <button
             key={tab}
             className={cn(
-              "flex-1 rounded-xl px-4 py-3 text-xs sm:text-sm font-bold capitalize tracking-wide transition-all duration-500",
+              "min-h-11 rounded-xl px-3 py-2 text-xs font-bold capitalize tracking-wide transition-all duration-300 sm:text-sm",
               activeTab === tab
-                ? "bg-primary text-primary-foreground shadow-xl shadow-primary/20 scale-[1.02]"
+                ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
                 : "text-slate-500 hover:text-white"
             )}
-            onClick={() => setActiveTab(tab)}
+            onClick={() => setActiveTab(tab as "menu" | "services" | "status")}
           >
             {t(`guest.tabs.${tab}`)}
           </button>
@@ -43,16 +43,16 @@ export function MenuTabs({
       </div>
 
       {activeTab === "menu" && (
-        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 lg:pb-0">
+        <div className="flex flex-wrap items-center gap-2">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
               className={cn(
-                "whitespace-nowrap rounded-full px-4 py-2 text-[10px] font-bold uppercase tracking-widest transition-all",
+                "min-h-10 rounded-full border px-4 py-2 text-[10px] font-bold uppercase tracking-widest transition-all",
                 selectedCategory === cat
                   ? "bg-white/10 text-white border border-white/20"
-                  : "text-slate-500 hover:text-slate-300 border border-transparent"
+                  : "border-transparent text-slate-500 hover:border-white/10 hover:text-slate-300"
               )}
             >
               {translateCategory(t, cat)}

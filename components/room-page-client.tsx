@@ -39,10 +39,12 @@ export function RoomPageClient({
   mode?: ServiceMode;
 }) {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState<typeof tabs[number]>("menu");
+  const isRestaurantMode = mode === "restaurant";
+  const [activeTab, setActiveTab] = useState<typeof tabs[number]>(
+    isRestaurantMode ? "menu" : "services"
+  );
   const [selectedCategory, setSelectedCategory] = useState("ALL");
   const [notes, setNotes] = useState<Record<string, string>>({});
-  const isRestaurantMode = mode === "restaurant";
   const locationRoomId = roomNumber ?? "101";
   const locationTableId = tableId ?? "T01";
 
@@ -129,7 +131,7 @@ export function RoomPageClient({
   );
 
   return (
-    <main className="min-h-screen pb-32 sm:pb-8">
+    <main className="min-h-screen pb-24 sm:pb-10">
       {/* Real-time Status Overlay */}
       <FloatingStatusHUD
         latestRequest={latestRequest}
@@ -137,111 +139,109 @@ export function RoomPageClient({
         onViewStatus={() => setActiveTab("status")}
       />
 
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-12">
+      <div className="mx-auto max-w-6xl space-y-8 px-4 py-6 sm:px-6 lg:px-8">
         <RoomHeader 
           roomNumber={locationRoomId}
           tableId={locationTableId}
           mode={mode}
         />
 
-        <section className="grid gap-12 grid-cols-1 xl:grid-cols-[1.2fr_0.8fr]">
-          <div className="space-y-12">
-            {!isRestaurantMode ? <QuickConcierge onRequest={handleRequest} /> : null}
+        <section className="space-y-8">
+          {!isRestaurantMode ? <QuickConcierge onRequest={handleRequest} /> : null}
 
-            <section className="space-y-8">
-              <MenuTabs 
-                activeTab={activeTab}
-                setActiveTab={setActiveTab}
-                tabs={visibleTabs}
-                categories={categories}
-                selectedCategory={selectedCategory}
-                setSelectedCategory={setSelectedCategory}
-              />
+          <section className="space-y-6">
+            <MenuTabs 
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+              tabs={visibleTabs}
+              categories={categories}
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+            />
 
-              <SupabaseBanner
-                isRealtimeEnabled={isRealtimeEnabled}
-                error={catalogError || requestsError}
-              />
+            <SupabaseBanner
+              isRealtimeEnabled={isRealtimeEnabled}
+              error={catalogError || requestsError}
+            />
 
-              <div className="min-h-[400px]">
-                {activeTab === "menu" && (
-                  <div className="space-y-8">
-                    <HotSellers
-                      hotItems={hotItems}
-                      menuItems={menuItems}
-                      loading={hotItemsLoading}
-                      mutatingIds={mutatingIds}
-                      onOrder={(item) =>
-                        handleRequest({
-                          requestType: "food",
-                          itemId: item.id,
-                          itemName: item.name
-                        })
-                      }
-                    />
+            <div className="min-h-[320px]">
+              {activeTab === "menu" && (
+                <div className="space-y-6">
+                  <HotSellers
+                    hotItems={hotItems}
+                    menuItems={menuItems}
+                    loading={hotItemsLoading}
+                    mutatingIds={mutatingIds}
+                    onOrder={(item) =>
+                      handleRequest({
+                        requestType: "food",
+                        itemId: item.id,
+                        itemName: item.name
+                      })
+                    }
+                  />
 
-                    <div className="grid gap-6 sm:grid-cols-2">
-                      {catalogLoading ? (
-                        [1, 2].map(i => (
-                          <Card key={i} className="glass-panel space-y-6 p-6 rounded-[2.5rem]">
-                            <LoadingSkeleton className="h-56 w-full rounded-3xl" />
-                            <div className="space-y-2">
-                              <LoadingSkeleton className="h-8 w-2/3" />
-                              <LoadingSkeleton className="h-4 w-full" />
-                            </div>
-                          </Card>
-                        ))
-                      ) : (
-                        filteredItems.map((item, i) => (
-                          <motion.div
-                            key={item.id}
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: i * 0.05 }}
-                          >
-                            <MenuCard
-                              item={translateMenuItem(t, item)}
-                              availabilityLabel={t("guest.available")}
-                              unavailableLabel={t("guest.unavailable")}
-                              actionLabel={t("guest.submitFood")}
-                              notePlaceholder={t("guest.notePlaceholder")}
-                              processingLabel={t("guest.processing")}
-                              specialInstructionsLabel={t("guest.specialInstructions")}
-                              noteValue={notes[item.id] ?? ""}
-                              onNoteChange={(note) =>
-                                setNotes((current) => ({ ...current, [item.id]: note }))
-                              }
-                              onOrder={() =>
-                                handleRequest({
-                                  requestType: "food",
-                                  itemId: item.id,
-                                  itemName: item.name
-                                })
-                              }
-                              isLoading={mutatingIds.includes(item.name)}
-                            />
-                          </motion.div>
-                        ))
-                      )}
-                    </div>
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {catalogLoading ? (
+                      [1, 2, 3].map((i) => (
+                        <Card key={i} className="glass-panel space-y-5 rounded-[2rem] p-5">
+                          <LoadingSkeleton className="h-48 w-full rounded-3xl" />
+                          <div className="space-y-2">
+                            <LoadingSkeleton className="h-7 w-2/3" />
+                            <LoadingSkeleton className="h-4 w-full" />
+                          </div>
+                        </Card>
+                      ))
+                    ) : (
+                      filteredItems.map((item, i) => (
+                        <motion.div
+                          key={item.id}
+                          initial={{ y: 16, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ delay: i * 0.04 }}
+                        >
+                          <MenuCard
+                            item={translateMenuItem(t, item)}
+                            availabilityLabel={t("guest.available")}
+                            unavailableLabel={t("guest.unavailable")}
+                            actionLabel={t("guest.submitFood")}
+                            notePlaceholder={t("guest.notePlaceholder")}
+                            processingLabel={t("guest.processing")}
+                            specialInstructionsLabel={t("guest.specialInstructions")}
+                            noteValue={notes[item.id] ?? ""}
+                            onNoteChange={(note) =>
+                              setNotes((current) => ({ ...current, [item.id]: note }))
+                            }
+                            onOrder={() =>
+                              handleRequest({
+                                requestType: "food",
+                                itemId: item.id,
+                                itemName: item.name
+                              })
+                            }
+                            isLoading={mutatingIds.includes(item.name)}
+                          />
+                        </motion.div>
+                      ))
+                    )}
                   </div>
-                )}
+                </div>
+              )}
 
-                {activeTab === "services" && !isRestaurantMode && (
-                  <GuestServicesSection mutatingIds={mutatingIds} onRequest={handleRequest} />
-                )}
+              {activeTab === "services" && !isRestaurantMode && (
+                <GuestServicesSection mutatingIds={mutatingIds} onRequest={handleRequest} />
+              )}
 
-                {activeTab === "status" && (
-                  <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                    <RequestStatusList
-                      requests={sortedRequests}
-                      emptyLabel={t("guest.noRequests")}
-                    />
-                  </div>
-                )}
-              </div>
-            </section>
-          </div>
+              {activeTab === "status" && (
+                <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                  <RequestStatusList
+                    requests={sortedRequests}
+                    emptyLabel={t("guest.noRequests")}
+                  />
+                </div>
+              )}
+            </div>
+          </section>
 
           <RoomOperationalBoard 
             statusCounts={statusCounts}
