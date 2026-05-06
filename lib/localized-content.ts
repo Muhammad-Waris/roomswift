@@ -10,17 +10,23 @@ const categoryKeys: Record<string, string> = {
 };
 
 const quickActionKeys: Record<string, string> = {
-  water: "quickActions.water",
-  towels: "quickActions.towels",
-  clean: "quickActions.clean",
-  coffee: "quickActions.coffee",
-  "Mineral Water": "quickActions.water",
+  water: "catalog.service.service-1.name",
+  towels: "catalog.service.service-2.name",
+  clean: "catalog.service.service-3.name",
+  coffee: "catalog.service.service-7.name",
+  "service-1": "catalog.service.service-1.name",
+  "service-2": "catalog.service.service-2.name",
+  "service-3": "catalog.service.service-3.name",
+  "service-7": "catalog.service.service-7.name",
+  "Mineral Water": "catalog.service.service-1.name",
+  "Mineral Water Request": "catalog.service.service-1.name",
   "Fresh Water": "quickActions.water",
-  "Fresh Towels": "quickActions.towels",
+  "Fresh Towels": "catalog.service.service-2.name",
   "Extra Towels": "quickActions.towels",
-  "Room Refresh": "quickActions.clean",
+  "Room Refresh": "catalog.service.service-3.name",
   "Clean Suite": "quickActions.clean",
-  "Tea Service": "quickActions.coffee",
+  "Tea Service": "catalog.service.service-7.name",
+  "Tea / Coffee Service": "catalog.service.service-7.name",
   "More Coffee": "quickActions.coffee"
 };
 
@@ -35,6 +41,7 @@ const canonicalItemNameKeys: Record<string, string> = {
   Coffee: "catalog.menu.menu-5.name",
   "Fresh Lime": "catalog.menu.menu-6.name",
   "Mineral Water": "catalog.service.service-1.name",
+  "Mineral Water Request": "catalog.service.service-1.name",
   "Water Bottle": "catalog.service.service-1.name",
   "Fresh Towels": "catalog.service.service-2.name",
   "Extra Towels": "catalog.service.service-2.name",
@@ -43,7 +50,15 @@ const canonicalItemNameKeys: Record<string, string> = {
   "Maintenance Support": "catalog.service.service-4.name",
   "Maintenance Help": "catalog.service.service-4.name",
   "Wake-up Call": "catalog.service.service-5.name",
-  "Tea Tray Setup": "catalog.service.service-6.name"
+  "Extra Cleaning Options": "catalog.service.service-6.name",
+  "Tea Tray Setup": "catalog.service.service-7.name",
+  "Tea / Coffee Service": "catalog.service.service-7.name",
+  "Breakfast Scheduling": "catalog.service.service-8.name",
+  "Room Service Orders": "catalog.service.service-9.name",
+  "Mini Bar Request": "catalog.service.service-10.name",
+  "Luggage Assistance": "catalog.service.service-11.name",
+  "WiFi / Technical Support": "catalog.service.service-12.name",
+  "Emergency Help": "catalog.service.service-13.name"
 };
 
 const fallbackGuestNoteKeys: Record<string, string> = {

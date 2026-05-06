@@ -146,14 +146,38 @@ set
   category = excluded.category,
   available = excluded.available;
 
+delete from public.service_items
+where name not in (
+  'Mineral Water Request',
+  'Fresh Towels',
+  'Housekeeping Refresh',
+  'Maintenance Support',
+  'Wake-up Call',
+  'Extra Cleaning Options',
+  'Tea / Coffee Service',
+  'Breakfast Scheduling',
+  'Room Service Orders',
+  'Mini Bar Request',
+  'Luggage Assistance',
+  'WiFi / Technical Support',
+  'Emergency Help'
+);
+
 insert into public.service_items (name, description, icon_name, available)
 values
-  ('Mineral Water', 'Request chilled mineral water for the room.', 'Droplets', true),
-  ('Fresh Towels', 'Get clean towels delivered by the service team.', 'Bath', true),
-  ('Housekeeping Refresh', 'Request a quick room refresh from housekeeping.', 'Sparkles', true),
-  ('Maintenance Support', 'Report AC, TV, light, Wi-Fi, or fixture issues instantly.', 'Wrench', true),
-  ('Wake-up Call', 'Set a morning call reminder from reception.', 'AlarmClock', true),
-  ('Tea Tray Setup', 'Request a tea tray with cups, kettle, and sugar sachets.', 'CupSoda', true)
+  ('Mineral Water Request', 'Ask housekeeping to deliver sealed mineral water to your room.', 'Droplets', true),
+  ('Fresh Towels', 'Request clean bath or hand towels from the hotel service team.', 'Bath', true),
+  ('Housekeeping Refresh', 'Request a light room cleaning and housekeeping refresh.', 'Sparkles', true),
+  ('Maintenance Support', 'Report AC, TV, WiFi, light, or fixture issues directly to maintenance.', 'Wrench', true),
+  ('Wake-up Call', 'Schedule a wake-up call from reception.', 'AlarmClock', true),
+  ('Extra Cleaning Options', 'Request a focused cleaning task for your room.', 'SprayCan', true),
+  ('Tea / Coffee Service', 'Request tea, coffee, cups, kettle support, or hot beverage service.', 'Coffee', true),
+  ('Breakfast Scheduling', 'Choose a breakfast time and notify the hotel dining team.', 'CalendarClock', true),
+  ('Room Service Orders', 'Ask the room service team to assist with in-room dining.', 'ConciergeBell', true),
+  ('Mini Bar Request', 'Request snacks or drinks restock for your room mini bar.', 'PackageCheck', true),
+  ('Luggage Assistance', 'Request luggage help for check-in or checkout.', 'BaggageClaim', true),
+  ('WiFi / Technical Support', 'Ask hotel staff for WiFi, password, or in-room technical help.', 'Wifi', true),
+  ('Emergency Help', 'Request immediate medical or security assistance from hotel staff.', 'ShieldAlert', true)
 on conflict (name) do update
 set
   description = excluded.description,
@@ -165,7 +189,7 @@ select *
 from (
   values
     ('101', '101', null, 'hotel', 'food', 'Chicken Biryani', 'Please keep the spice level mild.', 'In Progress', now() - interval '18 minutes', now() - interval '10 minutes'),
-    ('101', '101', null, 'hotel', 'service', 'Mineral Water', 'Please send two bottles.', 'Pending', now() - interval '4 minutes', now() - interval '4 minutes'),
+    ('101', '101', null, 'hotel', 'service', 'Mineral Water Request', 'Please send two bottles.', 'Pending', now() - interval '4 minutes', now() - interval '4 minutes'),
     ('102', '102', null, 'hotel', 'service', 'Housekeeping Refresh', 'Please service after 3 PM.', 'Accepted', now() - interval '34 minutes', now() - interval '30 minutes'),
     ('201', '201', null, 'hotel', 'food', 'Karak Chai', null, 'Completed', now() - interval '52 minutes', now() - interval '20 minutes'),
     (null, null, 'T01', 'restaurant', 'food', 'Zinger Burger', 'Add extra sauce.', 'Completed', now() - interval '28 minutes', now() - interval '16 minutes')

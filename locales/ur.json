@@ -35,7 +35,7 @@
     "suite": "روم",
     "table": "ٹیبل",
     "staffAccess": "اسٹاف رسائی",
-    "smartConcierge": "فوری درخواستیں",
+    "smartConcierge": "فوری سروس رسائی",
     "tabs": {
       "menu": "مینو",
       "services": "سروسز",
@@ -77,8 +77,8 @@
   "quickActions": {
     "water": "Mineral Water",
     "towels": "Fresh Towels",
-    "clean": "Room Refresh",
-    "coffee": "Tea Service"
+    "clean": "Housekeeping",
+    "coffee": "Tea / Coffee"
   },
   "hotSellers": {
     "title": "Guest Favorites",
@@ -390,28 +390,56 @@
     },
     "service": {
       "service-1": {
-        "name": "Mineral Water",
-        "description": "Room کے لیے chilled mineral water request کریں۔"
+        "name": "Mineral Water Request",
+        "description": "Room میں sealed mineral water deliver کروانے کے لیے housekeeping کو request بھیجیں۔"
       },
       "service-2": {
         "name": "Fresh Towels",
-        "description": "Service team سے clean towels deliver کروائیں۔"
+        "description": "Hotel service team سے clean bath یا hand towels request کریں۔"
       },
       "service-3": {
         "name": "Housekeeping Refresh",
-        "description": "Housekeeping سے quick room refresh request کریں۔"
+        "description": "Light room cleaning اور housekeeping refresh request کریں۔"
       },
       "service-4": {
         "name": "Maintenance Support",
-        "description": "AC، TV، light، Wi-Fi، یا fixture issues فوراً report کریں۔"
+        "description": "AC، TV، WiFi، lights، یا room fixtures کے issues maintenance کو report کریں۔"
       },
       "service-5": {
         "name": "Wake-up Call",
         "description": "Reception کے ساتھ morning wake-up call schedule کریں۔"
       },
       "service-6": {
-        "name": "Tea Tray Setup",
-        "description": "Cups، kettle، اور sugar sachets کے ساتھ tea tray request کریں۔"
+        "name": "Extra Cleaning Options",
+        "description": "Room کے لیے focused cleaning task request کریں۔"
+      },
+      "service-7": {
+        "name": "Tea / Coffee Service",
+        "description": "Tea، coffee، cups، kettle support، یا hot beverage service request کریں۔"
+      },
+      "service-8": {
+        "name": "Breakfast Scheduling",
+        "description": "Breakfast time select کریں اور hotel dining team کو notify کریں۔"
+      },
+      "service-9": {
+        "name": "Room Service Orders",
+        "description": "In-room dining کے لیے room service team سے assistance request کریں۔"
+      },
+      "service-10": {
+        "name": "Mini Bar Request",
+        "description": "Room mini bar کے snacks یا drinks restock request کریں۔"
+      },
+      "service-11": {
+        "name": "Luggage Assistance",
+        "description": "Check-in یا checkout کے لیے luggage help request کریں۔"
+      },
+      "service-12": {
+        "name": "WiFi / Technical Support",
+        "description": "WiFi، password، یا in-room technical help کے لیے hotel staff سے رابطہ کریں۔"
+      },
+      "service-13": {
+        "name": "Emergency Help",
+        "description": "Hotel staff سے فوری medical یا security assistance request کریں۔"
       }
     }
   },

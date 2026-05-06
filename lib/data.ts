@@ -3,6 +3,7 @@ import {
   fallbackRoomRequests,
   fallbackServiceItems
 } from "@/lib/fallback-data";
+import { internalHotelServices } from "@/lib/hotel-services";
 import { getSupabaseBrowserClient, hasSupabaseEnv } from "@/lib/supabase";
 import {
   MenuItem,
@@ -14,6 +15,7 @@ import {
 } from "@/types";
 
 const STORAGE_KEY = "roomswift-local-requests";
+const internalServiceNames = new Set(internalHotelServices.map((service) => service.name));
 
 export type RequestScopeInput = string | RequestScope | undefined;
 
@@ -130,7 +132,7 @@ export async function getServiceItems(): Promise<ServiceItem[]> {
     throw error;
   }
 
-  return data ?? [];
+  return (data ?? []).filter((service) => internalServiceNames.has(service.name));
 }
 
 export async function getRoomRequests(scope?: RequestScopeInput): Promise<RoomRequest[]> {
@@ -193,10 +195,21 @@ function trackFoodOrder(request: RoomRequest) {
   }).catch(() => undefined);
 }
 
+function isUuid(value: string | null | undefined) {
+  return Boolean(
+    value &&
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+        value
+      )
+  );
+}
+
 export async function createRoomRequest(input: CreateRequestInput) {
   const mode = input.mode ?? (input.tableId ? "restaurant" : "hotel");
   const roomId = mode === "hotel" ? input.roomId ?? input.roomNumber ?? null : null;
   const tableId = mode === "restaurant" ? input.tableId ?? null : null;
+  const client = getSupabaseBrowserClient();
+  const itemId = client && input.itemId && !isUuid(input.itemId) ? null : input.itemId ?? null;
 
   const payload = {
     room_number: roomId,
@@ -204,13 +217,12 @@ export async function createRoomRequest(input: CreateRequestInput) {
     table_id: tableId,
     mode,
     request_type: input.requestType,
-    item_id: input.itemId ?? null,
+    item_id: itemId,
     item_name: input.itemName,
     guest_note: input.guestNote || null,
     status: "Pending" as RequestStatus
   };
 
-  const client = getSupabaseBrowserClient();
   if (!client) {
     const requests = readLocalRequests();
     const next = sortRequests([

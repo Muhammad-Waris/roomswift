@@ -8,7 +8,6 @@ import { useTranslation } from "react-i18next";
 import { useCatalog, useRequests } from "@/hooks/use-roomswift-data";
 import { useHotItems } from "@/hooks/use-hot-items";
 import { MenuCard } from "@/components/menu-card";
-import { ServiceCard } from "@/components/service-card";
 import { RequestStatusList } from "@/components/request-status-list";
 import { SupabaseBanner } from "@/components/supabase-banner";
 import { FloatingStatusHUD } from "@/components/floating-status-hud";
@@ -17,8 +16,7 @@ import { LoadingSkeleton } from "@/components/loading-skeleton";
 import { HotSellers } from "@/components/hot-sellers";
 import {
   translateItemName,
-  translateMenuItem,
-  translateServiceItem
+  translateMenuItem
 } from "@/lib/localized-content";
 import { ServiceMode } from "@/types";
 
@@ -27,6 +25,7 @@ import { RoomHeader } from "./room/room-header";
 import { QuickConcierge } from "./room/quick-concierge";
 import { MenuTabs } from "./room/menu-tabs";
 import { RoomOperationalBoard } from "./room/room-operational-board";
+import { GuestServicesSection } from "./room/guest-services-section";
 
 const tabs = ["menu", "services", "status"] as const;
 
@@ -49,7 +48,6 @@ export function RoomPageClient({
 
   const {
     menuItems,
-    serviceItems,
     loading: catalogLoading,
     error: catalogError
   } = useCatalog();
@@ -93,6 +91,7 @@ export function RoomPageClient({
     requestType: "food" | "service";
     itemId?: string | null;
     itemName: string;
+    guestNote?: string;
   }) => {
     if (isRestaurantMode && input.requestType === "service") {
       return;
@@ -107,7 +106,7 @@ export function RoomPageClient({
         requestType: input.requestType,
         itemId: input.itemId,
         itemName: input.itemName,
-        guestNote: input.itemId ? notes[input.itemId] : undefined
+        guestNote: input.guestNote ?? (input.itemId ? notes[input.itemId] : undefined)
       });
       toast.success(
         t("guest.requestSuccess", {
@@ -229,46 +228,7 @@ export function RoomPageClient({
                 )}
 
                 {activeTab === "services" && !isRestaurantMode && (
-                  <div className="grid gap-6 sm:grid-cols-2">
-                    {catalogLoading ? (
-                      [1, 2].map(i => (
-                        <Card key={i} className="glass-panel space-y-4 p-8 rounded-[2.5rem]">
-                          <LoadingSkeleton className="h-14 w-14 rounded-2xl" />
-                          <LoadingSkeleton className="h-8 w-1/2" />
-                          <LoadingSkeleton className="h-20 w-full rounded-2xl" />
-                        </Card>
-                      ))
-                    ) : (
-                      serviceItems.map((item, i) => (
-                        <motion.div
-                          key={item.id}
-                          initial={{ y: 20, opacity: 0 }}
-                          animate={{ y: 0, opacity: 1 }}
-                          transition={{ delay: i * 0.05 }}
-                        >
-                          <ServiceCard
-                            item={translateServiceItem(t, item)}
-                            actionLabel={t("guest.submitService")}
-                            notePlaceholder={t("guest.notePlaceholder")}
-                            sendingLabel={t("guest.sending")}
-                            addInstructionsLabel={t("guest.addInstructions")}
-                            noteValue={notes[item.id] ?? ""}
-                            onNoteChange={(note) =>
-                              setNotes((current) => ({ ...current, [item.id]: note }))
-                            }
-                            onRequest={() =>
-                              handleRequest({
-                                requestType: "service",
-                                itemId: item.id,
-                                itemName: item.name
-                              })
-                            }
-                            isLoading={mutatingIds.includes(item.name)}
-                          />
-                        </motion.div>
-                      ))
-                    )}
-                  </div>
+                  <GuestServicesSection mutatingIds={mutatingIds} onRequest={handleRequest} />
                 )}
 
                 {activeTab === "status" && (

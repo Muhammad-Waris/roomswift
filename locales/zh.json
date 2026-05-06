@@ -35,7 +35,7 @@
     "suite": "房间",
     "table": "餐桌",
     "staffAccess": "员工入口",
-    "smartConcierge": "快捷请求",
+    "smartConcierge": "快速服务入口",
     "tabs": {
       "menu": "菜单",
       "services": "服务",
@@ -77,8 +77,8 @@
   "quickActions": {
     "water": "矿泉水",
     "towels": "干净毛巾",
-    "clean": "房间整理",
-    "coffee": "茶水服务"
+    "clean": "客房整理",
+    "coffee": "茶 / 咖啡"
   },
   "hotSellers": {
     "title": "客人最爱",
@@ -390,28 +390,56 @@
     },
     "service": {
       "service-1": {
-        "name": "Mineral Water",
-        "description": "为房间请求冰镇矿泉水。"
+        "name": "矿泉水请求",
+        "description": "请客房团队为房间送达密封矿泉水。"
       },
       "service-2": {
-        "name": "Fresh Towels",
-        "description": "由服务团队送达干净毛巾。"
+        "name": "干净毛巾",
+        "description": "向酒店服务团队请求干净浴巾或手巾。"
       },
       "service-3": {
-        "name": "Housekeeping Refresh",
-        "description": "请求客房清洁团队快速整理房间。"
+        "name": "客房整理",
+        "description": "请求轻度房间清洁和客房整理。"
       },
       "service-4": {
-        "name": "Maintenance Support",
-        "description": "立即报告空调、电视、灯光、Wi-Fi 或设施问题。"
+        "name": "维修支持",
+        "description": "向维修团队报告空调、电视、WiFi、灯光或房内设施问题。"
       },
       "service-5": {
-        "name": "Wake-up Call",
+        "name": "叫醒服务",
         "description": "与前台安排早晨叫醒服务。"
       },
       "service-6": {
-        "name": "Tea Tray Setup",
-        "description": "请求茶盘、杯子、水壶和糖包。"
+        "name": "额外清洁选项",
+        "description": "为房间请求指定清洁任务。"
+      },
+      "service-7": {
+        "name": "茶 / 咖啡服务",
+        "description": "请求茶、咖啡、杯子、水壶支持或热饮服务。"
+      },
+      "service-8": {
+        "name": "早餐预约",
+        "description": "选择早餐时间并通知酒店餐饮团队。"
+      },
+      "service-9": {
+        "name": "客房送餐协助",
+        "description": "请客房服务团队协助房内用餐。"
+      },
+      "service-10": {
+        "name": "迷你吧请求",
+        "description": "请求为房间迷你吧补充零食或饮品。"
+      },
+      "service-11": {
+        "name": "行李协助",
+        "description": "请求入住或退房时的行李帮助。"
+      },
+      "service-12": {
+        "name": "WiFi / 技术支持",
+        "description": "请求酒店员工帮助 WiFi、密码或房内设备问题。"
+      },
+      "service-13": {
+        "name": "紧急帮助",
+        "description": "向酒店员工请求即时医疗或安保协助。"
       }
     }
   },

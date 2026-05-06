@@ -75,39 +75,81 @@ const menuItems = [
 
 const serviceItems = [
   {
-    name: "Mineral Water",
-    description: "Request chilled mineral water for the room.",
+    name: "Mineral Water Request",
+    description: "Ask housekeeping to deliver sealed mineral water to your room.",
     icon_name: "Droplets",
     available: true
   },
   {
     name: "Fresh Towels",
-    description: "Get clean towels delivered by the service team.",
+    description: "Request clean bath or hand towels from the hotel service team.",
     icon_name: "Bath",
     available: true
   },
   {
     name: "Housekeeping Refresh",
-    description: "Request a quick room refresh from housekeeping.",
+    description: "Request a light room cleaning and housekeeping refresh.",
     icon_name: "Sparkles",
     available: true
   },
   {
     name: "Maintenance Support",
-    description: "Report AC, TV, light, Wi-Fi, or fixture issues instantly.",
+    description: "Report AC, TV, WiFi, light, or fixture issues directly to maintenance.",
     icon_name: "Wrench",
     available: true
   },
   {
     name: "Wake-up Call",
-    description: "Set a morning call reminder from reception.",
+    description: "Schedule a wake-up call from reception.",
     icon_name: "AlarmClock",
     available: true
   },
   {
-    name: "Tea Tray Setup",
-    description: "Request a tea tray with cups, kettle, and sugar sachets.",
-    icon_name: "CupSoda",
+    name: "Extra Cleaning Options",
+    description: "Request a focused cleaning task for your room.",
+    icon_name: "SprayCan",
+    available: true
+  },
+  {
+    name: "Tea / Coffee Service",
+    description: "Request tea, coffee, cups, kettle support, or hot beverage service.",
+    icon_name: "Coffee",
+    available: true
+  },
+  {
+    name: "Breakfast Scheduling",
+    description: "Choose a breakfast time and notify the hotel dining team.",
+    icon_name: "CalendarClock",
+    available: true
+  },
+  {
+    name: "Room Service Orders",
+    description: "Ask the room service team to assist with in-room dining.",
+    icon_name: "ConciergeBell",
+    available: true
+  },
+  {
+    name: "Mini Bar Request",
+    description: "Request snacks or drinks restock for your room mini bar.",
+    icon_name: "PackageCheck",
+    available: true
+  },
+  {
+    name: "Luggage Assistance",
+    description: "Request luggage help for check-in or checkout.",
+    icon_name: "BaggageClaim",
+    available: true
+  },
+  {
+    name: "WiFi / Technical Support",
+    description: "Ask hotel staff for WiFi, password, or in-room technical help.",
+    icon_name: "Wifi",
+    available: true
+  },
+  {
+    name: "Emergency Help",
+    description: "Request immediate medical or security assistance from hotel staff.",
+    icon_name: "ShieldAlert",
     available: true
   }
 ];

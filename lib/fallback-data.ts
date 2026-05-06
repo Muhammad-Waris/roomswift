@@ -1,4 +1,5 @@
 import { MenuItem, RoomRequest, ServiceItem } from "@/types";
+import { fallbackInternalServiceItems } from "@/lib/hotel-services";
 
 const now = new Date();
 const ago = (minutes: number) =>
@@ -67,50 +68,7 @@ export const fallbackMenuItems: MenuItem[] = [
   }
 ];
 
-export const fallbackServiceItems: ServiceItem[] = [
-  {
-    id: "service-1",
-    name: "Mineral Water",
-    description: "Request chilled mineral water for the room.",
-    icon_name: "Droplets",
-    available: true
-  },
-  {
-    id: "service-2",
-    name: "Fresh Towels",
-    description: "Get clean towels delivered by the service team.",
-    icon_name: "Bath",
-    available: true
-  },
-  {
-    id: "service-3",
-    name: "Housekeeping Refresh",
-    description: "Request a quick room refresh from housekeeping.",
-    icon_name: "Sparkles",
-    available: true
-  },
-  {
-    id: "service-4",
-    name: "Maintenance Support",
-    description: "Report AC, TV, light, Wi-Fi, or fixture issues instantly.",
-    icon_name: "Wrench",
-    available: true
-  },
-  {
-    id: "service-5",
-    name: "Wake-up Call",
-    description: "Set a morning call reminder from reception.",
-    icon_name: "AlarmClock",
-    available: true
-  },
-  {
-    id: "service-6",
-    name: "Tea Tray Setup",
-    description: "Request a tea tray with cups, kettle, and sugar sachets.",
-    icon_name: "CupSoda",
-    available: true
-  }
-];
+export const fallbackServiceItems: ServiceItem[] = fallbackInternalServiceItems;
 
 export const fallbackRoomRequests: RoomRequest[] = [
   {
@@ -135,7 +93,7 @@ export const fallbackRoomRequests: RoomRequest[] = [
     mode: "hotel",
     request_type: "service",
     item_id: "service-1",
-    item_name: "Mineral Water",
+    item_name: "Mineral Water Request",
     guest_note: "Please send two bottles.",
     status: "Pending",
     created_at: ago(4),

@@ -34,7 +34,7 @@ RoomSwift is a smart hospitality platform for hotels, guest houses, cafes, and r
 ## Key Features
 
 - Mobile-first guest ordering for rooms and tables
-- Hotel service requests for water, towels, housekeeping, maintenance, wake-up calls, and tea tray setup
+- Internal hotel service requests for water, towels, housekeeping, maintenance, wake-up calls, tea or coffee, breakfast scheduling, mini bar restock, luggage help, WiFi support, and emergency assistance
 - Realtime kitchen and service queues with status updates
 - Manager dashboard with order counts, pending work, response time, location activity, and feedback
 - QR code generation for rooms and restaurant tables

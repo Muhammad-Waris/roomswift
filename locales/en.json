@@ -35,7 +35,7 @@
     "suite": "Room",
     "table": "Table",
     "staffAccess": "Staff Access",
-    "smartConcierge": "Quick Requests",
+    "smartConcierge": "Fast Service Access",
     "tabs": {
       "menu": "Menu",
       "services": "Services",
@@ -77,8 +77,38 @@
   "quickActions": {
     "water": "Mineral Water",
     "towels": "Fresh Towels",
-    "clean": "Room Refresh",
-    "coffee": "Tea Service"
+    "clean": "Housekeeping",
+    "coffee": "Tea / Coffee"
+  },
+  "hotelServices": {
+    "eyebrow": "Internal Hotel Services",
+    "title": "Hotel concierge services",
+    "description": "Request in-house hotel services directly from staff and track every ticket from pending to completion.",
+    "internal": "Hotel Staff",
+    "urgent": "Urgent",
+    "addDetails": "Details",
+    "hideDetails": "Hide",
+    "notePlaceholder": "Add room details or staff instructions...",
+    "moreServices": "More Services",
+    "showLess": "Show Less",
+    "categories": {
+      "emergency": {
+        "title": "Emergency Services",
+        "description": "Urgent medical or security assistance routed to hotel staff."
+      },
+      "room": {
+        "title": "Room Services",
+        "description": "Internal requests handled by housekeeping, maintenance, and room teams."
+      },
+      "dining": {
+        "title": "Food & Dining",
+        "description": "Breakfast timing, room service support, and mini bar restock requests."
+      },
+      "support": {
+        "title": "Guest Support",
+        "description": "In-house assistance for luggage and technical support."
+      }
+    }
   },
   "hotSellers": {
     "title": "Guest Favorites",
@@ -390,28 +420,56 @@
     },
     "service": {
       "service-1": {
-        "name": "Mineral Water",
-        "description": "Request chilled mineral water for the room."
+        "name": "Mineral Water Request",
+        "description": "Ask housekeeping to deliver sealed mineral water to your room."
       },
       "service-2": {
         "name": "Fresh Towels",
-        "description": "Get clean towels delivered by the service team."
+        "description": "Request clean bath or hand towels from the hotel service team."
       },
       "service-3": {
         "name": "Housekeeping Refresh",
-        "description": "Request a quick room refresh from housekeeping."
+        "description": "Request a light room cleaning and housekeeping refresh."
       },
       "service-4": {
         "name": "Maintenance Support",
-        "description": "Report AC, TV, light, Wi-Fi, or fixture issues instantly."
+        "description": "Report AC, TV, WiFi, light, or fixture issues directly to maintenance."
       },
       "service-5": {
         "name": "Wake-up Call",
         "description": "Schedule a morning wake-up call with reception."
       },
       "service-6": {
-        "name": "Tea Tray Setup",
-        "description": "Request a tea tray with cups, kettle, and sugar sachets."
+        "name": "Extra Cleaning Options",
+        "description": "Request a focused cleaning task for your room."
+      },
+      "service-7": {
+        "name": "Tea / Coffee Service",
+        "description": "Request tea, coffee, cups, kettle support, or hot beverage service."
+      },
+      "service-8": {
+        "name": "Breakfast Scheduling",
+        "description": "Choose a breakfast time and notify the hotel dining team."
+      },
+      "service-9": {
+        "name": "Room Service Orders",
+        "description": "Ask the room service team to assist with in-room dining."
+      },
+      "service-10": {
+        "name": "Mini Bar Request",
+        "description": "Request snacks or drinks restock for your room mini bar."
+      },
+      "service-11": {
+        "name": "Luggage Assistance",
+        "description": "Request luggage help for check-in or checkout."
+      },
+      "service-12": {
+        "name": "WiFi / Technical Support",
+        "description": "Ask hotel staff for WiFi, password, or in-room technical help."
+      },
+      "service-13": {
+        "name": "Emergency Help",
+        "description": "Request immediate medical or security assistance from hotel staff."
       }
     }
   },
