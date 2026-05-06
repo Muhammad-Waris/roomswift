@@ -40,19 +40,41 @@ const plans = [
     key: "essential",
     recommended: false,
     customPrice: false,
-    featureKeys: ["qrSuite", "foodQueue", "basicAnalytics", "support", "sla"]
+    featureKeys: [
+      "qrOrdering",
+      "requestManagement",
+      "staffDashboard",
+      "requestStatus",
+      "managerOverview",
+      "standardSupport"
+    ]
   },
   {
     key: "professional",
     recommended: true,
     customPrice: false,
-    featureKeys: ["essential", "dashboards", "analytics", "branding", "support"]
+    featureKeys: [
+      "essential",
+      "advancedDashboards",
+      "teamViews",
+      "analytics",
+      "roomTracking",
+      "branding",
+      "prioritySupport"
+    ]
   },
   {
     key: "enterprise",
     recommended: false,
     customPrice: true,
-    featureKeys: ["multiProperty", "api", "account", "integration", "training"]
+    featureKeys: [
+      "multiProperty",
+      "customWorkflows",
+      "advancedReporting",
+      "api",
+      "onboarding",
+      "technicalSupport"
+    ]
   }
 ] as const;
 
@@ -258,6 +280,9 @@ export default function HomePage() {
                   <h3 className="text-2xl font-bold text-white">
                     {t(`home.plans.${plan.key}.name`)}
                   </h3>
+                  <p className="mt-2 text-sm font-medium text-primary/90">
+                    {t(`home.plans.${plan.key}.subtitle`)}
+                  </p>
                   <div className="mt-4 flex items-baseline gap-1">
                     <span className="text-4xl font-bold tracking-tighter text-white">
                       {plan.customPrice ? "" : t("common.currencyPrefix")}

@@ -121,8 +121,8 @@
   },
   "common": {
     "recommended": "Recommended",
-    "currencyPrefix": "Rs ",
-    "month": "/mo",
+    "currencyPrefix": "PKR ",
+    "month": "/month",
     "openView": "Open View",
     "created": "Created",
     "status": "Status",
@@ -149,8 +149,8 @@
     "operationsAccent": "every team connected.",
     "versionBadge": "Deployment-ready for hotels and restaurants",
     "pricingEyebrow": "Simple Pakistan Pricing",
-    "pricingTitle": "Plans that pay for themselves",
-    "pricingDescription": "Start with one property, then scale to multiple outlets, hotel floors, restaurants, and service teams as your operation grows.",
+    "pricingTitle": "Simple pricing for modern hotels and restaurants",
+    "pricingDescription": "Start small and upgrade as your operations grow. RoomSwift helps Pakistani hospitality businesses reduce manual work, serve guests faster, and manage requests from one smart platform.",
     "ctaTitle": "Ready to serve guests faster?",
     "ctaDescription": "Use RoomSwift to reduce phone calls, missed requests, and staff confusion while increasing order volume and guest satisfaction.",
     "startGuestFlow": "Open Guest Flow",
@@ -199,41 +199,48 @@
     "plans": {
       "essential": {
         "name": "Essential",
-        "price": "15,000",
-        "description": "For independent restaurants, guest houses, and boutique hotels ready to digitize ordering and service requests.",
+        "subtitle": "For small hotels, guest houses, cafes, and small restaurants",
+        "price": "2,999",
+        "description": "A simple QR ordering and service request system for small hospitality teams that want faster guest service without adding operational complexity.",
         "button": "Start with Essential",
         "features": {
-          "qrSuite": "Room and table QR ordering",
-          "foodQueue": "Realtime kitchen queue",
-          "basicAnalytics": "Daily order and service insights",
-          "support": "WhatsApp and email support",
-          "sla": "99.5% platform availability target"
+          "qrOrdering": "QR-based guest ordering",
+          "requestManagement": "Food and service request management",
+          "staffDashboard": "Basic staff dashboard",
+          "requestStatus": "Realtime request status",
+          "managerOverview": "Basic manager overview",
+          "standardSupport": "Standard support"
         }
       },
       "professional": {
         "name": "Professional",
-        "price": "35,000",
-        "description": "For busy hotels and restaurants that need faster fulfillment, branded guest screens, and team-level controls.",
+        "subtitle": "Best value for growing hotels and restaurants",
+        "price": "6,999",
+        "description": "The complete RoomSwift system for hotels and restaurants that want faster service, better staff coordination, and a smoother guest experience.",
         "button": "Choose Professional",
         "features": {
           "essential": "Everything in Essential",
-          "dashboards": "Kitchen, service, and manager dashboards",
-          "analytics": "Operational analytics and guest feedback",
-          "branding": "Custom branding for your property",
-          "support": "Priority onboarding and support"
+          "advancedDashboards": "Advanced staff dashboards",
+          "teamViews": "Kitchen and service team views",
+          "analytics": "Manager analytics dashboard",
+          "roomTracking": "Room-wise activity tracking",
+          "branding": "Custom branding support",
+          "prioritySupport": "Priority support"
         }
       },
       "enterprise": {
         "name": "Enterprise",
         "price": "Custom",
-        "description": "For hotel groups, multi-branch restaurants, and premium properties that need tailored rollout and integrations.",
-        "button": "Talk to Sales",
+        "subtitle": "For hotel chains, resorts, and multi-branch businesses",
+        "description": "A custom solution for larger hospitality businesses that need advanced control, tailored workflows, and dedicated support across locations.",
+        "button": "Contact Sales",
         "features": {
           "multiProperty": "Multi-property and multi-branch setup",
-          "api": "API access and integration support",
-          "account": "Dedicated success manager",
-          "integration": "POS, PMS, and workflow integrations",
-          "training": "On-site launch and staff training"
+          "customWorkflows": "Custom workflows",
+          "advancedReporting": "Advanced reporting",
+          "api": "API and integration support",
+          "onboarding": "Dedicated onboarding",
+          "technicalSupport": "Priority technical support"
         }
       }
     }

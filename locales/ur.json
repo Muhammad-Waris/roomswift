@@ -121,7 +121,7 @@
   },
   "common": {
     "recommended": "تجویز کردہ",
-    "currencyPrefix": "Rs ",
+    "currencyPrefix": "PKR ",
     "month": "/ماہ",
     "openView": "View کھولیں",
     "created": "بنایا گیا",
@@ -149,8 +149,8 @@
     "operationsAccent": "ہر team connected.",
     "versionBadge": "Hotels اور restaurants کے لیے deployment-ready",
     "pricingEyebrow": "Simple Pakistan Pricing",
-    "pricingTitle": "Plans جو اپنی cost recover کرتے ہیں",
-    "pricingDescription": "ایک property سے شروع کریں، پھر outlets، hotel floors، restaurants، اور service teams تک scale کریں۔",
+    "pricingTitle": "Modern hotels اور restaurants کے لیے simple pricing",
+    "pricingDescription": "چھوٹے setup سے شروع کریں اور operations بڑھنے پر upgrade کریں۔ RoomSwift پاکستانی hospitality businesses کو manual work کم کرنے، guests کو faster serve کرنے، اور requests ایک smart platform سے manage کرنے میں مدد دیتا ہے۔",
     "ctaTitle": "Guests کو faster serve کرنے کے لیے تیار؟",
     "ctaDescription": "RoomSwift phone calls، missed requests، اور staff confusion کم کرتا ہے جبکہ order volume اور guest satisfaction بڑھاتا ہے۔",
     "startGuestFlow": "Guest Flow کھولیں",
@@ -199,41 +199,48 @@
     "plans": {
       "essential": {
         "name": "Essential",
-        "price": "15,000",
-        "description": "Independent restaurants، guest houses، اور boutique hotels کے لیے جو ordering اور service requests digitize کرنا چاہتے ہیں۔",
+        "subtitle": "Small hotels، guest houses، cafes، اور small restaurants کے لیے",
+        "price": "2,999",
+        "description": "Small hospitality teams کے لیے simple QR ordering اور service request system، تاکہ service تیز ہو اور operations پیچیدہ نہ ہوں۔",
         "button": "Essential شروع کریں",
         "features": {
-          "qrSuite": "Room اور table QR ordering",
-          "foodQueue": "Realtime kitchen queue",
-          "basicAnalytics": "Daily order اور service insights",
-          "support": "WhatsApp اور email support",
-          "sla": "99.5% platform availability target"
+          "qrOrdering": "QR-based guest ordering",
+          "requestManagement": "Food اور service request management",
+          "staffDashboard": "Basic staff dashboard",
+          "requestStatus": "Realtime request status",
+          "managerOverview": "Basic manager overview",
+          "standardSupport": "Standard support"
         }
       },
       "professional": {
         "name": "Professional",
-        "price": "35,000",
-        "description": "Busy hotels اور restaurants کے لیے جنہیں faster fulfillment، branded guest screens، اور team controls چاہییں۔",
+        "subtitle": "Growing hotels اور restaurants کے لیے best value",
+        "price": "6,999",
+        "description": "Hotels اور restaurants کے لیے مکمل RoomSwift system، جو faster service، بہتر staff coordination، اور smooth guest experience چاہتے ہیں۔",
         "button": "Professional منتخب کریں",
         "features": {
           "essential": "Essential کی ہر چیز",
-          "dashboards": "Kitchen، service، اور manager dashboards",
-          "analytics": "Operational analytics اور guest feedback",
-          "branding": "آپ کی property کی custom branding",
-          "support": "Priority onboarding اور support"
+          "advancedDashboards": "Advanced staff dashboards",
+          "teamViews": "Kitchen اور service team views",
+          "analytics": "Manager analytics dashboard",
+          "roomTracking": "Room-wise activity tracking",
+          "branding": "Custom branding support",
+          "prioritySupport": "Priority support"
         }
       },
       "enterprise": {
         "name": "Enterprise",
         "price": "Custom",
-        "description": "Hotel groups، multi-branch restaurants، اور premium properties کے لیے tailored rollout اور integrations۔",
-        "button": "Sales سے بات کریں",
+        "subtitle": "Hotel chains، resorts، اور multi-branch businesses کے لیے",
+        "description": "Large hospitality businesses کے لیے custom solution جس میں advanced control، tailored workflows، اور locations کے لیے dedicated support شامل ہے۔",
+        "button": "Contact Sales",
         "features": {
           "multiProperty": "Multi-property اور multi-branch setup",
-          "api": "API access اور integration support",
-          "account": "Dedicated success manager",
-          "integration": "POS، PMS، اور workflow integrations",
-          "training": "On-site launch اور staff training"
+          "customWorkflows": "Custom workflows",
+          "advancedReporting": "Advanced reporting",
+          "api": "API اور integration support",
+          "onboarding": "Dedicated onboarding",
+          "technicalSupport": "Priority technical support"
         }
       }
     }

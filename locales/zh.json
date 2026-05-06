@@ -121,7 +121,7 @@
   },
   "common": {
     "recommended": "推荐",
-    "currencyPrefix": "Rs ",
+    "currencyPrefix": "PKR ",
     "month": "/月",
     "openView": "打开视图",
     "created": "创建时间",
@@ -149,8 +149,8 @@
     "operationsAccent": "连接每个团队。",
     "versionBadge": "适合酒店和餐厅部署",
     "pricingEyebrow": "清晰的巴基斯坦价格",
-    "pricingTitle": "能带来回报的方案",
-    "pricingDescription": "从一家门店开始，再扩展到多个网点、楼层、餐厅和服务团队。",
+    "pricingTitle": "适合现代酒店和餐厅的简单价格",
+    "pricingDescription": "先从小规模开始，再随运营增长升级。RoomSwift 帮助巴基斯坦酒店餐饮企业减少人工工作、更快服务客人，并从一个智能平台管理请求。",
     "ctaTitle": "准备更快服务客人？",
     "ctaDescription": "用 RoomSwift 减少电话、漏单和员工混乱，同时提升订单量与客人满意度。",
     "startGuestFlow": "打开客人流程",
@@ -199,41 +199,48 @@
     "plans": {
       "essential": {
         "name": "基础版",
-        "price": "15,000",
-        "description": "适合希望数字化点单和服务请求的独立餐厅、旅馆和精品酒店。",
+        "subtitle": "适合小型酒店、旅馆、咖啡馆和小餐厅",
+        "price": "2,999",
+        "description": "为小型酒店餐饮团队提供简单的二维码点单和服务请求系统，让服务更快，同时不增加运营复杂度。",
         "button": "从基础版开始",
         "features": {
-          "qrSuite": "房间和餐桌二维码点单",
-          "foodQueue": "实时厨房队列",
-          "basicAnalytics": "每日订单与服务洞察",
-          "support": "WhatsApp 和邮件支持",
-          "sla": "99.5% 平台可用性目标"
+          "qrOrdering": "基于二维码的客人点单",
+          "requestManagement": "餐品和服务请求管理",
+          "staffDashboard": "基础员工看板",
+          "requestStatus": "实时请求状态",
+          "managerOverview": "基础经理概览",
+          "standardSupport": "标准支持"
         }
       },
       "professional": {
         "name": "专业版",
-        "price": "35,000",
-        "description": "适合需要更快履约、品牌化客人界面和团队控制的繁忙酒店与餐厅。",
+        "subtitle": "成长型酒店和餐厅的高价值选择",
+        "price": "6,999",
+        "description": "完整的 RoomSwift 系统，适合希望提升服务速度、员工协作和客人体验的酒店与餐厅。",
         "button": "选择专业版",
         "features": {
           "essential": "包含基础版全部功能",
-          "dashboards": "厨房、服务和经理看板",
-          "analytics": "运营分析与客人反馈",
-          "branding": "为你的场所定制品牌",
-          "support": "优先上线与支持"
+          "advancedDashboards": "高级员工看板",
+          "teamViews": "厨房和服务团队视图",
+          "analytics": "经理分析看板",
+          "roomTracking": "按房间跟踪活动",
+          "branding": "自定义品牌支持",
+          "prioritySupport": "优先支持"
         }
       },
       "enterprise": {
         "name": "企业版",
         "price": "定制",
-        "description": "适合需要定制上线与集成的酒店集团、多分店餐厅和高端场所。",
+        "subtitle": "适合酒店连锁、度假村和多分店企业",
+        "description": "面向大型酒店餐饮企业的定制方案，支持更高级控制、定制流程以及跨地点专属支持。",
         "button": "联系销售",
         "features": {
           "multiProperty": "多物业和多分店设置",
+          "customWorkflows": "自定义工作流",
+          "advancedReporting": "高级报表",
           "api": "API 与集成支持",
-          "account": "专属成功经理",
-          "integration": "POS、PMS 与流程集成",
-          "training": "现场上线与员工培训"
+          "onboarding": "专属上线指导",
+          "technicalSupport": "优先技术支持"
         }
       }
     }
