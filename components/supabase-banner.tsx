@@ -26,7 +26,7 @@ export function SupabaseBanner({
         </div>
         <div>
           <p className="font-semibold text-amber-100">
-            {error ? t("supabase.connectionIssue") : t("supabase.demoMode")}
+            {error ? t("supabase.connectionIssue") : t("supabase.localMode")}
           </p>
           <p className="mt-1 text-sm text-amber-50/85">
             {error

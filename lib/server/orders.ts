@@ -1,6 +1,6 @@
 import { Document } from "mongodb";
 
-import { demoRoomRequests } from "@/lib/demo-data";
+import { fallbackRoomRequests } from "@/lib/fallback-data";
 import { calculateHotItems } from "@/lib/hot-items";
 import { getMongoDb, isMongoConfigured } from "@/lib/mongodb";
 import { getSupabaseServerClient } from "@/lib/supabase-server";
@@ -130,5 +130,5 @@ export async function getHotItems({
     return supabaseItems;
   }
 
-  return calculateHotItems(demoRoomRequests, { limit, mode });
+  return calculateHotItems(fallbackRoomRequests, { limit, mode });
 }

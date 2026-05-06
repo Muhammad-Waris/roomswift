@@ -1,5 +1,5 @@
-import { QRDemoClient } from "@/components/qr-demo-client";
+import { redirect } from "next/navigation";
 
-export default function DemoQRPage() {
-  return <QRDemoClient />;
+export default function QRRedirectPage() {
+  redirect("/qr");
 }

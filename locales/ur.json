@@ -7,19 +7,19 @@
     "chinese": "中文"
   },
   "metadata": {
-    "title": "RoomSwift | Hospitality Operations کا مستقبل",
-    "description": "Smart hotels اور modern restaurants کے لیے premium QR-first operations platform۔"
+    "title": "RoomSwift | پاکستان کے لیے Smart Hospitality Platform",
+    "description": "پاکستان کے hotels اور restaurants کے لیے QR ordering، guest service automation، اور realtime operations dashboards۔"
   },
   "nav": {
     "subtitle": "اسمارٹ ہاسپیٹلٹی",
     "pricing": "قیمت",
     "manager": "مینجر",
     "staff": "اسٹاف",
-    "guestDemo": "گیسٹ ڈیمو",
-    "launchGuestDemo": "گیسٹ ڈیمو کھولیں"
+    "guestPortal": "گیسٹ پورٹل",
+    "openGuestPortal": "گیسٹ پورٹل کھولیں"
   },
   "mode": {
-    "label": "سسٹم موڈ",
+    "label": "سروس موڈ",
     "hotel": "ہوٹل موڈ",
     "restaurant": "ریستوران موڈ"
   },
@@ -30,12 +30,12 @@
     "Completed": "مکمل"
   },
   "guest": {
-    "roomExperience": "روم تجربہ",
-    "tableExperience": "ٹیبل تجربہ",
-    "suite": "سوئٹ",
+    "roomExperience": "روم سروس",
+    "tableExperience": "ٹیبل آرڈرنگ",
+    "suite": "روم",
     "table": "ٹیبل",
     "staffAccess": "اسٹاف رسائی",
-    "smartConcierge": "اسمارٹ کنسیرج",
+    "smartConcierge": "فوری درخواستیں",
     "tabs": {
       "menu": "مینو",
       "services": "سروسز",
@@ -44,16 +44,16 @@
     "categories": {
       "all": "سب"
     },
-    "available": "آرڈر کے لیے تیار",
-    "unavailable": "دستیاب نہیں",
-    "submitFood": "آرڈر کریں",
+    "available": "ابھی دستیاب",
+    "unavailable": "عارضی طور پر دستیاب نہیں",
+    "submitFood": "آرڈر بھیجیں",
     "submitService": "سروس مانگیں",
-    "notePlaceholder": "خاص ہدایات لکھیں...",
-    "noRequestsTitle": "ابھی کوئی درخواست نہیں",
-    "noRequests": "اس پوائنٹ کے لیے کوئی فعال درخواست نہیں ہے۔",
-    "requestSuccess": "{{itemName}} کی درخواست بھیج دی گئی!",
-    "requestError": "درخواست بھیجنے میں مسئلہ ہوا۔ دوبارہ کوشش کریں۔",
-    "processing": "پروسیسنگ...",
+    "notePlaceholder": "Spice level، time، یا delivery notes لکھیں...",
+    "noRequestsTitle": "کوئی active request نہیں",
+    "noRequests": "اس location کے orders اور service requests یہاں نظر آئیں گے۔",
+    "requestSuccess": "{{itemName}} team کو بھیج دیا گیا۔",
+    "requestError": "Request بھیجنے میں مسئلہ ہوا۔ دوبارہ کوشش کریں۔",
+    "processing": "بھیجا جا رہا ہے...",
     "sending": "بھیجا جا رہا ہے...",
     "specialInstructions": "خاص ہدایات",
     "addInstructions": "ہدایات شامل کریں",
@@ -64,194 +64,195 @@
     "inPrep": "تیاری میں",
     "completed": "مکمل",
     "latestProgress": "تازہ پیش رفت",
-    "trackingLive": "موجودہ درخواست کا اسٹیٹس لائیو ٹریک ہو رہا ہے۔",
-    "noLiveOrders": "کوئی لائیو آرڈر نہیں",
-    "noLiveOrdersDescription": "لائیو ٹائم لائن دیکھنے کے لیے درخواست بھیجیں۔",
-    "returnHome": "ہوم پر واپس جائیں",
-    "connectedEcosystem": "منسلک نظام",
-    "connectedDescription": "دوسرے ڈیوائس پر اسٹاف ڈیش بورڈ کھول کر مکمل آپریشنل فلو دیکھیں۔",
-    "kitchenOps": "کچن آپریشنز",
-    "valetService": "ویلے سروس",
-    "managerSuite": "مینجر سوئٹ"
+    "trackingLive": "آپ کی request کا status realtime update ہوتا ہے۔",
+    "noLiveOrders": "ابھی کچھ جاری نہیں",
+    "noLiveOrdersDescription": "Progress track کرنے کے لیے order یا service request بھیجیں۔",
+    "returnHome": "Home پر واپس جائیں",
+    "connectedEcosystem": "Connected Operations",
+    "connectedDescription": "RoomSwift guests، kitchen، service teams، اور managers کو scan سے fulfillment تک aligned رکھتا ہے۔",
+    "kitchenOps": "Kitchen Ops",
+    "valetService": "Service Team",
+    "managerSuite": "Manager Suite"
   },
   "quickActions": {
-    "water": "تازہ پانی",
-    "towels": "اضافی تولیے",
-    "clean": "سوئٹ صاف کریں",
-    "coffee": "مزید کافی"
+    "water": "Mineral Water",
+    "towels": "Fresh Towels",
+    "clean": "Room Refresh",
+    "coffee": "Tea Service"
   },
   "hotSellers": {
-    "title": "ہاٹ سیلرز",
-    "subtitle": "لائیو آرڈر گنتی کے مطابق پسندیدہ کھانے۔",
+    "title": "Guest Favorites",
+    "subtitle": "Live order activity کے مطابق top-selling menu items۔",
     "orders": "{{count}} آرڈرز",
-    "loading": "مشہور آئٹمز تلاش ہو رہی ہیں...",
-    "empty": "کھانے کے آرڈرز کے بعد ہاٹ سیلرز یہاں آئیں گے۔",
+    "loading": "Guest favorites calculate ہو رہے ہیں...",
+    "empty": "Orders آنے کے بعد top-selling items یہاں آئیں گے۔",
     "orderAgain": "آرڈر"
   },
   "feedback": {
-    "title": "یہ آرڈر کیسا تھا؟",
-    "subtitle": "آپ کی رائے ٹیم کو سروس بہتر بنانے میں مدد دیتی ہے۔",
+    "title": "یہ experience کیسا تھا؟",
+    "subtitle": "Guest feedback management کو service quality اور staff performance بہتر کرنے میں مدد دیتا ہے۔",
     "ratingLabel": "ریٹنگ",
     "optionalComment": "اختیاری تبصرہ",
     "commentPlaceholder": "بتائیں کیا اچھا تھا یا کیا بہتر ہو سکتا ہے...",
-    "submit": "فیڈبیک بھیجیں",
-    "thanks": "آپ کی رائے کا شکریہ۔",
-    "error": "فیڈبیک ابھی محفوظ نہیں ہو سکا۔",
-    "averageRating": "اوسط ریٹنگ",
-    "latestFeedback": "تازہ فیڈبیک",
-    "noFeedback": "ابھی کوئی گیسٹ فیڈبیک نہیں ملا۔",
+    "submit": "Feedback بھیجیں",
+    "thanks": "آپ کی feedback کا شکریہ۔",
+    "error": "Feedback ابھی save نہیں ہو سکا۔",
+    "averageRating": "Guest Satisfaction",
+    "latestFeedback": "تازہ Feedback",
+    "noFeedback": "Completed requests کے بعد guest feedback یہاں آئے گا۔",
     "totalResponses": "{{count}} جوابات"
   },
   "dashboard": {
     "location": "مقام",
-    "room": "کمرہ",
+    "room": "روم",
     "table": "ٹیبل",
-    "standardRequest": "عام درخواست - کوئی خاص نوٹ نہیں۔"
+    "standardRequest": "Standard request - کوئی خاص note نہیں۔"
   },
   "supabase": {
-    "connectionIssue": "کنکشن کا مسئلہ ملا",
-    "demoMode": "ڈیمو موڈ فعال ہے",
-    "fallbackDescription": "Supabase env vars موجود نہیں، اس لیے RoomSwift expo preview کے لیے local fallback data استعمال کر رہا ہے۔"
+    "connectionIssue": "Realtime connection کو attention چاہیے",
+    "localMode": "Local preview mode",
+    "fallbackDescription": "Supabase project connect ہونے تک RoomSwift secure local fallback data استعمال کر رہا ہے۔"
   },
   "install": {
     "title": "RoomSwift انسٹال کریں",
-    "description": "expo walkthrough کو بہتر بنانے کے لیے demo کو home screen پر محفوظ کریں۔",
+    "description": "Guests اور staff کی تیز access کے لیے RoomSwift کو home screen پر save کریں۔",
     "install": "انسٹال",
     "notNow": "ابھی نہیں"
   },
   "common": {
     "recommended": "تجویز کردہ",
+    "currencyPrefix": "Rs ",
     "month": "/ماہ",
-    "launchDemo": "ڈیمو کھولیں",
+    "openView": "View کھولیں",
     "created": "بنایا گیا",
     "status": "اسٹیٹس",
-    "actions": "ایکشنز",
+    "actions": "Actions",
     "location": "مقام",
     "type": "قسم",
-    "noNoteProvided": "کوئی نوٹ نہیں دیا گیا",
-    "syncing": "سنک ہو رہا ہے...",
-    "updating": "اپ ڈیٹ ہو رہا ہے..."
+    "noNoteProvided": "کوئی note نہیں دیا گیا",
+    "syncing": "Sync ہو رہا ہے...",
+    "updating": "Update ہو رہا ہے..."
   },
   "home": {
-    "eyebrow": "ہاسپیٹلٹی کا مستقبل",
-    "headline": "ہاسپیٹلٹی،",
-    "headlineAccent": "نئے انداز میں۔",
-    "description": "RoomSwift اسمارٹ ہوٹلز اور جدید ریسٹورنٹس کے لیے پریمیم QR پلیٹ فارم ہے۔ آرڈرز کو آسان کریں، سروس درخواستیں خودکار بنائیں، اور ٹیم کو realtime operational dashboards دیں۔",
-    "tryGuestDemo": "گیسٹ ڈیمو آزمائیں",
-    "managerView": "مینجر ویو",
-    "productionGrade": "پروڈکشن گریڈ",
-    "realtimeSync": "ریئل ٹائم سنک",
-    "featuresTitle": "اسکیل کے لیے بنایا گیا",
-    "featuresSubtitle": "ہائی پرفارمنس ڈائننگ یا ہوٹل آپریشن چلانے کے لیے ہر چیز۔",
-    "operationsEyebrow": "لائیو آپریشنز",
-    "operationsTitle": "ایک پلیٹ فارم،",
-    "operationsAccent": "کئی زاویے۔",
-    "versionBadge": "V.1.0 ڈپلائمنٹ کے لیے تیار",
-    "pricingEyebrow": "اسکیل ایبل گروتھ",
-    "pricingTitle": "صاف قیمتیں",
-    "pricingDescription": "اپنی جگہ کے لیے بہترین پلان چنیں۔ چاہے boutique cafe ہو یا luxury hotel chain، RoomSwift آپ کے ساتھ ہے۔",
-    "ctaTitle": "اپنا guest UX بہتر کرنے کے لیے تیار؟",
-    "ctaDescription": "ان smart hotels اور restaurants میں شامل ہوں جو hospitality experiences کی اگلی نسل بنا رہے ہیں۔",
-    "startLiveDemo": "لائیو ڈیمو شروع کریں",
-    "viewAnalytics": "Analytics دیکھیں",
+    "eyebrow": "پاکستان کی Hospitality Teams کے لیے",
+    "headline": "زیادہ orders.",
+    "headlineAccent": "کم انتظار.",
+    "description": "RoomSwift پاکستان کے hotels اور restaurants کو QR orders accept کرنے، guest requests automate کرنے، اور kitchen, service, management workflows ایک realtime platform پر چلانے میں مدد دیتا ہے۔",
+    "openGuestFlow": "Guest Flow کھولیں",
+    "managerView": "Manager Suite دیکھیں",
+    "productionGrade": "Live Use کے لیے تیار",
+    "realtimeSync": "Realtime Team Sync",
+    "featuresTitle": "Guest requests کو managed revenue میں بدلیں",
+    "featuresSubtitle": "تیز service، بہتر coordination، اور premium guest experience کے لیے simple operating system۔",
+    "operationsEyebrow": "Live Operations",
+    "operationsTitle": "ایک platform،",
+    "operationsAccent": "ہر team connected.",
+    "versionBadge": "Hotels اور restaurants کے لیے deployment-ready",
+    "pricingEyebrow": "Simple Pakistan Pricing",
+    "pricingTitle": "Plans جو اپنی cost recover کرتے ہیں",
+    "pricingDescription": "ایک property سے شروع کریں، پھر outlets، hotel floors، restaurants، اور service teams تک scale کریں۔",
+    "ctaTitle": "Guests کو faster serve کرنے کے لیے تیار؟",
+    "ctaDescription": "RoomSwift phone calls، missed requests، اور staff confusion کم کرتا ہے جبکہ order volume اور guest satisfaction بڑھاتا ہے۔",
+    "startGuestFlow": "Guest Flow کھولیں",
+    "viewAnalytics": "Manager Suite دیکھیں",
     "copyright": "2026 RoomSwift Smart Hospitality Systems۔ جملہ حقوق محفوظ ہیں۔",
     "features": {
       "qrFirst": {
-        "title": "QR-first تجربہ",
-        "description": "Guests room-specific QR scan کر کے optimized ordering suite کھولتے ہیں۔ کوئی app نہیں، کوئی رکاوٹ نہیں۔"
+        "title": "App کے بغیر QR Ordering",
+        "description": "Guests room یا table QR scan کر کے menu browse، service request، اور progress track کرتے ہیں۔"
       },
       "realtime": {
-        "title": "Realtime آپریشنز",
-        "description": "Kitchen اور Valet teams کو requests فوراً ملتی ہیں۔ Realtime updates guests کو ہر step پر informed رکھتے ہیں۔"
+        "title": "Instant Team Alerts",
+        "description": "Kitchen اور service teams کو requests فوراً ملتی ہیں، missed orders کم ہوتے ہیں، اور guests informed رہتے ہیں۔"
       },
       "staff": {
-        "title": "Staff orchestration",
-        "description": "Separate fulfillment streams کے لیے dedicated dashboards۔ Requests کو pending سے delivered تک آسانی سے move کریں۔"
+        "title": "Clear Staff Handoffs",
+        "description": "Food، housekeeping، maintenance، اور service کے separate queues teams کو accountable رکھتے ہیں۔"
       },
       "insights": {
-        "title": "Manager insights",
-        "description": "Performance، hot items، اور room activity کو unified manager dashboard میں track کریں۔"
+        "title": "Manager Revenue Insights",
+        "description": "Popular items، response times، pending work، اور location-wise demand track کر کے staffing اور revenue بہتر بنائیں۔"
       }
     },
     "previews": {
       "guest": {
-        "title": "Guest Room UI",
-        "description": "Premium mobile-first dining اور service menu۔",
+        "title": "Guest Portal",
+        "description": "Rooms اور tables کے لیے mobile-first ordering اور service experience۔",
         "badge": "Guest UX"
       },
       "kitchen": {
-        "title": "Kitchen Ops",
-        "description": "تیز preparation اور flow کے لیے live food queue۔",
+        "title": "Kitchen Queue",
+        "description": "Live food orders prioritize کریں اور preparation delays کم کریں۔",
         "badge": "Food Team"
       },
       "valet": {
-        "title": "Valet & Service",
-        "description": "Housekeeping اور service fulfillment coordinate کریں۔",
+        "title": "Service Queue",
+        "description": "Water، towels، cleaning، maintenance، اور room service coordinate کریں۔",
         "badge": "Service Team"
       },
       "manager": {
-        "title": "Executive View",
-        "description": "Management layer کے لیے analytics اور control۔",
+        "title": "Manager Suite",
+        "description": "Operations، QR locations، feedback، اور performance monitor کریں۔",
         "badge": "Analytics"
       }
     },
     "plans": {
       "essential": {
         "name": "Essential",
-        "price": "49",
-        "description": "Single-property boutique hotels اور restaurants کے لیے بہترین جو guest requests آسان کرنا چاہتے ہیں۔",
-        "button": "Free Trial شروع کریں",
+        "price": "15,000",
+        "description": "Independent restaurants، guest houses، اور boutique hotels کے لیے جو ordering اور service requests digitize کرنا چاہتے ہیں۔",
+        "button": "Essential شروع کریں",
         "features": {
-          "qrSuite": "QR-driven guest suite",
-          "foodQueue": "Real-time food queue",
-          "basicAnalytics": "Basic analytics",
-          "support": "Standard support",
-          "sla": "Uptime SLA 99.5%"
+          "qrSuite": "Room اور table QR ordering",
+          "foodQueue": "Realtime kitchen queue",
+          "basicAnalytics": "Daily order اور service insights",
+          "support": "WhatsApp اور email support",
+          "sla": "99.5% platform availability target"
         }
       },
       "professional": {
         "name": "Professional",
-        "price": "99",
-        "description": "High-volume hotels کے لیے popular plan جنہیں multi-team orchestration چاہیے۔",
-        "button": "ابھی شروع کریں",
+        "price": "35,000",
+        "description": "Busy hotels اور restaurants کے لیے جنہیں faster fulfillment، branded guest screens، اور team controls چاہییں۔",
+        "button": "Professional منتخب کریں",
         "features": {
           "essential": "Essential کی ہر چیز",
-          "dashboards": "Advanced staff dashboards",
-          "analytics": "Full operational analytics",
-          "branding": "Custom branding",
-          "support": "Priority email support"
+          "dashboards": "Kitchen، service، اور manager dashboards",
+          "analytics": "Operational analytics اور guest feedback",
+          "branding": "آپ کی property کی custom branding",
+          "support": "Priority onboarding اور support"
         }
       },
       "enterprise": {
         "name": "Enterprise",
         "price": "Custom",
-        "description": "Large-scale hotel groups اور resort chains کے لیے dedicated infrastructure اور support۔",
-        "button": "Sales سے رابطہ کریں",
+        "description": "Hotel groups، multi-branch restaurants، اور premium properties کے لیے tailored rollout اور integrations۔",
+        "button": "Sales سے بات کریں",
         "features": {
-          "multiProperty": "Multi-property support",
-          "api": "API access اور webhooks",
-          "account": "24/7 dedicated account manager",
-          "integration": "Custom integration service",
-          "training": "On-site training"
+          "multiProperty": "Multi-property اور multi-branch setup",
+          "api": "API access اور integration support",
+          "account": "Dedicated success manager",
+          "integration": "POS، PMS، اور workflow integrations",
+          "training": "On-site launch اور staff training"
         }
       }
     }
   },
   "staffPortal": {
     "eyebrow": "Team Operations",
-    "title": "Staff Portal",
-    "description": "Live request queue اور fulfillment dashboard تک رسائی کے لیے اپنا operations department منتخب کریں۔",
+    "title": "Staff Workspaces",
+    "description": "ہر team کو focused queue دیں تاکہ orders faster move ہوں اور managers realtime accountability دیکھ سکیں۔",
     "openQueue": "Queue کھولیں",
     "kitchenTitle": "Kitchen Dashboard",
-    "kitchenDescription": "Food preparation handle کریں، order status track کریں، اور service team کے ساتھ realtime coordinate کریں۔",
-    "valetTitle": "Valet & Services",
-    "valetDescription": "Housekeeping، maintenance، اور guest service requests کو unified operational view میں manage کریں۔"
+    "kitchenDescription": "Food orders accept کریں، preparation flow manage کریں، اور items ready ہوتے ہی complete mark کریں۔",
+    "valetTitle": "Service Dashboard",
+    "valetDescription": "Housekeeping، maintenance، water، towels، اور guest support کو ایک clear fulfillment queue سے manage کریں۔"
   },
-  "qrDemo": {
-    "eyebrow": "Demo QR Center",
-    "title": "Room QR Showcase",
-    "description": "University expo table کے لیے یہ room stickers print کریں۔ ہر QR guest web app کو فوراً کھولتا ہے، login یا app installation کے بغیر۔",
-    "setup": "Suggested demo setup: Room 101 اور Room 102 print کریں، expo booth پر رکھیں، اور presenting سے پہلے Scan to test button سے flow validate کریں۔",
+  "qrLibrary": {
+    "eyebrow": "QR Deployment Center",
+    "title": "Room اور Table QR Library",
+    "description": "Rooms، tables، reception desks، اور service counters کے لیے print-ready QR codes بنائیں۔ ہر code درست guest ordering flow فوراً کھولتا ہے۔",
+    "setup": "QR codes کو room cards، table tents، menus، یا reception signage پر استعمال کریں تاکہ guests staff کو call کیے بغیر order یا service request کر سکیں۔",
     "copied": "Room {{room}} link copied"
   },
   "offline": {
@@ -261,52 +262,52 @@
     "returnHome": "Home پر واپس جائیں"
   },
   "notFound": {
-    "title": "Room نہیں ملا",
-    "description": "Requested RoomSwift page نہیں ملا۔ Presentation جاری رکھنے کے لیے نیچے demo room استعمال کریں۔",
-    "openDemo": "Demo Room 101 کھولیں"
+    "title": "Page نہیں ملا",
+    "description": "یہ RoomSwift page available نہیں۔ Continue کرنے کے لیے live room link کھولیں۔",
+    "openRoom": "Room 101 کھولیں"
   },
   "loading": {
     "message": "RoomSwift لوڈ ہو رہا ہے..."
   },
   "operations": {
     "teams": {
-      "kitchen": "کچن",
-      "valet": "سروس",
-      "kitchenDuty": "کچن ڈیوٹی",
-      "serviceTeam": "سروس ٹیم"
+      "kitchen": "Kitchen",
+      "valet": "Service",
+      "kitchenDuty": "Kitchen Duty",
+      "serviceTeam": "Service Team"
     },
     "kitchen": {
       "eyebrow": "Kitchen Dashboard",
-      "title": "Food preparation command center",
-      "description": "Rooms اور restaurant tables سے live food orders accept، prepare، اور complete کریں۔"
+      "title": "Food order command center",
+      "description": "Hotel rooms اور restaurant tables سے live food orders accept، prepare، اور complete کریں۔"
     },
     "valet": {
-      "eyebrow": "Valet Dashboard",
-      "title": "Room service اور fulfillment flow",
-      "description": "Housekeeping، maintenance، water، towels، اور delivery-style service requests کو ایک live operations queue سے handle کریں۔"
+      "eyebrow": "Service Dashboard",
+      "title": "Guest service fulfillment flow",
+      "description": "Housekeeping، maintenance، water، towels، اور in-room service requests کو ایک live operations queue سے handle کریں۔"
     },
     "realtimeLive": "Realtime Live",
-    "demoFallback": "Demo Fallback",
+    "localFallback": "Local Mode",
     "filterStatus": "Status filter کریں",
     "stats": {
       "teamToday": "آج {{team}} requests",
       "teamDetail": "{{team}} team نے total handle کیا۔",
       "pendingQueue": "Pending Queue",
       "pendingDetail": "Team acceptance کے انتظار میں۔",
-      "fulfillment": "Fulfillment",
-      "fulfillmentDetail": "آج successfully delivered۔"
+      "fulfillment": "آج Completed",
+      "fulfillmentDetail": "آج successfully fulfilled requests۔"
     },
     "table": {
       "fulfillment": "Fulfillment",
       "guestInstructions": "Guest Instructions",
       "manage": "Manage"
     },
-    "emptyTitle": "Queue صاف ہے",
-    "emptyDescription": "اس filter کے لیے کوئی {{team}} request نہیں ملی۔",
+    "emptyTitle": "Queue Clear",
+    "emptyDescription": "اس filter میں کوئی {{team}} request نہیں۔",
     "actions": {
       "accept": "Accept",
-      "workOn": "Work On",
-      "done": "Done"
+      "workOn": "Start Work",
+      "done": "Complete"
     },
     "toast": {
       "newRequest": "{{team}} کو نئی request ملی",
@@ -318,22 +319,22 @@
   "staffDashboard": {
     "eyebrow": "Staff Dashboard",
     "title": "Live request operations",
-    "description": "تمام incoming requests monitor کریں، tasks quickly accept کریں، اور guest room view کے لیے status realtime update کریں۔",
+    "description": "تمام incoming orders اور service calls monitor کریں، tasks quickly accept کریں، اور guests کو realtime updated رکھیں۔",
     "soundOn": "Sound on",
     "soundOff": "Sound off",
-    "realtimeConnected": "Realtime connected flow",
-    "localFallback": "Local demo fallback",
+    "realtimeConnected": "Realtime connected",
+    "localFallback": "Local fallback mode",
     "stats": {
       "totalToday": "آج کی کل requests",
-      "totalTodayDetail": "آج کے demo session میں بنی تمام requests۔",
+      "totalTodayDetail": "آج بننے والے تمام orders اور service requests۔",
       "pending": "Pending",
       "pendingDetail": "Staff acceptance کا انتظار۔",
       "completed": "Completed",
-      "completedDetail": "Finished tasks جو guest pages پر visible ہیں۔"
+      "completedDetail": "Finished tasks جو guests کو visible ہیں۔"
     },
     "filterRequests": "Requests filter کریں",
     "emptyTitle": "Matching requests نہیں",
-    "emptyDescription": "New room orders اور service calls یہاں realtime آئیں گے۔",
+    "emptyDescription": "New room orders، table orders، اور service calls یہاں realtime آئیں گے۔",
     "itemNote": "Item / Note",
     "newRequest": "نئی guest request موصول ہوئی",
     "requestType": {
@@ -350,60 +351,60 @@
     },
     "menu": {
       "menu-1": {
-        "name": "کلب سینڈوچ",
-        "description": "فرائز اور house dip کے ساتھ toasted triple-layer sandwich۔"
+        "name": "Club Sandwich",
+        "description": "Chicken triple-layer sandwich with fries، coleslaw، اور signature sauce۔"
       },
       "menu-2": {
-        "name": "چکن بریانی",
-        "description": "Spiced chicken اور raita کے ساتھ خوشبودار basmati rice۔"
+        "name": "Chicken Biryani",
+        "description": "خوشبودار basmati rice، tender chicken، raita، اور fresh salad۔"
       },
       "menu-3": {
-        "name": "زنگر برگر",
-        "description": "Lettuce، cheese، اور chili mayo کے ساتھ crispy chicken burger۔"
+        "name": "Zinger Burger",
+        "description": "Crispy chicken fillet with cheese، lettuce، اور house mayo۔"
       },
       "menu-4": {
-        "name": "چائے",
-        "description": "Biscuits کے ساتھ room میں freshly brewed tea۔"
+        "name": "Karak Chai",
+        "description": "Biscuits کے ساتھ گرم پاکستانی چائے۔"
       },
       "menu-5": {
-        "name": "کافی",
-        "description": "Milk اور sugar options کے ساتھ smooth coffee۔"
+        "name": "Cappuccino",
+        "description": "Room یا table service کے لیے fresh espresso اور steamed milk۔"
       },
       "menu-6": {
-        "name": "فریش لائم",
-        "description": "Refreshing afternoon break کے لیے chilled lime drink۔"
+        "name": "Mint Lemonade",
+        "description": "Refreshing break کے لیے chilled lemon اور mint cooler۔"
       }
     },
     "notes": {
-      "mildSpicy": "براہ کرم ہلکا spicy بنائیں۔",
-      "twoBottles": "ممکن ہو تو دو bottles بھیج دیں۔",
-      "after3pm": "براہ کرم 3 PM کے بعد۔",
+      "mildSpicy": "براہ کرم spice level mild رکھیں۔",
+      "twoBottles": "براہ کرم دو bottles بھیج دیں۔",
+      "after3pm": "براہ کرم 3 PM کے بعد service کریں۔",
       "extraSauce": "Extra sauce شامل کریں۔"
     },
     "service": {
       "service-1": {
-        "name": "پانی کی بوتل",
+        "name": "Mineral Water",
         "description": "Room کے لیے chilled mineral water request کریں۔"
       },
       "service-2": {
-        "name": "اضافی تولیے",
-        "description": "Fresh towels آپ کے room تک delivered۔"
+        "name": "Fresh Towels",
+        "description": "Service team سے clean towels deliver کروائیں۔"
       },
       "service-3": {
-        "name": "Room Cleaning",
-        "description": "Quick room refresh کے لیے housekeeping support۔"
+        "name": "Housekeeping Refresh",
+        "description": "Housekeeping سے quick room refresh request کریں۔"
       },
       "service-4": {
-        "name": "Maintenance Help",
-        "description": "AC، TV، lights، یا fixtures کے technical issues کے لیے support۔"
+        "name": "Maintenance Support",
+        "description": "AC، TV، light، Wi-Fi، یا fixture issues فوراً report کریں۔"
       },
       "service-5": {
         "name": "Wake-up Call",
-        "description": "Reception سے morning call reminder set کریں۔"
+        "description": "Reception کے ساتھ morning wake-up call schedule کریں۔"
       },
       "service-6": {
-        "name": "Tea Setup",
-        "description": "Cups، kettle، اور sugar sachets کے ساتھ tea tray setup۔"
+        "name": "Tea Tray Setup",
+        "description": "Cups، kettle، اور sugar sachets کے ساتھ tea tray request کریں۔"
       }
     }
   },
@@ -416,94 +417,94 @@
     "nav": {
       "management": "انتظام",
       "overview": "جائزہ",
-      "qrLibrary": "QR لائبریری",
+      "qrLibrary": "QR Library",
       "operations": "آپریشنز",
-      "kitchen": "کچن",
-      "valet": "سروس",
-      "serviceQueue": "سروس قطار",
-      "valetQueue": "سروس قطار",
-      "managerView": "مینجر ویو",
-      "foodQueue": "کھانے کی قطار",
-      "kitchenQueue": "کچن قطار",
-      "qrCenter": "QR سینٹر"
+      "kitchen": "Kitchen",
+      "valet": "Service",
+      "serviceQueue": "Service Queue",
+      "valetQueue": "Service Queue",
+      "managerView": "Manager View",
+      "foodQueue": "Food Queue",
+      "kitchenQueue": "Kitchen Queue",
+      "qrCenter": "QR Center"
     },
-    "demoSetup": {
-      "title": "پروڈکشن ڈیمو سیٹ اپ",
-      "description": "الگ آپریشنل زونز expo flow کو حقیقی hotel SaaS جیسا بناتے ہیں: guests room links پر، kitchen food prep پر، valet service fulfillment پر، اور manager room control plus analytics پر۔",
+    "deploymentSetup": {
+      "title": "Deployment Setup",
+      "description": "ہر QR location کو درست team سے connect کریں: guests room یا table سے order کرتے ہیں، kitchen food handle کرتا ہے، service fulfillment کرتی ہے، اور managers performance track کرتے ہیں۔",
       "openRoom": "Room 101 کھولیں"
     },
     "header": {
-      "eyebrow": "مینجر ڈیش بورڈ",
-      "title": "ہوٹل کنٹرول سینٹر",
-      "description": "Room QR management، team visibility، hotel analytics، اور expo-ready operational control کے لیے production-style manager space۔",
-      "export": "ڈیمو رپورٹ ایکسپورٹ کریں"
+      "eyebrow": "Manager Dashboard",
+      "title": "Hospitality control center",
+      "description": "QR locations manage کریں، staff queues monitor کریں، guest feedback review کریں، اور revenue opportunities ایک executive workspace میں دیکھیں۔",
+      "export": "Operations Report Export کریں"
     },
     "stats": {
-      "totalOrders": "کل آرڈرز",
-      "totalOrdersDetail": "تمام کمروں سے food requests۔",
-      "serviceRequests": "سروس درخواستیں",
-      "serviceRequestsDetail": "Housekeeping اور assistance tasks۔",
-      "pendingRequests": "Pending درخواستیں",
-      "pendingRequestsDetail": "Items ابھی action کے انتظار میں ہیں۔",
-      "completed": "مکمل",
+      "totalOrders": "Food Orders",
+      "totalOrdersDetail": "Rooms اور tables سے revenue-driving food requests۔",
+      "serviceRequests": "Service Requests",
+      "serviceRequestsDetail": "Housekeeping، maintenance، اور assistance tasks۔",
+      "pendingRequests": "Pending Requests",
+      "pendingRequestsDetail": "Items ابھی team action کے انتظار میں ہیں۔",
+      "completed": "Completed",
       "completedDetail": "Requests مکمل deliver ہو چکی ہیں۔"
     },
     "qr": {
-      "title": "QR مینجمنٹ",
+      "title": "QR Management",
       "heading": "Hotel room اور restaurant table QR codes بنائیں",
-      "description": "Hotel QR codes guests کو `/room/101` پر لے جاتے ہیں۔ Restaurant QR codes diners کو `/table/T01` پر لے جاتے ہیں جہاں صرف food ordering enabled ہوتی ہے۔",
+      "description": "Hotel QR codes guests کو room service پر لے جاتے ہیں۔ Restaurant QR codes diners کو food-only table ordering پر لے جاتے ہیں۔",
       "enterId": "{{label}} ID درج کریں",
       "create": "QR بنائیں",
-      "registry": "{{label}} رجسٹری",
+      "registry": "{{label}} registry",
       "count": "{{count}} {{label}}",
       "activeRoute": "Active {{label}} route",
-      "copy": "لنک کاپی کریں",
+      "copy": "Link copy کریں",
       "open": "{{label}} کھولیں",
-      "print": "پرنٹ",
+      "print": "Print",
       "empty": "Unique QR code بنانے کے لیے ID create یا select کریں۔",
       "copied": "{{label}} {{id}} link copied",
       "ready": "{{label}} {{id}} QR ready ہے"
     },
     "qrCard": {
-      "sticker": "{{label}} اسٹکر",
+      "sticker": "{{label}} QR",
       "scanToOrder": "Order کے لیے scan کریں",
-      "copy": "لنک کاپی کریں",
-      "scanToTest": "Test کے لیے scan کریں",
-      "print": "پرنٹ"
+      "copy": "Link copy کریں",
+      "scanToTest": "Link کھولیں",
+      "print": "Print"
     },
     "teams": {
-      "kitchenEyebrow": "کچن ٹیم",
+      "kitchenEyebrow": "Kitchen Team",
       "kitchenTitle": "Food order operations",
-      "kitchenDescription": "Kitchen throughput، prep flow، اور active dining requests monitor کریں۔",
+      "kitchenDescription": "Prep flow، kitchen throughput، اور active room یا table orders monitor کریں۔",
       "kitchenLink": "Kitchen dashboard کھولیں",
-      "valetEyebrow": "سروس ٹیم",
+      "valetEyebrow": "Service Team",
       "valetTitle": "Service fulfillment",
-      "valetDescription": "Water، towels، cleaning، اور in-room service fulfillment کو ایک queue سے track کریں۔",
-      "valetLink": "Valet dashboard کھولیں",
+      "valetDescription": "Water، towels، cleaning، maintenance، اور in-room service کو ایک queue سے track کریں۔",
+      "valetLink": "Service dashboard کھولیں",
       "guestEyebrow": "Guest Experience",
-      "guestTitle": "Room-side preview",
-      "guestDescription": "Live guest room route پر جائیں اور QR ordering journey validate کریں۔",
+      "guestTitle": "Room-side portal",
+      "guestDescription": "Live guest room route کھولیں اور QR ordering journey review کریں۔",
       "guestLink": "Room 101 کھولیں"
     },
     "analytics": {
-      "topItems": "سب سے زیادہ requested items",
-      "popularDemand": "Demand snapshot",
+      "topItems": "Top Requested Items",
+      "popularDemand": "Demand اور revenue snapshot",
       "requests": "{{count}} requests",
       "emptyTitle": "ابھی analytics نہیں",
-      "emptyDescription": "Manager presentation cards بھرنے کے لیے چند guest requests بنائیں۔"
+      "emptyDescription": "Orders اور service requests ان management insights کو populate کریں گے۔"
     },
     "side": {
       "responseTime": "Response Time",
       "minutes": "{{count}} منٹ",
-      "responseDescription": "Request timestamps کی بنیاد پر average delivery یا completion turnaround۔",
+      "responseDescription": "Request timestamps کی بنیاد پر average completion turnaround۔",
       "locationSummary": "Location-wise Summary",
       "requests": "{{count}} requests",
       "noLocationActivity": "ابھی کوئی location activity نہیں۔",
       "reportCenter": "Report Center",
-      "reportTitle": "Presentation-ready export section",
-      "reportDescription": "یہ placeholder expo demos کے لیے ہے۔ یہ backend complexity بڑھائے بغیر PDF export، shift summary، اور occupancy insights دکھاتا ہے۔",
-      "mockPdf": "Mock PDF Export",
-      "printBrief": "Brief Report پرنٹ کریں"
+      "reportTitle": "Operational reporting",
+      "reportDescription": "Better staffing اور service planning کے لیے shift briefs، print summaries، اور guest demand patterns review کریں۔",
+      "exportPdf": "PDF Export",
+      "printBrief": "Brief Report Print کریں"
     },
     "sidebarServices": {
       "title": "Available Services",

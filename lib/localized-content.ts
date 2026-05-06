@@ -14,9 +14,13 @@ const quickActionKeys: Record<string, string> = {
   towels: "quickActions.towels",
   clean: "quickActions.clean",
   coffee: "quickActions.coffee",
+  "Mineral Water": "quickActions.water",
   "Fresh Water": "quickActions.water",
+  "Fresh Towels": "quickActions.towels",
   "Extra Towels": "quickActions.towels",
+  "Room Refresh": "quickActions.clean",
   "Clean Suite": "quickActions.clean",
+  "Tea Service": "quickActions.coffee",
   "More Coffee": "quickActions.coffee"
 };
 
@@ -24,21 +28,31 @@ const canonicalItemNameKeys: Record<string, string> = {
   "Club Sandwich": "catalog.menu.menu-1.name",
   "Chicken Biryani": "catalog.menu.menu-2.name",
   "Zinger Burger": "catalog.menu.menu-3.name",
+  "Karak Chai": "catalog.menu.menu-4.name",
+  Cappuccino: "catalog.menu.menu-5.name",
+  "Mint Lemonade": "catalog.menu.menu-6.name",
   Tea: "catalog.menu.menu-4.name",
   Coffee: "catalog.menu.menu-5.name",
   "Fresh Lime": "catalog.menu.menu-6.name",
+  "Mineral Water": "catalog.service.service-1.name",
   "Water Bottle": "catalog.service.service-1.name",
+  "Fresh Towels": "catalog.service.service-2.name",
   "Extra Towels": "catalog.service.service-2.name",
+  "Housekeeping Refresh": "catalog.service.service-3.name",
   "Room Cleaning": "catalog.service.service-3.name",
+  "Maintenance Support": "catalog.service.service-4.name",
   "Maintenance Help": "catalog.service.service-4.name",
   "Wake-up Call": "catalog.service.service-5.name",
-  "Tea Setup": "catalog.service.service-6.name"
+  "Tea Tray Setup": "catalog.service.service-6.name"
 };
 
-const demoGuestNoteKeys: Record<string, string> = {
+const fallbackGuestNoteKeys: Record<string, string> = {
   "Please make it mildly spicy.": "catalog.notes.mildSpicy",
+  "Please keep the spice level mild.": "catalog.notes.mildSpicy",
   "Two bottles if possible.": "catalog.notes.twoBottles",
+  "Please send two bottles.": "catalog.notes.twoBottles",
   "After 3 PM please.": "catalog.notes.after3pm",
+  "Please service after 3 PM.": "catalog.notes.after3pm",
   "Add extra sauce.": "catalog.notes.extraSauce"
 };
 
@@ -107,5 +121,5 @@ export function translateGuestNote(t: TFunction, note?: string | null) {
     return "";
   }
 
-  return translateWithFallback(t, demoGuestNoteKeys[note], note);
+  return translateWithFallback(t, fallbackGuestNoteKeys[note], note);
 }

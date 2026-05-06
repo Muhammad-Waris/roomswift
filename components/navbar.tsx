@@ -61,7 +61,7 @@ export function Navbar() {
               "button-glow ml-2 rounded-full px-5"
             )}
           >
-            {t("nav.guestDemo")}
+            {t("nav.guestPortal")}
           </Link>
           <LanguageSwitcher compact />
         </nav>
@@ -126,7 +126,7 @@ export function Navbar() {
                     "button-glow w-full rounded-[2rem] text-lg font-bold"
                   )}
                 >
-                  {t("nav.launchGuestDemo")}
+                  {t("nav.openGuestPortal")}
                 </Link>
                 <div className="mt-4">
                   <LanguageSwitcher compact />

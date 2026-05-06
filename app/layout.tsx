@@ -16,9 +16,15 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "RoomSwift | The Future of Hospitality Operations",
-  description: "A premium QR-first operations platform for smart hotels and modern restaurants. Streamline gust orders, automate service requests, and empower staff with real-time dashboards.",
-  keywords: ["Smart Hotel", "QR Ordering", "Hospitality Tech", "Restaurant Ops", "Real-time Dashboard"],
+  title: "RoomSwift | Smart Hospitality Platform for Pakistan",
+  description: "QR ordering, guest service automation, and realtime operations dashboards for hotels and restaurants in Pakistan.",
+  keywords: [
+    "Pakistan hotel software",
+    "QR ordering",
+    "hospitality SaaS",
+    "restaurant operations",
+    "room service automation"
+  ],
   authors: [{ name: "RoomSwift Team" }],
   manifest: "/manifest.json",
   appleWebApp: {

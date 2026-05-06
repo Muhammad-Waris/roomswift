@@ -153,7 +153,7 @@ export function ManagerSidePanels({
           {t("manager.side.reportDescription")}
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          <Button>{t("manager.side.mockPdf")}</Button>
+          <Button>{t("manager.side.exportPdf")}</Button>
           <Button variant="secondary">{t("manager.side.printBrief")}</Button>
         </div>
       </Card>

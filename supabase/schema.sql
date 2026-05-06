@@ -132,12 +132,12 @@ with check (true);
 
 insert into public.menu_items (name, description, price, image_url, category, available)
 values
-  ('Club Sandwich', 'Toasted triple-layer sandwich with fries and a house dip.', 8.50, 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=900&q=80', 'Snacks', true),
-  ('Chicken Biryani', 'Aromatic basmati rice with spiced chicken and raita.', 12.00, 'https://images.unsplash.com/photo-1701579231305-d84d8af9a3fd?auto=format&fit=crop&w=900&q=80', 'Main Course', true),
-  ('Zinger Burger', 'Crispy chicken burger with lettuce, cheese, and chili mayo.', 9.75, 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80', 'Fast Food', true),
-  ('Tea', 'Freshly brewed tea served in-room with biscuits.', 2.50, 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=900&q=80', 'Beverages', true),
-  ('Coffee', 'Smooth coffee with optional milk and sugar.', 3.00, 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80', 'Beverages', true),
-  ('Fresh Lime', 'Chilled lime drink for a refreshing afternoon break.', 3.75, 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=900&q=80', 'Beverages', false)
+  ('Club Sandwich', 'Triple-layer chicken sandwich with fries, coleslaw, and signature sauce.', 950.00, 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=900&q=80', 'Snacks', true),
+  ('Chicken Biryani', 'Aromatic basmati rice, tender chicken, raita, and fresh salad.', 1200.00, 'https://images.unsplash.com/photo-1701579231305-d84d8af9a3fd?auto=format&fit=crop&w=900&q=80', 'Main Course', true),
+  ('Zinger Burger', 'Crispy chicken fillet with cheese, lettuce, and house mayo.', 1050.00, 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80', 'Fast Food', true),
+  ('Karak Chai', 'Freshly brewed Pakistani tea served hot with biscuits.', 280.00, 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=900&q=80', 'Beverages', true),
+  ('Cappuccino', 'Fresh espresso with steamed milk for room or table service.', 450.00, 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80', 'Beverages', true),
+  ('Mint Lemonade', 'Chilled lemon and mint cooler for a refreshing break.', 380.00, 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=900&q=80', 'Beverages', false)
 on conflict (name) do update
 set
   description = excluded.description,
@@ -148,12 +148,12 @@ set
 
 insert into public.service_items (name, description, icon_name, available)
 values
-  ('Water Bottle', 'Request chilled mineral water for the room.', 'Droplets', true),
-  ('Extra Towels', 'Fresh towels delivered to your room.', 'Bath', true),
-  ('Room Cleaning', 'Housekeeping support for quick room refresh.', 'Sparkles', true),
-  ('Maintenance Help', 'Technical issue support for AC, TV, lights, or fixtures.', 'Wrench', true),
+  ('Mineral Water', 'Request chilled mineral water for the room.', 'Droplets', true),
+  ('Fresh Towels', 'Get clean towels delivered by the service team.', 'Bath', true),
+  ('Housekeeping Refresh', 'Request a quick room refresh from housekeeping.', 'Sparkles', true),
+  ('Maintenance Support', 'Report AC, TV, light, Wi-Fi, or fixture issues instantly.', 'Wrench', true),
   ('Wake-up Call', 'Set a morning call reminder from reception.', 'AlarmClock', true),
-  ('Tea Setup', 'Tea tray setup with cups, kettle, and sugar sachets.', 'CupSoda', true)
+  ('Tea Tray Setup', 'Request a tea tray with cups, kettle, and sugar sachets.', 'CupSoda', true)
 on conflict (name) do update
 set
   description = excluded.description,
@@ -164,10 +164,10 @@ insert into public.room_requests (room_number, room_id, table_id, mode, request_
 select *
 from (
   values
-    ('101', '101', null, 'hotel', 'food', 'Chicken Biryani', 'Please make it mildly spicy.', 'In Progress', now() - interval '18 minutes', now() - interval '10 minutes'),
-    ('101', '101', null, 'hotel', 'service', 'Water Bottle', 'Two bottles if possible.', 'Pending', now() - interval '4 minutes', now() - interval '4 minutes'),
-    ('102', '102', null, 'hotel', 'service', 'Room Cleaning', 'After 3 PM please.', 'Accepted', now() - interval '34 minutes', now() - interval '30 minutes'),
-    ('201', '201', null, 'hotel', 'food', 'Tea', null, 'Completed', now() - interval '52 minutes', now() - interval '20 minutes'),
+    ('101', '101', null, 'hotel', 'food', 'Chicken Biryani', 'Please keep the spice level mild.', 'In Progress', now() - interval '18 minutes', now() - interval '10 minutes'),
+    ('101', '101', null, 'hotel', 'service', 'Mineral Water', 'Please send two bottles.', 'Pending', now() - interval '4 minutes', now() - interval '4 minutes'),
+    ('102', '102', null, 'hotel', 'service', 'Housekeeping Refresh', 'Please service after 3 PM.', 'Accepted', now() - interval '34 minutes', now() - interval '30 minutes'),
+    ('201', '201', null, 'hotel', 'food', 'Karak Chai', null, 'Completed', now() - interval '52 minutes', now() - interval '20 minutes'),
     (null, null, 'T01', 'restaurant', 'food', 'Zinger Burger', 'Add extra sauce.', 'Completed', now() - interval '28 minutes', now() - interval '16 minutes')
 ) as seed(room_number, room_id, table_id, mode, request_type, item_name, guest_note, status, created_at, updated_at)
 where not exists (

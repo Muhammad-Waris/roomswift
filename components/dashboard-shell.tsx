@@ -36,7 +36,7 @@ export function DashboardShell({
           label: t("manager.nav.management"),
           items: [
             { href: "/manager", label: t("manager.nav.overview"), icon: <ShieldCheck className="h-4 w-4" /> },
-            { href: "/demo/qr", label: t("manager.nav.qrLibrary"), icon: <QrCode className="h-4 w-4" /> }
+            { href: "/qr", label: t("manager.nav.qrLibrary"), icon: <QrCode className="h-4 w-4" /> }
           ]
         },
         {
@@ -59,7 +59,7 @@ export function DashboardShell({
           label: t("manager.nav.management"),
           items: [
             { href: "/manager", label: t("manager.nav.managerView"), icon: <Building2 className="h-4 w-4" /> },
-            { href: "/demo/qr", label: t("manager.nav.qrLibrary"), icon: <QrCode className="h-4 w-4" /> }
+            { href: "/qr", label: t("manager.nav.qrLibrary"), icon: <QrCode className="h-4 w-4" /> }
           ]
         }
       ],
@@ -75,7 +75,7 @@ export function DashboardShell({
           label: t("manager.nav.management"),
           items: [
             { href: "/manager", label: t("manager.nav.managerView"), icon: <Building2 className="h-4 w-4" /> },
-            { href: "/demo/qr", label: t("manager.nav.qrLibrary"), icon: <QrCode className="h-4 w-4" /> }
+            { href: "/qr", label: t("manager.nav.qrLibrary"), icon: <QrCode className="h-4 w-4" /> }
           ]
         }
       ]
@@ -109,10 +109,10 @@ export function DashboardShell({
 
           <div className="mt-10 rounded-[2rem] border border-white/10 bg-white/5 p-5">
             <p className="text-xs uppercase tracking-[0.24em] text-primary">
-              {t("manager.demoSetup.title")}
+              {t("manager.deploymentSetup.title")}
             </p>
             <p className="mt-3 text-sm text-slate-300">
-              {t("manager.demoSetup.description")}
+              {t("manager.deploymentSetup.description")}
             </p>
             <Link
               href="/room/101"
@@ -121,7 +121,7 @@ export function DashboardShell({
                 className: "mt-4 w-full"
               })}
             >
-              {t("manager.demoSetup.openRoom")}
+              {t("manager.deploymentSetup.openRoom")}
             </Link>
           </div>
 
@@ -141,7 +141,7 @@ export function DashboardShell({
                   {t("nav.manager")}
                 </Link>
                 <Link
-                  href="/demo/qr"
+                  href="/qr"
                   className={buttonVariants({ variant: "secondary" })}
                 >
                   {t("manager.nav.qrCenter")}

@@ -93,7 +93,7 @@ export default function HomePage() {
                     "button-glow group h-14 rounded-2xl px-10 text-lg"
                   )}
                 >
-                  {t("home.tryGuestDemo")}
+                  {t("home.openGuestFlow")}
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <Link
@@ -213,7 +213,7 @@ export default function HomePage() {
                     size="sm"
                     className="w-full rounded-2xl bg-white/5 hover:bg-primary hover:text-primary-foreground"
                   >
-                    {t("common.launchDemo")}
+                    {t("common.openView")}
                   </Button>
                 </Card>
               </Link>
@@ -260,7 +260,7 @@ export default function HomePage() {
                   </h3>
                   <div className="mt-4 flex items-baseline gap-1">
                     <span className="text-4xl font-bold tracking-tighter text-white">
-                      {plan.customPrice ? "" : "$"}
+                      {plan.customPrice ? "" : t("common.currencyPrefix")}
                       {t(`home.plans.${plan.key}.price`)}
                     </span>
                     {!plan.customPrice ? (
@@ -320,7 +320,7 @@ export default function HomePage() {
                     "button-glow px-12"
                   )}
                 >
-                  {t("home.startLiveDemo")}
+                  {t("home.startGuestFlow")}
                 </Link>
                 <Link
                   href="/manager"

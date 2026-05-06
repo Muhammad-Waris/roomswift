@@ -1,7 +1,7 @@
 {
   "name": "RoomSwift",
   "short_name": "RoomSwift",
-  "description": "QR-based Smart Hotel System for guest services and realtime staff operations.",
+  "description": "Smart QR ordering and guest service platform for hotels and restaurants in Pakistan.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#07111f",

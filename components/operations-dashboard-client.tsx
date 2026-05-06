@@ -139,7 +139,7 @@ export function OperationsDashboardClient({
             <div className="hidden sm:block h-6 w-[1px] bg-white/10" />
             <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-emerald-300">
               <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              {isRealtimeEnabled ? t("operations.realtimeLive") : t("operations.demoFallback")}
+              {isRealtimeEnabled ? t("operations.realtimeLive") : t("operations.localFallback")}
             </div>
           </div>
         }

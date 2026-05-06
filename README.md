@@ -1,67 +1,61 @@
 # RoomSwift
 
-RoomSwift is a QR-based Smart Hotel Framework built for a university expo demo. Guests scan a room QR code and instantly open a mobile web experience for food ordering and hotel service requests. Staff manage requests in a responsive dashboard, and admins get an analytics-style overview for presentation.
+RoomSwift is a smart hospitality platform for hotels, guest houses, cafes, and restaurants in Pakistan. Guests scan a room or table QR code to order food, request service, and track fulfillment without installing an app. Kitchen, service, and management teams work from realtime dashboards that reduce missed requests, speed up response times, and create better guest experiences.
+
+## Product Positioning
+
+- Increase food and beverage revenue with frictionless QR ordering.
+- Reduce phone calls, WhatsApp confusion, and manual handoffs.
+- Give kitchen and service teams clear live queues.
+- Help managers track demand, response time, feedback, and location-wise activity.
+- Support hotel rooms, restaurant tables, reception counters, and service touchpoints.
 
 ## Stack
 
 - Next.js App Router
 - TypeScript
 - Tailwind CSS
-- Supabase for database and realtime
+- Supabase for database and realtime updates
+- MongoDB for guest feedback summaries
 - Lucide React icons
 - Sonner for toasts
 
-## Main routes
+## Main Routes
 
-- `/` landing page
-- `/room/101` sample guest page
-- `/staff` staff dashboard
-- `/admin` admin dashboard
-- `/demo/qr` sample QR showcase
+- `/` product website
+- `/room/101` hotel guest room portal
+- `/table/T01` restaurant table ordering portal
+- `/staff` staff workspace selector
+- `/kitchen` live kitchen queue
+- `/valet` guest service queue
+- `/manager` manager dashboard
+- `/qr` QR deployment center
 
-## Suggested file structure
+## Key Features
 
-```text
-roomswift/
-├── app/
-│   ├── admin/
-│   ├── demo/qr/
-│   ├── room/[roomNumber]/
-│   ├── staff/
-│   ├── globals.css
-│   └── layout.tsx
-├── components/
-├── hooks/
-├── lib/
-├── supabase/
-│   └── schema.sql
-├── types/
-├── .env.example
-├── package.json
-└── README.md
-```
+- Mobile-first guest ordering for rooms and tables
+- Hotel service requests for water, towels, housekeeping, maintenance, wake-up calls, and tea tray setup
+- Realtime kitchen and service queues with status updates
+- Manager dashboard with order counts, pending work, response time, location activity, and feedback
+- QR code generation for rooms and restaurant tables
+- English, Urdu, Arabic, and Chinese interface options
+- Local fallback mode for development before Supabase is connected
 
-## Features
-
-- Mobile-first guest room page with food menu, hotel services, and live request status
-- English and Urdu toggle for the guest experience
-- Staff dashboard with filters and one-click status updates
-- Admin dashboard with summary cards, popular items, room-wise activity, and report-style UI
-- Demo QR generator for rooms `101`, `102`, and `201`
-- Seed/demo data for expo presentation
-- Supabase realtime subscription for request updates
-- Fallback local demo mode when Supabase env vars are not set yet
-
-## Environment variables
+## Environment Variables
 
 Create a `.env.local` file:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+MONGODB_URI=your_mongodb_connection_string
+MONGODB_DB=roomswift
 ```
 
-## Local setup
+Supabase powers menu items, service items, room/table requests, and realtime status updates. MongoDB is used for guest feedback summaries.
+
+## Local Setup
 
 1. Install dependencies:
 
@@ -77,46 +71,30 @@ npm run dev
 
 3. Open `http://localhost:3000`
 
-## Supabase setup
+## Supabase Setup
 
-1. Create a new Supabase project.
+1. Create a Supabase project.
 2. Open the SQL Editor.
-3. Paste the contents of [supabase/schema.sql](/Users/waris/Documents/roomswift/supabase/schema.sql:1) and run it.
-4. In Supabase, go to `Database -> Replication` and confirm `room_requests` is included for realtime if your project UI requires manual confirmation.
-5. Copy your project URL and anon key into `.env.local`.
+3. Run [supabase/schema.sql](/Users/waris/Documents/roomswift/supabase/schema.sql:1).
+4. Confirm `room_requests` is enabled for realtime replication if your Supabase project requires manual confirmation.
+5. Add the Supabase URL and anon key to `.env.local`.
 6. Restart the Next.js dev server.
 
-## Demo flow for expo
+## Recommended Sales Walkthrough
 
-1. Open the landing page and explain the QR workflow.
-2. Visit `/demo/qr` and show the QR stickers for rooms.
-3. Open `/room/101`, place a request, and show the success toast.
-4. Open `/staff`, accept or complete the request.
-5. Return to `/room/101` and show the live status update.
-6. Finish on `/admin` for analytics and summaries.
+1. Open `/` and explain the guest journey: scan, order, request, track.
+2. Open `/qr` to show how a property creates QR codes for rooms and tables.
+3. Open `/room/101` and place a food or service request.
+4. Open `/kitchen` or `/valet` to accept and complete the request.
+5. Return to `/room/101` to show the guest-side status update.
+6. Finish on `/manager` to show operations visibility, feedback, and revenue insights.
 
-## Notes for Flutter developers
+## Production Notes
 
-- `app/` contains the route-based screens, similar to top-level pages.
-- `components/` contains reusable UI widgets.
-- `lib/data.ts` is the main client-side data service.
-- `hooks/use-roomswift-data.ts` is the shared state and realtime logic.
-- `types/` contains the domain models.
-- Supabase usage is intentionally simple and browser-side for this expo prototype.
-
-## Supabase schema summary
-
-Tables:
-
-- `menu_items`
-- `service_items`
-- `room_requests`
-
-Seeded content includes:
-
-- Menu: Club Sandwich, Chicken Biryani, Zinger Burger, Tea, Coffee, Fresh Lime
-- Services: Water Bottle, Extra Towels, Room Cleaning, Maintenance Help, Wake-up Call, Tea Setup
-- Demo room requests for rooms `101`, `102`, and `201`
+- Update catalog items, prices, and service options to match each property before launch.
+- Use PKR pricing for Pakistani hotels and restaurants.
+- Connect POS/PMS workflows through the Enterprise integration path where needed.
+- Print QR codes on room cards, table tents, menus, or reception signage.
 
 ## Commands
 
@@ -125,10 +103,5 @@ npm install
 npm run dev
 npm run build
 npm run start
+npm run seed:catalog
 ```
-
-## Manual setup limitations
-
-- This repository includes the full project code, but dependency installation still needs to be run locally.
-- Supabase project creation and SQL execution are manual steps.
-- The export button in the admin dashboard is a polished UI placeholder, not a real PDF generator.

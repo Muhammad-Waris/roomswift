@@ -7,19 +7,19 @@
     "chinese": "Chinese"
   },
   "metadata": {
-    "title": "RoomSwift | The Future of Hospitality Operations",
-    "description": "A premium QR-first operations platform for smart hotels and modern restaurants."
+    "title": "RoomSwift | Smart Hospitality Platform for Pakistan",
+    "description": "QR ordering, guest service automation, and realtime operations dashboards for hotels and restaurants in Pakistan."
   },
   "nav": {
     "subtitle": "Smart Hospitality",
     "pricing": "Pricing",
     "manager": "Manager",
     "staff": "Staff",
-    "guestDemo": "Guest Demo",
-    "launchGuestDemo": "Launch Guest Demo"
+    "guestPortal": "Guest Portal",
+    "openGuestPortal": "Open Guest Portal"
   },
   "mode": {
-    "label": "System Mode",
+    "label": "Service Mode",
     "hotel": "Hotel Mode",
     "restaurant": "Restaurant Mode"
   },
@@ -30,12 +30,12 @@
     "Completed": "Completed"
   },
   "guest": {
-    "roomExperience": "Room Experience",
-    "tableExperience": "Table Experience",
-    "suite": "Suite",
+    "roomExperience": "Room Service",
+    "tableExperience": "Table Ordering",
+    "suite": "Room",
     "table": "Table",
     "staffAccess": "Staff Access",
-    "smartConcierge": "Smart Concierge",
+    "smartConcierge": "Quick Requests",
     "tabs": {
       "menu": "Menu",
       "services": "Services",
@@ -44,16 +44,16 @@
     "categories": {
       "all": "All"
     },
-    "available": "Ready to order",
-    "unavailable": "Out of stock",
-    "submitFood": "Order Now",
+    "available": "Available now",
+    "unavailable": "Temporarily unavailable",
+    "submitFood": "Place Order",
     "submitService": "Request Service",
-    "notePlaceholder": "Add special instructions...",
-    "noRequestsTitle": "No requests yet",
-    "noRequests": "No active requests for this order point.",
-    "requestSuccess": "{{itemName}} requested!",
-    "requestError": "Failed to place request. Please try again.",
-    "processing": "Processing...",
+    "notePlaceholder": "Add spice level, timing, or delivery notes...",
+    "noRequestsTitle": "No active requests",
+    "noRequests": "Orders and service requests for this location will appear here.",
+    "requestSuccess": "{{itemName}} sent to the team.",
+    "requestError": "We could not place this request. Please try again.",
+    "processing": "Sending...",
     "sending": "Sending...",
     "specialInstructions": "Special Instructions",
     "addInstructions": "Add Instructions",
@@ -64,42 +64,42 @@
     "inPrep": "In Prep",
     "completed": "Completed",
     "latestProgress": "Latest Progress",
-    "trackingLive": "Tracking current request status live.",
-    "noLiveOrders": "No Live Orders",
-    "noLiveOrdersDescription": "Place a request to see the live timeline update here.",
+    "trackingLive": "Your request status updates here in realtime.",
+    "noLiveOrders": "Nothing in Progress",
+    "noLiveOrdersDescription": "Place an order or service request to track progress here.",
     "returnHome": "Return to Home",
-    "connectedEcosystem": "Connected Ecosystem",
-    "connectedDescription": "Experience the full operational flow by opening the staff dashboards on another device.",
+    "connectedEcosystem": "Connected Operations",
+    "connectedDescription": "RoomSwift keeps guests, kitchen, service teams, and managers aligned from scan to fulfillment.",
     "kitchenOps": "Kitchen Ops",
-    "valetService": "Valet Service",
+    "valetService": "Service Team",
     "managerSuite": "Manager Suite"
   },
   "quickActions": {
-    "water": "Fresh Water",
-    "towels": "Extra Towels",
-    "clean": "Clean Suite",
-    "coffee": "More Coffee"
+    "water": "Mineral Water",
+    "towels": "Fresh Towels",
+    "clean": "Room Refresh",
+    "coffee": "Tea Service"
   },
   "hotSellers": {
-    "title": "Hot Sellers",
-    "subtitle": "Top food picks based on live order counts.",
+    "title": "Guest Favorites",
+    "subtitle": "Best-selling menu items based on live order activity.",
     "orders": "{{count}} orders",
-    "loading": "Finding top picks...",
-    "empty": "Hot sellers will appear after food orders are placed.",
+    "loading": "Calculating guest favorites...",
+    "empty": "Top-selling items will appear once orders start coming in.",
     "orderAgain": "Order"
   },
   "feedback": {
-    "title": "How was this order?",
-    "subtitle": "Your feedback helps the team improve service quality.",
+    "title": "How was this experience?",
+    "subtitle": "Guest feedback helps management improve service quality and staff performance.",
     "ratingLabel": "Rating",
     "optionalComment": "Optional comment",
-    "commentPlaceholder": "Tell us what went well or what could improve...",
+    "commentPlaceholder": "Share what went well or what should improve...",
     "submit": "Send Feedback",
     "thanks": "Thanks for your feedback.",
     "error": "Feedback could not be saved right now.",
-    "averageRating": "Average Rating",
+    "averageRating": "Guest Satisfaction",
     "latestFeedback": "Latest Feedback",
-    "noFeedback": "No guest feedback has been submitted yet.",
+    "noFeedback": "Guest feedback will appear here after completed requests.",
     "totalResponses": "{{count}} responses"
   },
   "dashboard": {
@@ -109,20 +109,21 @@
     "standardRequest": "Standard request - no special notes."
   },
   "supabase": {
-    "connectionIssue": "Connection issue detected",
-    "demoMode": "Demo mode active",
-    "fallbackDescription": "Supabase env vars are missing, so RoomSwift is using local fallback data for the expo preview."
+    "connectionIssue": "Realtime connection needs attention",
+    "localMode": "Local preview mode",
+    "fallbackDescription": "RoomSwift is using secure local fallback data until your Supabase project is connected."
   },
   "install": {
     "title": "Install RoomSwift",
-    "description": "Save the demo to your home screen for a smoother expo walkthrough.",
+    "description": "Save RoomSwift to the home screen for faster guest and staff access.",
     "install": "Install",
     "notNow": "Not now"
   },
   "common": {
     "recommended": "Recommended",
+    "currencyPrefix": "Rs ",
     "month": "/mo",
-    "launchDemo": "Launch Demo",
+    "openView": "Open View",
     "created": "Created",
     "status": "Status",
     "actions": "Actions",
@@ -133,125 +134,125 @@
     "updating": "Updating..."
   },
   "home": {
-    "eyebrow": "The Future of Hospitality",
-    "headline": "Hospitality,",
-    "headlineAccent": "Redefined.",
-    "description": "RoomSwift is a premium QR-driven platform for smart hotels and modern restaurants. Streamline orders, automate service requests, and empower your team with realtime operational dashboards.",
-    "tryGuestDemo": "Try Guest Demo",
-    "managerView": "Manager View",
-    "productionGrade": "Production Grade",
-    "realtimeSync": "Realtime Sync",
-    "featuresTitle": "Built for Scale",
-    "featuresSubtitle": "Everything you need to run a high-performance dining or hotel operation.",
+    "eyebrow": "Built for Pakistan's Hospitality Teams",
+    "headline": "More orders.",
+    "headlineAccent": "Less waiting.",
+    "description": "RoomSwift helps hotels and restaurants in Pakistan accept QR orders, automate guest requests, and run kitchen, service, and management workflows from one realtime platform.",
+    "openGuestFlow": "Open Guest Flow",
+    "managerView": "View Manager Suite",
+    "productionGrade": "Ready for Live Use",
+    "realtimeSync": "Realtime Team Sync",
+    "featuresTitle": "Turn guest requests into managed revenue",
+    "featuresSubtitle": "A premium, simple operating system for faster service, cleaner coordination, and better guest experiences.",
     "operationsEyebrow": "Live Operations",
     "operationsTitle": "One platform,",
-    "operationsAccent": "multiple perspectives.",
-    "versionBadge": "V.1.0 Ready for Deployment",
-    "pricingEyebrow": "Scalable Growth",
-    "pricingTitle": "Transparent Pricing",
-    "pricingDescription": "Choose the perfect plan for your establishment. Whether you're a boutique cafe or a luxury hotel chain, we have you covered.",
-    "ctaTitle": "Ready to elevate your guest UX?",
-    "ctaDescription": "Join the smart hotels and restaurants building the next generation of hospitality experiences with RoomSwift.",
-    "startLiveDemo": "Start Live Demo",
-    "viewAnalytics": "View Analytics",
+    "operationsAccent": "every team connected.",
+    "versionBadge": "Deployment-ready for hotels and restaurants",
+    "pricingEyebrow": "Simple Pakistan Pricing",
+    "pricingTitle": "Plans that pay for themselves",
+    "pricingDescription": "Start with one property, then scale to multiple outlets, hotel floors, restaurants, and service teams as your operation grows.",
+    "ctaTitle": "Ready to serve guests faster?",
+    "ctaDescription": "Use RoomSwift to reduce phone calls, missed requests, and staff confusion while increasing order volume and guest satisfaction.",
+    "startGuestFlow": "Open Guest Flow",
+    "viewAnalytics": "View Manager Suite",
     "copyright": "2026 RoomSwift Smart Hospitality Systems. All rights reserved.",
     "features": {
       "qrFirst": {
-        "title": "QR-First Experience",
-        "description": "Guests scan a room-specific QR code to open a beautifully optimized ordering suite. No apps, no friction."
+        "title": "QR Ordering Without an App",
+        "description": "Guests scan a room or table QR code, browse the menu, request service, and track progress without downloading anything."
       },
       "realtime": {
-        "title": "Realtime Operations",
-        "description": "Kitchen and Valet teams receive requests instantly. Realtime updates keep guests informed at every step."
+        "title": "Instant Team Alerts",
+        "description": "Kitchen and service teams receive requests immediately, so fewer orders are missed and guests know what is happening."
       },
       "staff": {
-        "title": "Staff Orchestration",
-        "description": "Dedicated dashboards for separate fulfillment streams. Move requests from pending to delivered with ease."
+        "title": "Clear Staff Handoffs",
+        "description": "Separate queues for food, housekeeping, maintenance, and service keep teams accountable from request to completion."
       },
       "insights": {
-        "title": "Manager Insights",
-        "description": "Track performance, hot items, and room activity in a unified analytics-style manager dashboard."
+        "title": "Manager Revenue Insights",
+        "description": "Track popular items, response times, pending work, and location-wise demand to improve staffing and boost revenue."
       }
     },
     "previews": {
       "guest": {
-        "title": "Guest Room UI",
-        "description": "A premium mobile-first dining and service menu.",
+        "title": "Guest Portal",
+        "description": "A mobile-first ordering and service experience for rooms and tables.",
         "badge": "Guest UX"
       },
       "kitchen": {
-        "title": "Kitchen Ops",
-        "description": "Live food queue for rapid preparation and flow.",
+        "title": "Kitchen Queue",
+        "description": "Prioritize live food orders and reduce preparation delays.",
         "badge": "Food Team"
       },
       "valet": {
-        "title": "Valet & Service",
-        "description": "Coordinate housekeeping and service fulfillment.",
+        "title": "Service Queue",
+        "description": "Coordinate water, towels, cleaning, maintenance, and room service.",
         "badge": "Service Team"
       },
       "manager": {
-        "title": "Executive View",
-        "description": "Analytics and control for the management layer.",
+        "title": "Manager Suite",
+        "description": "Monitor operations, QR locations, feedback, and performance.",
         "badge": "Analytics"
       }
     },
     "plans": {
       "essential": {
         "name": "Essential",
-        "price": "49",
-        "description": "Perfect for single-property boutique hotels and restaurants looking to simplify guest requests.",
-        "button": "Start Free Trial",
+        "price": "15,000",
+        "description": "For independent restaurants, guest houses, and boutique hotels ready to digitize ordering and service requests.",
+        "button": "Start with Essential",
         "features": {
-          "qrSuite": "QR-Driven Guest Suite",
-          "foodQueue": "Real-time Food Queue",
-          "basicAnalytics": "Basic Analytics",
-          "support": "Standard Support",
-          "sla": "Uptime SLA 99.5%"
+          "qrSuite": "Room and table QR ordering",
+          "foodQueue": "Realtime kitchen queue",
+          "basicAnalytics": "Daily order and service insights",
+          "support": "WhatsApp and email support",
+          "sla": "99.5% platform availability target"
         }
       },
       "professional": {
         "name": "Professional",
-        "price": "99",
-        "description": "Our most popular plan for high-volume hotels requiring multi-team orchestration.",
-        "button": "Get Started Now",
+        "price": "35,000",
+        "description": "For busy hotels and restaurants that need faster fulfillment, branded guest screens, and team-level controls.",
+        "button": "Choose Professional",
         "features": {
           "essential": "Everything in Essential",
-          "dashboards": "Advanced Staff Dashboards",
-          "analytics": "Full Operational Analytics",
-          "branding": "Custom Branding",
-          "support": "Priority Email Support"
+          "dashboards": "Kitchen, service, and manager dashboards",
+          "analytics": "Operational analytics and guest feedback",
+          "branding": "Custom branding for your property",
+          "support": "Priority onboarding and support"
         }
       },
       "enterprise": {
         "name": "Enterprise",
         "price": "Custom",
-        "description": "Dedicated infrastructure and support for large-scale hotel groups and resort chains.",
-        "button": "Contact Sales",
+        "description": "For hotel groups, multi-branch restaurants, and premium properties that need tailored rollout and integrations.",
+        "button": "Talk to Sales",
         "features": {
-          "multiProperty": "Multi-Property Support",
-          "api": "API Access & Webhooks",
-          "account": "24/7 Dedicated Account Manager",
-          "integration": "Custom Integration Service",
-          "training": "On-site Training"
+          "multiProperty": "Multi-property and multi-branch setup",
+          "api": "API access and integration support",
+          "account": "Dedicated success manager",
+          "integration": "POS, PMS, and workflow integrations",
+          "training": "On-site launch and staff training"
         }
       }
     }
   },
   "staffPortal": {
     "eyebrow": "Team Operations",
-    "title": "Staff Portal",
-    "description": "Select your operations department to access the live request queue and fulfillment dashboard.",
+    "title": "Staff Workspaces",
+    "description": "Give every team a focused queue so orders move faster and managers can see accountability in realtime.",
     "openQueue": "Open Queue",
     "kitchenTitle": "Kitchen Dashboard",
-    "kitchenDescription": "Handle food preparation, track order status, and coordinate with the service team in realtime.",
-    "valetTitle": "Valet & Services",
-    "valetDescription": "Manage housekeeping, maintenance, and guest service requests through a unified operational view."
+    "kitchenDescription": "Accept food orders, manage preparation flow, and mark items complete as soon as they are ready for service.",
+    "valetTitle": "Service Dashboard",
+    "valetDescription": "Manage housekeeping, maintenance, water, towels, and guest support from one clear fulfillment queue."
   },
-  "qrDemo": {
-    "eyebrow": "Demo QR Center",
-    "title": "Room QR Showcase",
-    "description": "Print these room stickers for your university expo table. Each QR opens the guest web app instantly without login or app installation.",
-    "setup": "Suggested demo setup: print Room 101 and Room 102, place them on your expo booth, and use the \"Scan to test\" button to quickly validate the flow before presenting.",
+  "qrLibrary": {
+    "eyebrow": "QR Deployment Center",
+    "title": "Room and Table QR Library",
+    "description": "Generate print-ready QR codes for rooms, tables, reception desks, and service counters. Each code opens the right guest ordering flow instantly.",
+    "setup": "Use these QR codes on room cards, table tents, menus, or reception signage so guests can order and request service without calling staff.",
     "copied": "Room {{room}} link copied"
   },
   "offline": {
@@ -261,9 +262,9 @@
     "returnHome": "Return to Home"
   },
   "notFound": {
-    "title": "Room not found",
-    "description": "The requested RoomSwift page could not be found. Use the demo room below to keep the presentation moving.",
-    "openDemo": "Open Demo Room 101"
+    "title": "Page not found",
+    "description": "This RoomSwift page is not available. Open a live room link to continue.",
+    "openRoom": "Open Room 101"
   },
   "loading": {
     "message": "Loading RoomSwift..."
@@ -271,42 +272,42 @@
   "operations": {
     "teams": {
       "kitchen": "Kitchen",
-      "valet": "Valet",
+      "valet": "Service",
       "kitchenDuty": "Kitchen Duty",
       "serviceTeam": "Service Team"
     },
     "kitchen": {
       "eyebrow": "Kitchen Dashboard",
-      "title": "Food preparation command center",
-      "description": "Accept, prepare, and complete live food orders from rooms and restaurant tables."
+      "title": "Food order command center",
+      "description": "Accept, prepare, and complete live food orders from hotel rooms and restaurant tables."
     },
     "valet": {
-      "eyebrow": "Valet Dashboard",
-      "title": "Room service and fulfillment flow",
-      "description": "Handle housekeeping, maintenance, water, towels, and delivery-style service requests from one live operations queue."
+      "eyebrow": "Service Dashboard",
+      "title": "Guest service fulfillment flow",
+      "description": "Handle housekeeping, maintenance, water, towels, and in-room service requests from one live operations queue."
     },
     "realtimeLive": "Realtime Live",
-    "demoFallback": "Demo Fallback",
+    "localFallback": "Local Mode",
     "filterStatus": "Filter Status",
     "stats": {
       "teamToday": "{{team}} Requests Today",
-      "teamDetail": "Total handled by {{team}} team.",
+      "teamDetail": "Total handled by the {{team}} team.",
       "pendingQueue": "Pending Queue",
       "pendingDetail": "Awaiting team acceptance.",
-      "fulfillment": "Fulfillment",
-      "fulfillmentDetail": "Successfully delivered today."
+      "fulfillment": "Completed Today",
+      "fulfillmentDetail": "Requests successfully fulfilled today."
     },
     "table": {
       "fulfillment": "Fulfillment",
       "guestInstructions": "Guest Instructions",
       "manage": "Manage"
     },
-    "emptyTitle": "Clean Queue",
-    "emptyDescription": "No {{team}} requests found for this filter.",
+    "emptyTitle": "Queue Clear",
+    "emptyDescription": "No {{team}} requests match this filter.",
     "actions": {
       "accept": "Accept",
-      "workOn": "Work On",
-      "done": "Done"
+      "workOn": "Start Work",
+      "done": "Complete"
     },
     "toast": {
       "newRequest": "{{team}} received a new request",
@@ -318,22 +319,22 @@
   "staffDashboard": {
     "eyebrow": "Staff Dashboard",
     "title": "Live request operations",
-    "description": "Monitor all incoming requests, accept tasks quickly, and update status in realtime for the guest room view.",
+    "description": "Monitor all incoming orders and service calls, accept tasks quickly, and keep guests updated in realtime.",
     "soundOn": "Sound on",
     "soundOff": "Sound off",
-    "realtimeConnected": "Realtime connected flow",
-    "localFallback": "Local demo fallback",
+    "realtimeConnected": "Realtime connected",
+    "localFallback": "Local fallback mode",
     "stats": {
       "totalToday": "Total Requests Today",
-      "totalTodayDetail": "All requests created during today's demo session.",
+      "totalTodayDetail": "All orders and service requests created today.",
       "pending": "Pending",
       "pendingDetail": "Waiting for staff acceptance.",
       "completed": "Completed",
-      "completedDetail": "Finished tasks visible on guest pages."
+      "completedDetail": "Finished tasks visible to guests."
     },
     "filterRequests": "Filter requests",
     "emptyTitle": "No matching requests",
-    "emptyDescription": "New room orders and service calls will appear here in realtime.",
+    "emptyDescription": "New room orders, table orders, and service calls will appear here in realtime.",
     "itemNote": "Item / Note",
     "newRequest": "New guest request received",
     "requestType": {
@@ -351,59 +352,59 @@
     "menu": {
       "menu-1": {
         "name": "Club Sandwich",
-        "description": "Toasted triple-layer sandwich with fries and a house dip."
+        "description": "Triple-layer chicken sandwich with fries, coleslaw, and signature sauce."
       },
       "menu-2": {
         "name": "Chicken Biryani",
-        "description": "Aromatic basmati rice with spiced chicken and raita."
+        "description": "Aromatic basmati rice, tender chicken, raita, and fresh salad."
       },
       "menu-3": {
         "name": "Zinger Burger",
-        "description": "Crispy chicken burger with lettuce, cheese, and chili mayo."
+        "description": "Crispy chicken fillet with cheese, lettuce, and house mayo."
       },
       "menu-4": {
-        "name": "Tea",
-        "description": "Freshly brewed tea served in-room with biscuits."
+        "name": "Karak Chai",
+        "description": "Freshly brewed Pakistani tea served hot with biscuits."
       },
       "menu-5": {
-        "name": "Coffee",
-        "description": "Smooth coffee with optional milk and sugar."
+        "name": "Cappuccino",
+        "description": "Fresh espresso with steamed milk for room or table service."
       },
       "menu-6": {
-        "name": "Fresh Lime",
-        "description": "Chilled lime drink for a refreshing afternoon break."
+        "name": "Mint Lemonade",
+        "description": "Chilled lemon and mint cooler for a refreshing break."
       }
     },
     "notes": {
-      "mildSpicy": "Please make it mildly spicy.",
-      "twoBottles": "Two bottles if possible.",
-      "after3pm": "After 3 PM please.",
+      "mildSpicy": "Please keep the spice level mild.",
+      "twoBottles": "Please send two bottles.",
+      "after3pm": "Please service after 3 PM.",
       "extraSauce": "Add extra sauce."
     },
     "service": {
       "service-1": {
-        "name": "Water Bottle",
+        "name": "Mineral Water",
         "description": "Request chilled mineral water for the room."
       },
       "service-2": {
-        "name": "Extra Towels",
-        "description": "Fresh towels delivered to your room."
+        "name": "Fresh Towels",
+        "description": "Get clean towels delivered by the service team."
       },
       "service-3": {
-        "name": "Room Cleaning",
-        "description": "Housekeeping support for quick room refresh."
+        "name": "Housekeeping Refresh",
+        "description": "Request a quick room refresh from housekeeping."
       },
       "service-4": {
-        "name": "Maintenance Help",
-        "description": "Technical issue support for AC, TV, lights, or fixtures."
+        "name": "Maintenance Support",
+        "description": "Report AC, TV, light, Wi-Fi, or fixture issues instantly."
       },
       "service-5": {
         "name": "Wake-up Call",
-        "description": "Set a morning call reminder from reception."
+        "description": "Schedule a morning wake-up call with reception."
       },
       "service-6": {
-        "name": "Tea Setup",
-        "description": "Tea tray setup with cups, kettle, and sugar sachets."
+        "name": "Tea Tray Setup",
+        "description": "Request a tea tray with cups, kettle, and sugar sachets."
       }
     }
   },
@@ -411,7 +412,7 @@
     "console": {
       "manager": "Manager Console",
       "kitchen": "Kitchen Console",
-      "valet": "Valet Console"
+      "valet": "Service Console"
     },
     "nav": {
       "management": "Management",
@@ -419,39 +420,39 @@
       "qrLibrary": "QR Library",
       "operations": "Operations",
       "kitchen": "Kitchen",
-      "valet": "Valet",
+      "valet": "Service",
       "serviceQueue": "Service Queue",
-      "valetQueue": "Valet Queue",
+      "valetQueue": "Service Queue",
       "managerView": "Manager View",
       "foodQueue": "Food Queue",
       "kitchenQueue": "Kitchen Queue",
       "qrCenter": "QR Center"
     },
-    "demoSetup": {
-      "title": "Production Demo Setup",
-      "description": "Separate operational zones make the expo flow feel like a real hotel SaaS: guests on room links, kitchen on food prep, valet on service fulfillment, and manager on room control plus analytics.",
+    "deploymentSetup": {
+      "title": "Deployment Setup",
+      "description": "Connect every QR location to the right team: guests order from rooms or tables, kitchen handles food, service handles fulfillment, and managers track performance.",
       "openRoom": "Open Room 101"
     },
     "header": {
       "eyebrow": "Manager Dashboard",
-      "title": "Hotel control center",
-      "description": "Production-style manager space for room QR management, team visibility, hotel analytics, and expo-ready operational control.",
-      "export": "Export Demo Report"
+      "title": "Hospitality control center",
+      "description": "Manage QR locations, monitor staff queues, review guest feedback, and spot revenue opportunities from one executive workspace.",
+      "export": "Export Operations Report"
     },
     "stats": {
-      "totalOrders": "Total Orders",
-      "totalOrdersDetail": "Food requests across all rooms.",
+      "totalOrders": "Food Orders",
+      "totalOrdersDetail": "Revenue-driving food requests across rooms and tables.",
       "serviceRequests": "Service Requests",
-      "serviceRequestsDetail": "Housekeeping and assistance tasks.",
+      "serviceRequestsDetail": "Housekeeping, maintenance, and assistance tasks.",
       "pendingRequests": "Pending Requests",
-      "pendingRequestsDetail": "Items still waiting for action.",
+      "pendingRequestsDetail": "Items still waiting for team action.",
       "completed": "Completed",
       "completedDetail": "Requests fully delivered."
     },
     "qr": {
       "title": "QR Management",
       "heading": "Generate hotel room and restaurant table QR codes",
-      "description": "Hotel QR codes route guests to `/room/101`. Restaurant QR codes route diners to `/table/T01`, where only food ordering is enabled.",
+      "description": "Hotel QR codes route guests to room service. Restaurant QR codes route diners to table ordering with food-only ordering enabled.",
       "enterId": "Enter {{label}} ID",
       "create": "Create QR",
       "registry": "{{label}} registry",
@@ -465,44 +466,44 @@
       "ready": "{{label}} {{id}} QR is ready"
     },
     "qrCard": {
-      "sticker": "{{label}} Sticker",
+      "sticker": "{{label}} QR",
       "scanToOrder": "Scan to order",
       "copy": "Copy Link",
-      "scanToTest": "Scan to test",
+      "scanToTest": "Open Link",
       "print": "Print"
     },
     "teams": {
       "kitchenEyebrow": "Kitchen Team",
       "kitchenTitle": "Food order operations",
-      "kitchenDescription": "Monitor kitchen throughput, prep flow, and active dining requests.",
+      "kitchenDescription": "Monitor prep flow, kitchen throughput, and active room or table orders.",
       "kitchenLink": "Open kitchen dashboard",
-      "valetEyebrow": "Valet Team",
+      "valetEyebrow": "Service Team",
       "valetTitle": "Service fulfillment",
-      "valetDescription": "Track water, towels, cleaning, and in-room service fulfillment from one queue.",
-      "valetLink": "Open valet dashboard",
+      "valetDescription": "Track water, towels, cleaning, maintenance, and in-room service from one queue.",
+      "valetLink": "Open service dashboard",
       "guestEyebrow": "Guest Experience",
-      "guestTitle": "Room-side preview",
-      "guestDescription": "Jump directly to a live guest room route and validate the QR ordering journey.",
-      "guestLink": "Open room 101"
+      "guestTitle": "Room-side portal",
+      "guestDescription": "Open a live guest room route and review the QR ordering journey.",
+      "guestLink": "Open Room 101"
     },
     "analytics": {
       "topItems": "Top Requested Items",
-      "popularDemand": "Popular demand snapshot",
+      "popularDemand": "Demand and revenue snapshot",
       "requests": "{{count}} requests",
       "emptyTitle": "No analytics yet",
-      "emptyDescription": "Create a few guest requests to populate the manager presentation cards."
+      "emptyDescription": "Orders and service requests will populate these management insights."
     },
     "side": {
       "responseTime": "Response Time",
       "minutes": "{{count}} min",
-      "responseDescription": "Average delivery or completion turnaround based on request timestamps.",
+      "responseDescription": "Average completion turnaround based on request timestamps.",
       "locationSummary": "Location-wise Summary",
       "requests": "{{count}} requests",
       "noLocationActivity": "No location activity yet.",
       "reportCenter": "Report Center",
-      "reportTitle": "Presentation-ready export section",
-      "reportDescription": "This placeholder is designed for expo demos. It suggests PDF export, shift summary, and occupancy insights without adding backend complexity.",
-      "mockPdf": "Mock PDF Export",
+      "reportTitle": "Operational reporting",
+      "reportDescription": "Create shift briefs, print summaries, and review guest demand patterns for better staffing and service planning.",
+      "exportPdf": "Export PDF",
       "printBrief": "Print Brief Report"
     },
     "sidebarServices": {

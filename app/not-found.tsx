@@ -19,7 +19,7 @@ export default function NotFound() {
         href="/room/101"
         className={buttonVariants({ variant: "primary", className: "mt-6" })}
       >
-        {t("notFound.openDemo")}
+        {t("notFound.openRoom")}
       </Link>
     </main>
   );

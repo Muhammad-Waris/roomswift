@@ -1,8 +1,8 @@
 import {
-  demoMenuItems,
-  demoRoomRequests,
-  demoServiceItems
-} from "@/lib/demo-data";
+  fallbackMenuItems,
+  fallbackRoomRequests,
+  fallbackServiceItems
+} from "@/lib/fallback-data";
 import { getSupabaseBrowserClient, hasSupabaseEnv } from "@/lib/supabase";
 import {
   MenuItem,
@@ -13,7 +13,7 @@ import {
   ServiceMode
 } from "@/types";
 
-const STORAGE_KEY = "roomswift-demo-requests";
+const STORAGE_KEY = "roomswift-local-requests";
 
 export type RequestScopeInput = string | RequestScope | undefined;
 
@@ -77,11 +77,11 @@ export function requestMatchesScope(request: RoomRequest, scope?: RequestScopeIn
 
 function readLocalRequests() {
   if (typeof window === "undefined") {
-    return demoRoomRequests.map(normalizeRequest);
+    return fallbackRoomRequests.map(normalizeRequest);
   }
 
   const raw = window.localStorage.getItem(STORAGE_KEY);
-  const requests = raw ? (JSON.parse(raw) as RoomRequest[]) : demoRoomRequests;
+  const requests = raw ? (JSON.parse(raw) as RoomRequest[]) : fallbackRoomRequests;
   return requests.map(normalizeRequest);
 }
 
@@ -100,7 +100,7 @@ function sortRequests(requests: RoomRequest[]) {
 export async function getMenuItems(): Promise<MenuItem[]> {
   const client = getSupabaseBrowserClient();
   if (!client) {
-    return demoMenuItems;
+    return fallbackMenuItems;
   }
 
   const { data, error } = await client
@@ -118,7 +118,7 @@ export async function getMenuItems(): Promise<MenuItem[]> {
 export async function getServiceItems(): Promise<ServiceItem[]> {
   const client = getSupabaseBrowserClient();
   if (!client) {
-    return demoServiceItems;
+    return fallbackServiceItems;
   }
 
   const { data, error } = await client
@@ -166,7 +166,7 @@ export async function getRoomRequests(scope?: RequestScopeInput): Promise<RoomRe
 
 function notifyStorageUpdate() {
   if (typeof window !== "undefined") {
-    // We update a dummy key to trigger the 'storage' event in other tabs
+    // Update a notifier key so other tabs refresh their local queue.
     window.localStorage.setItem("roomswift-requests-updated", Date.now().toString());
   }
 }

@@ -8,9 +8,10 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatCurrency(value: number) {
-  return new Intl.NumberFormat("en-US", {
+  return new Intl.NumberFormat("en-PK", {
     style: "currency",
-    currency: "USD"
+    currency: "PKR",
+    maximumFractionDigits: 0
   }).format(value);
 }
 
@@ -24,7 +25,7 @@ export function getIntlLocale(language = "en") {
   if (language.startsWith("zh")) {
     return "zh-CN";
   }
-  return "en-US";
+  return "en-PK";
 }
 
 export function formatDateTime(value: string, locale = "en-US") {

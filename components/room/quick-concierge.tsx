@@ -12,10 +12,10 @@ interface QuickAction {
 }
 
 const QUICK_ACTIONS: QuickAction[] = [
-  { labelKey: "quickActions.water", itemName: "Fresh Water", icon: Droplets, id: "water" },
-  { labelKey: "quickActions.towels", itemName: "Extra Towels", icon: Waves, id: "towels" },
-  { labelKey: "quickActions.clean", itemName: "Clean Suite", icon: Wind, id: "clean" },
-  { labelKey: "quickActions.coffee", itemName: "More Coffee", icon: Coffee, id: "coffee" },
+  { labelKey: "quickActions.water", itemName: "Mineral Water", icon: Droplets, id: "water" },
+  { labelKey: "quickActions.towels", itemName: "Fresh Towels", icon: Waves, id: "towels" },
+  { labelKey: "quickActions.clean", itemName: "Room Refresh", icon: Wind, id: "clean" },
+  { labelKey: "quickActions.coffee", itemName: "Tea Service", icon: Coffee, id: "coffee" },
 ];
 
 interface QuickConciergeProps {
