@@ -88,7 +88,8 @@
     "urgent": "Urgent",
     "addDetails": "Details",
     "hideDetails": "Hide",
-    "notePlaceholder": "Add room details or staff instructions...",
+    "noteLabel": "Details",
+    "notePlaceholder": "Details (optional)...",
     "moreServices": "More Services",
     "showLess": "Show Less",
     "categories": {
@@ -421,19 +422,19 @@
     "service": {
       "service-1": {
         "name": "Mineral Water Request",
-        "description": "Ask housekeeping to deliver sealed mineral water to your room."
+        "description": "Deliver sealed mineral water to your room."
       },
       "service-2": {
         "name": "Fresh Towels",
-        "description": "Request clean bath or hand towels from the hotel service team."
+        "description": "Request clean bath or hand towels."
       },
       "service-3": {
         "name": "Housekeeping Refresh",
-        "description": "Request a light room cleaning and housekeeping refresh."
+        "description": "Request a light room cleaning and refresh."
       },
       "service-4": {
         "name": "Maintenance Support",
-        "description": "Report AC, TV, WiFi, light, or fixture issues directly to maintenance."
+        "description": "Report AC, TV, WiFi, light, or fixture issues."
       },
       "service-5": {
         "name": "Wake-up Call",
@@ -445,19 +446,19 @@
       },
       "service-7": {
         "name": "Tea / Coffee Service",
-        "description": "Request tea, coffee, cups, kettle support, or hot beverage service."
+        "description": "Request tea, coffee, cups, or kettle support."
       },
       "service-8": {
         "name": "Breakfast Scheduling",
-        "description": "Choose a breakfast time and notify the hotel dining team."
+        "description": "Choose a breakfast time and notify the dining team."
       },
       "service-9": {
         "name": "Room Service Orders",
-        "description": "Ask the room service team to assist with in-room dining."
+        "description": "Assist with in-room dining requests."
       },
       "service-10": {
         "name": "Mini Bar Request",
-        "description": "Request snacks or drinks restock for your room mini bar."
+        "description": "Request snacks or drinks restock for your mini bar."
       },
       "service-11": {
         "name": "Luggage Assistance",
@@ -465,11 +466,11 @@
       },
       "service-12": {
         "name": "WiFi / Technical Support",
-        "description": "Ask hotel staff for WiFi, password, or in-room technical help."
+        "description": "Get help with WiFi, password, or in-room devices."
       },
       "service-13": {
         "name": "Emergency Help",
-        "description": "Request immediate medical or security assistance from hotel staff."
+        "description": "Request immediate medical or security assistance."
       }
     }
   },

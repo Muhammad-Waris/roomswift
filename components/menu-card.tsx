@@ -70,13 +70,13 @@ export function MenuCard({
         </div>
       </div>
 
-      <div className="space-y-4 p-8">
-        <div className="flex items-start justify-between gap-3">
+      <div className="space-y-4 p-5 sm:p-8">
+        <div className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:gap-3">
           <div className="flex-1">
-            <h3 className="text-2xl font-bold text-white tracking-tight">{item.name}</h3>
+            <h3 className="text-xl font-bold tracking-tight text-white sm:text-2xl">{item.name}</h3>
             <p className="mt-2 text-sm leading-relaxed text-slate-400 line-clamp-2">{item.description}</p>
           </div>
-          <span className="text-xl font-bold text-primary">
+          <span className="shrink-0 text-lg font-bold text-primary sm:text-xl">
             {formatCurrency(item.price)}
           </span>
         </div>
@@ -104,7 +104,7 @@ export function MenuCard({
           <button
             onClick={() => setShowNote(!showNote)}
             className={cn(
-              "flex h-12 w-12 items-center justify-center rounded-2xl border transition-all",
+              "flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border transition-all sm:h-12 sm:w-12",
               showNote 
                 ? "bg-primary/10 border-primary/30 text-primary" 
                 : "bg-white/5 border-white/5 text-slate-400 hover:text-white hover:bg-white/10"
@@ -115,7 +115,7 @@ export function MenuCard({
           </button>
 
           <Button 
-            className="h-12 flex-1 button-glow rounded-2xl text-sm font-bold uppercase tracking-wider" 
+            className="button-glow h-11 min-w-0 flex-1 whitespace-normal rounded-2xl px-3 text-center text-xs font-bold uppercase leading-tight tracking-wide sm:h-12 sm:text-sm sm:tracking-wider"
             onClick={onOrder} 
             disabled={!item.available || isLoading}
             variant={item.available ? "primary" : "secondary"}

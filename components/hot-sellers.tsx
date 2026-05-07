@@ -67,7 +67,7 @@ export function HotSellers({
           return (
             <div
               key={menuItem.id}
-              className="flex items-center justify-between gap-4 rounded-[1.5rem] border border-white/5 bg-white/5 px-4 py-3"
+              className="flex flex-col items-stretch justify-between gap-3 rounded-[1.5rem] border border-white/5 bg-white/5 px-4 py-3 sm:flex-row sm:items-center sm:gap-4"
             >
               <div className="flex min-w-0 items-center gap-3">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -83,7 +83,7 @@ export function HotSellers({
               </div>
               <Button
                 size="sm"
-                className="shrink-0 rounded-xl"
+                className="w-full shrink-0 rounded-xl sm:w-auto"
                 disabled={!menuItem.available || mutatingIds.includes(menuItem.name)}
                 onClick={() => onOrder(menuItem)}
               >

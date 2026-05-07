@@ -25,12 +25,12 @@ export function MenuTabs({
 
   return (
     <div className="space-y-4">
-      <div className="glass-panel grid grid-cols-3 rounded-2xl border border-white/10 p-1.5 shadow-lg">
+      <div className="glass-panel grid w-full grid-cols-3 rounded-2xl border border-white/10 p-1.5 shadow-lg">
         {tabs.map((tab) => (
           <button
             key={tab}
             className={cn(
-              "min-h-11 rounded-xl px-3 py-2 text-xs font-bold capitalize tracking-wide transition-all duration-300 sm:text-sm",
+              "min-h-11 min-w-0 rounded-xl px-1.5 py-2 text-center text-[11px] font-bold capitalize leading-tight tracking-wide transition-all duration-300 sm:px-3 sm:text-sm",
               activeTab === tab
                 ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
                 : "text-slate-500 hover:text-white"
@@ -49,7 +49,7 @@ export function MenuTabs({
               key={cat}
               onClick={() => setSelectedCategory(cat)}
               className={cn(
-                "min-h-10 rounded-full border px-4 py-2 text-[10px] font-bold uppercase tracking-widest transition-all",
+                "min-h-10 flex-1 basis-[calc(50%_-_0.25rem)] rounded-full border px-3 py-2 text-center text-[10px] font-bold uppercase leading-tight tracking-widest transition-all sm:flex-none sm:basis-auto sm:px-4",
                 selectedCategory === cat
                   ? "bg-white/10 text-white border border-white/20"
                   : "border-transparent text-slate-500 hover:border-white/10 hover:text-slate-300"

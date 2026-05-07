@@ -41,12 +41,12 @@ export function QuickConcierge({ onRequest }: QuickConciergeProps) {
                 itemId: service.id,
                 itemName: service.name
               })}
-              className="glass-panel group flex min-h-[128px] flex-col items-center justify-center gap-3 rounded-2xl border border-white/5 bg-white/5 p-4 text-center shadow-lg transition-all hover:border-primary/20 hover:bg-primary/5 active:scale-[0.98]"
+              className="glass-panel group flex min-h-[112px] w-full flex-col items-center justify-center gap-2 rounded-2xl border border-white/5 bg-white/5 p-3 text-center shadow-lg transition-all hover:border-primary/20 hover:bg-primary/5 active:scale-[0.98] sm:min-h-[128px] sm:gap-3 sm:p-4"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900/60 text-slate-400 shadow-inner transition-colors group-hover:bg-primary/10 group-hover:text-primary">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-900/60 text-slate-400 shadow-inner transition-colors group-hover:bg-primary/10 group-hover:text-primary sm:h-11 sm:w-11">
                 <Icon className="h-5 w-5" />
               </div>
-              <span className="text-[10px] font-bold uppercase leading-snug tracking-wider text-slate-400 group-hover:text-white">
+              <span className="text-[9px] font-bold uppercase leading-snug tracking-wide text-slate-400 group-hover:text-white sm:text-[10px] sm:tracking-wider">
                 {t(`catalog.service.${service.id}.name`, { defaultValue: service.name })}
               </span>
             </motion.button>

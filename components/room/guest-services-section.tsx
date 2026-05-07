@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import * as Icons from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 import { Button } from "@/components/ui/button";
@@ -42,6 +42,16 @@ function getSelectedLabel(
   return group?.options.find((option) => option.value === value)?.label;
 }
 
+function getOptionGridClass(optionCount: number) {
+  if (optionCount <= 2) {
+    return "grid-cols-2";
+  }
+  if (optionCount === 3) {
+    return "grid-cols-3";
+  }
+  return "grid-cols-2 sm:grid-cols-4";
+}
+
 function ServiceTicketCard({
   service,
   index,
@@ -62,66 +72,54 @@ function ServiceTicketCard({
   onRequest: () => void;
 }) {
   const { t } = useTranslation();
-  const [showDetails, setShowDetails] = useState(false);
   const Icon = getIcon(service.icon_name);
 
   return (
     <motion.div
+      className="h-full"
       initial={{ y: 18, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: index * 0.04 }}
     >
       <Card
         className={cn(
-          "group relative flex min-h-[236px] flex-col overflow-hidden rounded-2xl p-4 shadow-lg transition-all hover:border-primary/35 sm:p-5",
+          "group relative flex h-full min-h-[326px] flex-col overflow-hidden rounded-2xl p-4 shadow-[0_18px_44px_-30px_rgba(0,0,0,0.85)] transition-all hover:border-primary/35 sm:min-h-[348px] sm:p-6",
           service.urgent
             ? "border-rose-400/40 bg-rose-500/10 shadow-rose-950/20 hover:border-rose-300/60"
-            : "glass-panel"
+            : "border-white/10 bg-slate-950/35"
         )}
       >
-        <div className="flex items-start justify-between gap-4">
+        <div className="flex min-h-12 items-center gap-3">
           <div
             className={cn(
-              "flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl shadow-inner transition-transform group-hover:scale-105",
+              "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl shadow-inner transition-transform group-hover:scale-105",
               service.urgent ? "bg-rose-500 text-white" : "bg-primary/10 text-primary"
             )}
           >
             <Icon className="h-5 w-5" />
           </div>
-          <span
-            className={cn(
-              "rounded-full px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider",
-              service.urgent ? "bg-rose-500/20 text-rose-100" : "bg-emerald-500/10 text-emerald-300"
-            )}
-          >
-            {service.urgent
-              ? t("hotelServices.urgent", { defaultValue: "Urgent" })
-              : t("hotelServices.internal", { defaultValue: "Hotel Staff" })}
-          </span>
-        </div>
-
-        <div className="mt-4">
-          <h3 className="text-base font-semibold leading-snug tracking-tight text-white sm:text-lg">
+          <h3 className="min-w-0 text-base font-semibold leading-snug tracking-tight text-white sm:text-lg">
             {t(`catalog.service.${service.id}.name`, { defaultValue: service.name })}
           </h3>
-          <p className="mt-2 min-h-[44px] text-xs leading-relaxed text-slate-400 sm:text-sm">
-            {t(`catalog.service.${service.id}.description`, {
-              defaultValue: service.description
-            })}
-          </p>
         </div>
 
+        <p className="mt-3 truncate text-sm leading-6 text-slate-400">
+          {t(`catalog.service.${service.id}.description`, {
+            defaultValue: service.description
+          })}
+        </p>
+
         {service.optionGroups?.length ? (
-          <div className="mt-4 space-y-3">
+          <div className="mt-4 min-h-[76px] space-y-3">
             {service.optionGroups.map((group) => {
               const selectedValue = selectedOptions[group.key] ?? group.options[0]?.value;
 
               return (
                 <div key={group.key} className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500">
+                  <p className="text-xs font-medium text-slate-300">
                     {group.label}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className={cn("grid gap-2", getOptionGridClass(group.options.length))}>
                     {group.options.map((option) => (
                       <button
                         key={option.value}
@@ -129,7 +127,7 @@ function ServiceTicketCard({
                         aria-pressed={selectedValue === option.value}
                         onClick={() => onSelectOption(group.key, option.value)}
                         className={cn(
-                          "min-h-9 rounded-full border px-3 py-1.5 text-[11px] font-semibold transition-all",
+                          "inline-flex min-h-10 w-full items-center justify-center rounded-lg border px-2 py-2 text-center text-[11px] font-semibold leading-tight transition-all sm:px-4 sm:text-sm",
                           selectedValue === option.value
                             ? service.urgent
                               ? "border-rose-300 bg-rose-400/20 text-white"
@@ -147,45 +145,31 @@ function ServiceTicketCard({
           </div>
         ) : null}
 
-        <AnimatePresence>
-          {showDetails ? (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              className="overflow-hidden"
-            >
-              <textarea
-                value={note}
-                onChange={(event) => onNoteChange(event.target.value)}
-                placeholder={t("hotelServices.notePlaceholder", {
-                  defaultValue: "Add room details or staff instructions..."
-                })}
-                className="mt-4 h-24 w-full resize-none rounded-2xl border border-white/10 bg-slate-950/45 px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-slate-600 focus:border-primary/40"
-              />
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
+        <div className="mt-4">
+          <textarea
+            value={note}
+            onChange={(event) => onNoteChange(event.target.value)}
+            aria-label={t("hotelServices.noteLabel", {
+              defaultValue: "Details"
+            })}
+            placeholder={t("hotelServices.notePlaceholder", {
+              defaultValue: "Details (optional)..."
+            })}
+            className="h-20 w-full resize-none rounded-xl border border-white/10 bg-slate-950/45 px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-slate-600 focus:border-primary/40 sm:h-24"
+          />
+        </div>
 
-        <div className="mt-auto flex gap-2 pt-4">
-          <Button
-            type="button"
-            variant="secondary"
-            className="h-11 rounded-2xl px-3 text-xs"
-            onClick={() => setShowDetails((current) => !current)}
-          >
-            {showDetails
-              ? t("hotelServices.hideDetails", { defaultValue: "Hide" })
-              : t("hotelServices.addDetails", { defaultValue: "Details" })}
-          </Button>
+        <div className="mt-auto pt-4">
           <Button
             type="button"
             variant={service.urgent ? "danger" : "primary"}
-            className="h-11 flex-1 rounded-2xl text-[11px] font-bold uppercase tracking-wider"
+            className="h-11 w-full rounded-xl px-3 text-sm font-semibold sm:h-12"
             disabled={!service.available || isLoading}
             onClick={onRequest}
           >
-            {isLoading ? t("guest.sending") : t("guest.submitService")}
+            {isLoading
+              ? t("guest.sending")
+              : t("guest.submitService", { defaultValue: "Request Service" })}
           </Button>
         </div>
       </Card>
@@ -290,14 +274,7 @@ export function GuestServicesSection({ mutatingIds, onRequest }: GuestServicesSe
               </div>
             </div>
 
-            <div
-              className={cn(
-                "grid gap-3 sm:gap-4",
-                category.id === "emergency"
-                  ? "grid-cols-1"
-                  : "grid-cols-2 md:grid-cols-3 xl:grid-cols-4"
-              )}
-            >
+            <div className="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
               {visibleServices.map((service, index) => (
                 <ServiceTicketCard
                   key={service.id}

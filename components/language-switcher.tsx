@@ -24,7 +24,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
     <div
       className={cn(
         "flex items-center gap-2 rounded-full border border-white/5 bg-slate-950/50 p-1 backdrop-blur-md",
-        compact ? "max-w-full flex-wrap justify-center rounded-2xl" : ""
+        compact ? "grid w-full max-w-sm grid-cols-2 justify-center rounded-2xl sm:flex sm:w-auto sm:max-w-full sm:flex-wrap" : ""
       )}
       aria-label={t("language.label")}
     >
@@ -33,7 +33,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
         <button
           key={language.code}
           className={cn(
-            "rounded-full px-3 py-2 text-[10px] font-bold uppercase tracking-widest transition-all duration-300",
+            "min-h-10 rounded-full px-2 py-2 text-center text-[10px] font-bold uppercase leading-tight tracking-widest transition-all duration-300 sm:px-3",
             activeLanguage === language.code
               ? "bg-primary text-primary-foreground shadow-lg"
               : "text-slate-400 hover:text-white"

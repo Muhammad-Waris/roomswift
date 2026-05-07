@@ -44,13 +44,13 @@ export function RoomHeader({ roomNumber, tableId, mode }: RoomHeaderProps) {
       
       <div className="relative z-10 flex w-full flex-col items-center justify-center gap-3 lg:flex-row">
         <div
-          className="flex min-h-11 items-center rounded-2xl border border-white/5 bg-slate-950/50 p-1 backdrop-blur-md"
+          className="grid min-h-11 w-full max-w-sm grid-cols-2 items-stretch rounded-2xl border border-white/5 bg-slate-950/50 p-1 backdrop-blur-md sm:w-auto sm:max-w-none"
           aria-label={t("mode.label")}
         >
           <Link
             href={`/room/${roomNumber ?? "101"}`}
             className={cn(
-              "rounded-full px-5 py-2 text-[10px] font-bold transition-all duration-300 uppercase tracking-widest",
+              "flex min-h-10 items-center justify-center rounded-full px-2 py-2 text-center text-[10px] font-bold uppercase leading-tight tracking-widest transition-all duration-300 sm:px-5",
               !isRestaurantMode
                 ? "bg-primary text-primary-foreground shadow-lg"
                 : "text-slate-400 hover:text-white"
@@ -61,7 +61,7 @@ export function RoomHeader({ roomNumber, tableId, mode }: RoomHeaderProps) {
           <Link
             href={`/table/${tableId ?? "T01"}`}
             className={cn(
-              "rounded-full px-5 py-2 text-[10px] font-bold transition-all duration-300 uppercase tracking-widest",
+              "flex min-h-10 items-center justify-center rounded-full px-2 py-2 text-center text-[10px] font-bold uppercase leading-tight tracking-widest transition-all duration-300 sm:px-5",
               isRestaurantMode
                 ? "bg-primary text-primary-foreground shadow-lg"
                 : "text-slate-400 hover:text-white"

@@ -57,7 +57,7 @@ export const internalHotelServices: HotelServiceDefinition[] = [
   {
     id: "service-13",
     name: "Emergency Help",
-    description: "Request immediate medical or security assistance from hotel staff.",
+    description: "Request immediate medical or security assistance.",
     icon_name: "ShieldAlert",
     category: "emergency",
     urgent: true,
@@ -76,7 +76,7 @@ export const internalHotelServices: HotelServiceDefinition[] = [
   {
     id: "service-1",
     name: "Mineral Water Request",
-    description: "Ask housekeeping to deliver sealed mineral water to your room.",
+    description: "Deliver sealed mineral water to your room.",
     icon_name: "Droplets",
     category: "room",
     quickAction: true,
@@ -85,7 +85,7 @@ export const internalHotelServices: HotelServiceDefinition[] = [
   {
     id: "service-2",
     name: "Fresh Towels",
-    description: "Request clean bath or hand towels from the hotel service team.",
+    description: "Request clean bath or hand towels.",
     icon_name: "Bath",
     category: "room",
     quickAction: true,
@@ -94,7 +94,7 @@ export const internalHotelServices: HotelServiceDefinition[] = [
   {
     id: "service-3",
     name: "Housekeeping Refresh",
-    description: "Request a light room cleaning and housekeeping refresh.",
+    description: "Request a light room cleaning and refresh.",
     icon_name: "Sparkles",
     category: "room",
     quickAction: true,
@@ -103,7 +103,7 @@ export const internalHotelServices: HotelServiceDefinition[] = [
   {
     id: "service-4",
     name: "Maintenance Support",
-    description: "Report AC, TV, WiFi, light, or fixture issues directly to maintenance.",
+    description: "Report AC, TV, WiFi, light, or fixture issues.",
     icon_name: "Wrench",
     category: "room",
     available: true,
@@ -123,7 +123,7 @@ export const internalHotelServices: HotelServiceDefinition[] = [
   {
     id: "service-7",
     name: "Tea / Coffee Service",
-    description: "Request tea, coffee, cups, kettle support, or hot beverage service.",
+    description: "Request tea, coffee, cups, or kettle support.",
     icon_name: "Coffee",
     category: "room",
     quickAction: true,
@@ -184,7 +184,7 @@ export const internalHotelServices: HotelServiceDefinition[] = [
   {
     id: "service-8",
     name: "Breakfast Scheduling",
-    description: "Choose a breakfast time and notify the hotel dining team.",
+    description: "Choose a breakfast time and notify the dining team.",
     icon_name: "CalendarClock",
     category: "dining",
     available: true,
@@ -203,7 +203,7 @@ export const internalHotelServices: HotelServiceDefinition[] = [
   {
     id: "service-9",
     name: "Room Service Orders",
-    description: "Ask the room service team to assist with in-room dining.",
+    description: "Assist with in-room dining requests.",
     icon_name: "ConciergeBell",
     category: "dining",
     available: true
@@ -211,7 +211,7 @@ export const internalHotelServices: HotelServiceDefinition[] = [
   {
     id: "service-10",
     name: "Mini Bar Request",
-    description: "Request snacks or drinks restock for your room mini bar.",
+    description: "Request snacks or drinks restock for your mini bar.",
     icon_name: "PackageCheck",
     category: "dining",
     more: true,
@@ -240,8 +240,8 @@ export const internalHotelServices: HotelServiceDefinition[] = [
         key: "luggageFlow",
         label: "Assistance",
         options: [
-          { value: "checkin", label: "Check-in Help" },
-          { value: "checkout", label: "Checkout Help" }
+          { value: "checkin", label: "Check-in" },
+          { value: "checkout", label: "Checkout" }
         ]
       }
     ]
@@ -249,7 +249,7 @@ export const internalHotelServices: HotelServiceDefinition[] = [
   {
     id: "service-12",
     name: "WiFi / Technical Support",
-    description: "Ask hotel staff for WiFi, password, or in-room technical help.",
+    description: "Get help with WiFi, password, or in-room devices.",
     icon_name: "Wifi",
     category: "support",
     available: true,
